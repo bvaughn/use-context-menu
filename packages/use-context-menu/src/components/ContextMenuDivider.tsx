@@ -2,7 +2,7 @@ import { MouseEvent } from "react";
 
 import styles from "./ContextMenuDivider.module.css";
 
-export default function ContextMenuDivider() {
+export function ContextMenuDivider() {
   const onClick = (event: MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();

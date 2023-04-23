@@ -1,9 +1,9 @@
 .ContextMenuItem,
 .ContextMenuItemDisabled {
-  background-color: var(--context-menu-bgcolor);
-  color: var(--color-default);
+  background-color: var(--context-menu-background-color);
+  color: var(--context-menu-item-color);
   font-family: var(--context-menu-font-family);
-  font-size: var(--context-menu-font-size);
+  font-size: var(--context-menu-item-font-size);
   padding: 0.25rem 0.5rem;
   user-select: none;
   display: flex;
@@ -21,5 +21,5 @@
 
 .ContextMenuItem:hover {
   transition: background-color 250ms;
-  background-color: var(--context-menu-bgcolor-hover);
+  background-color: var(--context-menu-background-color-hover);
 }

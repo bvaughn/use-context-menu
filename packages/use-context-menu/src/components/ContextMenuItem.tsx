@@ -2,7 +2,7 @@ import { MouseEvent, ReactNode } from "react";
 
 import styles from "./ContextMenuItem.module.css";
 
-export default function ContextMenuItem({
+export function ContextMenuItem({
   children,
   dataTestId,
   dataTestName = "ContextMenuItem",

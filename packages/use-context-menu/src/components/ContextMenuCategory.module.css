@@ -1,6 +1,8 @@
 .ContextMenuCategory {
-  background-color: var(--context-menu-bgcolor);
-  color: var(--context-menu-color);
+  background-color: var(--context-menu-background-color);
+  color: var(--context-menu-category-color);
+  font-family: var(--context-menu-font-family);
+  font-size: var(--context-menu-category-font-size);
   padding: 0.25rem 0.5rem;
   user-select: none;
   display: flex;

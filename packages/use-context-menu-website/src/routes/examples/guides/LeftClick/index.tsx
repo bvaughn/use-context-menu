@@ -1,29 +1,22 @@
-import ContextMenuDivider from "use-context-menu/src/components/ContextMenuDivider";
-import ContextMenuItem from "use-context-menu/src/components/ContextMenuItem";
-import useContextMenu from "use-context-menu/src/hooks/useContextMenu";
-
-import Icon from "../../../../components/Icon";
+import Block from "../../../../components/Block";
+import Code from "../../../../components/Code";
+import Container from "../../../../components/Container";
+import SubHeading from "../../../../components/SubHeading";
+import { examples } from "../../../../examples";
+import { Demo } from "../../../../examples/guides/left-click";
 import styles from "./styles.module.css";
 
 export default function LeftClickRoute() {
-  const { contextMenu, onContextMenu } = useContextMenu(
-    <>
-      <ContextMenuItem>One</ContextMenuItem>
-      <ContextMenuItem>Two</ContextMenuItem>
-      <ContextMenuDivider />
-      <ContextMenuItem>Three</ContextMenuItem>
-    </>
-  );
-
   return (
-    <>
-      <p>
-        To try the context menu, right-click on the following text:{" "}
-        <div className={styles.Trigger} onClick={onContextMenu}>
-          click me <Icon type="down-arrow" />
-        </div>
-      </p>
-      {contextMenu}
-    </>
+    <Container>
+      <Block>
+        <SubHeading title="Left-click menu" />
+        <p>
+          To try the context menu, right-click on the following text:{" "}
+          <Demo className={styles.Trigger} />
+        </p>
+      </Block>
+      <Code code={examples.leftClick} />
+    </Container>
   );
 }

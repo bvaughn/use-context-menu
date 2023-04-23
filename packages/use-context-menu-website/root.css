@@ -50,13 +50,15 @@
   --color-logo-chip-3: #ffdc7a;
   --color-logo-chip-4: #7ac1ff;
 
-  --context-menu-bgcolor: #2a3343;
-  --context-menu-bgcolor-hover: #192230;
+  --context-menu-background-color: #2a3343;
+  --context-menu-background-color-hover: #192230;
   --context-menu-border-color: #192230;
-  --context-menu-color: #ffffff;
+  --context-menu-category-color: #d2e1f9a6;
+  --context-menu-item-color: #ffffff;
   --context-menu-divider-color: #39414d;
   --context-menu-font-family: Arial, Helvetica, sans-serif;
-  --context-menu-font-size: 16px;
+  --context-menu-category-font-size: 14px;
+  --context-menu-item-font-size: 16px;
 
   --token-comment-color: #666;
   --token-definition-color: #fefefe;

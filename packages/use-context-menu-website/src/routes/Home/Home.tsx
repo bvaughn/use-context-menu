@@ -3,7 +3,6 @@ import Container from "../../components/Container";
 import SubHeading from "../../components/SubHeading";
 import { LEFT_CLICK_MENU, RIGHT_CLICK_MENU } from "../config";
 import GitHubLink from "./GitHubLink";
-import styles from "./Home.module.css";
 import { InstallationPanel } from "./InstallationPanel";
 import { LinkListItem } from "./LinkListItem";
 
@@ -17,10 +16,10 @@ export default function Route() {
       <Block>
         <SubHeading title="Examples" />
         <ul>
-          <LinkListItem to={RIGHT_CLICK_MENU.path}>
+          <LinkListItem to={RIGHT_CLICK_MENU.path} type="plaintext">
             {RIGHT_CLICK_MENU.title}
           </LinkListItem>
-          <LinkListItem to={LEFT_CLICK_MENU.path}>
+          <LinkListItem to={LEFT_CLICK_MENU.path} type="plaintext">
             {LEFT_CLICK_MENU.title}
           </LinkListItem>
         </ul>

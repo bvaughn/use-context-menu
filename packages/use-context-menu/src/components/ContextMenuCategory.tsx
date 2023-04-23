@@ -2,7 +2,7 @@ import { MouseEvent, PropsWithChildren } from "react";
 
 import styles from "./ContextMenuCategory.module.css";
 
-export default function ContextMenuCategory({ children }: PropsWithChildren) {
+export function ContextMenuCategory({ children }: PropsWithChildren) {
   const onClick = (event: MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();

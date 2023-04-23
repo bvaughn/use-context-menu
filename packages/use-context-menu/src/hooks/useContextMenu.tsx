@@ -12,9 +12,9 @@ import {
   ContextMenuContext,
   ContextMenuContextType,
 } from "../ContextMenuContext";
-import ContextMenu from "../components/ContextMenu";
+import { ContextMenu } from "../components/ContextMenu";
 
-export default function useContextMenu(
+export function useContextMenu(
   contextMenuItems: ReactNode,
   options: {
     dataTestId?: string;

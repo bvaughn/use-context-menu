@@ -7,12 +7,10 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 
-import useModalDismissSignal from "../hooks/useModalDismissSignal";
+import { useModalDismissSignal } from "../hooks/useModalDismissSignal";
 import styles from "./ContextMenu.module.css";
 
-// TODO Should we be using clientX/clientY instead?
-
-export default function ContextMenu({
+export function ContextMenu({
   children,
   dataTestId,
   dataTestName = "ContextMenu",

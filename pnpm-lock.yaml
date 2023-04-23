@@ -89,11 +89,11 @@ importers:
         specifier: ^8.0.3
         version: 8.0.3
       react:
-        specifier: ^18.2.0
-        version: 18.2.0
+        specifier: experimental
+        version: 0.0.0-experimental-c8369527e-20230420
       react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
+        specifier: experimental
+        version: 0.0.0-experimental-c8369527e-20230420(react@0.0.0-experimental-c8369527e-20230420)
       ts-jest:
         specifier: ^29.0.5
         version: 29.0.5(@babel/core@7.21.0)(jest@29.4.3)(typescript@4.9.5)
@@ -155,23 +155,23 @@ importers:
         specifier: latest
         version: 1.32.3
       react:
-        specifier: ^18.2.0
-        version: 18.2.0
+        specifier: experimental
+        version: 0.0.0-experimental-c8369527e-20230420
       react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
+        specifier: experimental
+        version: 0.0.0-experimental-c8369527e-20230420(react@0.0.0-experimental-c8369527e-20230420)
       react-router-dom:
         specifier: latest
-        version: 6.10.0(react-dom@18.2.0)(react@18.2.0)
+        version: 6.10.0(react-dom@0.0.0-experimental-c8369527e-20230420)(react@0.0.0-experimental-c8369527e-20230420)
       react-virtualized-auto-sizer:
         specifier: latest
-        version: 1.0.15(react-dom@18.2.0)(react@18.2.0)
+        version: 1.0.15(react-dom@0.0.0-experimental-c8369527e-20230420)(react@0.0.0-experimental-c8369527e-20230420)
       sort-by:
         specifier: latest
         version: 1.2.0
       suspense:
         specifier: ^0.0.34
-        version: 0.0.34(react-dom@18.2.0)(react@18.2.0)
+        version: 0.0.34(react-dom@0.0.0-experimental-c8369527e-20230420)(react@0.0.0-experimental-c8369527e-20230420)
       use-context-menu:
         specifier: workspace:^
         version: link:../use-context-menu
@@ -4622,14 +4622,14 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
-  /react-dom@18.2.0(react@18.2.0):
-    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+  /react-dom@0.0.0-experimental-c8369527e-20230420(react@0.0.0-experimental-c8369527e-20230420):
+    resolution: {integrity: sha512-AnSe5gio/GWm+El288/3SlZRvjAse+jHippcp0uS87fh3ab+R2GaTxP3faidDe9uViPD4Vlaji0wg/geQ6EnBQ==}
     peerDependencies:
-      react: ^18.2.0
+      react: 0.0.0-experimental-c8369527e-20230420
     dependencies:
       loose-envify: 1.4.0
-      react: 18.2.0
-      scheduler: 0.23.0
+      react: 0.0.0-experimental-c8369527e-20230420
+      scheduler: 0.0.0-experimental-c8369527e-20230420
 
   /react-error-overlay@6.0.9:
     resolution: {integrity: sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==}
@@ -4644,7 +4644,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-router-dom@6.10.0(react-dom@18.2.0)(react@18.2.0):
+  /react-router-dom@6.10.0(react-dom@0.0.0-experimental-c8369527e-20230420)(react@0.0.0-experimental-c8369527e-20230420):
     resolution: {integrity: sha512-E5dfxRPuXKJqzwSe/qGcqdwa18QiWC6f3H3cWXM24qj4N0/beCIf/CWTipop2xm7mR0RCS99NnaqPNjHtrAzCg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -4652,33 +4652,33 @@ packages:
       react-dom: '>=16.8'
     dependencies:
       '@remix-run/router': 1.5.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-router: 6.10.0(react@18.2.0)
+      react: 0.0.0-experimental-c8369527e-20230420
+      react-dom: 0.0.0-experimental-c8369527e-20230420(react@0.0.0-experimental-c8369527e-20230420)
+      react-router: 6.10.0(react@0.0.0-experimental-c8369527e-20230420)
     dev: false
 
-  /react-router@6.10.0(react@18.2.0):
+  /react-router@6.10.0(react@0.0.0-experimental-c8369527e-20230420):
     resolution: {integrity: sha512-Nrg0BWpQqrC3ZFFkyewrflCud9dio9ME3ojHCF/WLsprJVzkq3q3UeEhMCAW1dobjeGbWgjNn/PVF6m46ANxXQ==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8'
     dependencies:
       '@remix-run/router': 1.5.0
-      react: 18.2.0
+      react: 0.0.0-experimental-c8369527e-20230420
     dev: false
 
-  /react-virtualized-auto-sizer@1.0.15(react-dom@18.2.0)(react@18.2.0):
+  /react-virtualized-auto-sizer@1.0.15(react-dom@0.0.0-experimental-c8369527e-20230420)(react@0.0.0-experimental-c8369527e-20230420):
     resolution: {integrity: sha512-01yhkssgHShMiu5W8k+86kgl8lutpl+Uef9KP4wrozXnzZjxWIgj+cH8Qi064oQpKD8myn/JNMzp4tcZNQ3Avg==}
     peerDependencies:
       react: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0-rc
       react-dom: ^15.3.0 || ^16.0.0-alpha || ^17.0.0 || ^18.0.0-rc
     dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 0.0.0-experimental-c8369527e-20230420
+      react-dom: 0.0.0-experimental-c8369527e-20230420(react@0.0.0-experimental-c8369527e-20230420)
     dev: false
 
-  /react@18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+  /react@0.0.0-experimental-c8369527e-20230420:
+    resolution: {integrity: sha512-Y4euSylUbN7JIx0Kd3c7L2Veyo44zGJcHba5G4mJXJXmXUOJ4HPUjHr9u4RkSPPkqw9vZlMdyGVTrGjd0u3enQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
@@ -4763,8 +4763,8 @@ packages:
       xmlchars: 2.2.0
     dev: true
 
-  /scheduler@0.23.0:
-    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+  /scheduler@0.0.0-experimental-c8369527e-20230420:
+    resolution: {integrity: sha512-BdGPzFZksue+K7GUMc0pNe5UoUMcTZM/+uDNOupJPKWdMahmqZTUhVAweBipKiGTy/4r/7aOSpvPj0lGCtzYsw==}
     dependencies:
       loose-envify: 1.4.0
 
@@ -4935,7 +4935,7 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /suspense@0.0.34(react-dom@18.2.0)(react@18.2.0):
+  /suspense@0.0.34(react-dom@0.0.0-experimental-c8369527e-20230420)(react@0.0.0-experimental-c8369527e-20230420):
     resolution: {integrity: sha512-HZvjGWi9GpAAleG2bTmeHe4/GDA4DjFpxy2Ncm9OdppcutvbVydQCzqjmMlKgz8IgZOVq3sBn0VLvrB4DTDgJg==}
     peerDependencies:
       react: ^18.0.0
@@ -4943,8 +4943,8 @@ packages:
     dependencies:
       interval-utilities: 0.0.1
       point-utilities: 0.0.2
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 0.0.0-experimental-c8369527e-20230420
+      react-dom: 0.0.0-experimental-c8369527e-20230420(react@0.0.0-experimental-c8369527e-20230420)
     dev: false
 
   /svgo@2.8.0:
