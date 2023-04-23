@@ -5,7 +5,8 @@
   "scripts": {
     "build": "parcel build 'index.html'",
     "kill-port": "kill-port ${PORT:-1234}",
-    "test": "",
+    "test": "playwright test",
+    "test:debug": "DEBUG=true playwright test",
     "watch": "parcel 'index.html'"
   },
   "devDependencies": {
@@ -20,6 +21,7 @@
     "@codemirror/language": "latest",
     "@codemirror/state": "latest",
     "@lezer/highlight": "latest",
+    "@playwright/test": "latest",
     "@types/lru-cache": "^7.10.10",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
@@ -28,6 +30,7 @@
     "lodash.shuffle": "^4.2.0",
     "lru-cache": "^8.0.3",
     "match-sorter": "latest",
+    "playwright": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "latest",

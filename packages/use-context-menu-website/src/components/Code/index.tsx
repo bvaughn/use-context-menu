@@ -2,7 +2,7 @@ import { Suspense } from "react";
 
 import { Language } from "../../suspense/SyntaxParsingCache";
 
-import { PlainText } from "./Plaintext";
+import { PlainText } from "./PlainText";
 import { SyntaxHighlighted } from "./SyntaxHighlighted";
 
 export default function Code({
