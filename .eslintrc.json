@@ -1,0 +1,16 @@
+{
+    "ignorePatterns": [".parcel-cache", "dist", "node_modules"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": { "project": ["./tsconfig.json"] },
+    "plugins": ["@typescript-eslint", "react-hooks"],
+    "root": true,
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": [
+        "warn",
+        {
+          "additionalHooks": "(useIsomorphicLayoutEffect)"
+        }
+      ]
+    }
+  }

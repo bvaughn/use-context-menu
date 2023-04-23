@@ -50,6 +50,14 @@
   --color-logo-chip-3: #ffdc7a;
   --color-logo-chip-4: #7ac1ff;
 
+  --context-menu-bgcolor: #2a3343;
+  --context-menu-bgcolor-hover: #192230;
+  --context-menu-border-color: #192230;
+  --context-menu-color: #ffffff;
+  --context-menu-divider-color: #39414d;
+  --context-menu-font-family: Arial, Helvetica, sans-serif;
+  --context-menu-font-size: 16px;
+
   --token-comment-color: #666;
   --token-definition-color: #fefefe;
   --token-local-color: #fefefe;
