@@ -14,12 +14,8 @@
   "types": "dist/use-context-menu.d.ts",
   "scripts": {
     "build": "parcel build",
-    "test": "pnpm run test:browser & pnpm run test:node",
-    "test:browser": "jest --config=jest.config.js",
-    "test:browser:watch": "pnpm run test:browser --watch",
-    "test:node": "node --expose-gc node_modules/jest/bin/jest.js --config=jest.config.node.js",
-    "test:node:debug": "node --inspect-brk node_modules/jest/bin/jest.js --runInBand --watch",
-    "test:node:watch": "pnpm run test:node --watch",
+    "test": "jest --config=jest.config.js",
+    "test:watch": "pnpm run test --watch",
     "watch": "parcel watch --port=2345"
   },
   "devDependencies": {
