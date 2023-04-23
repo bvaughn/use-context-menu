@@ -1,0 +1,39 @@
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.Nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5ch;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  flex: 0 1 auto;
+}
+
+.HomeLink {
+  color: var(--color-default);
+  text-decoration: none;
+}
+.HomeLink:hover {
+  text-decoration: underline;
+}
+
+.Arrow {
+  color: var(--color-dim);
+}
+
+.Title {
+  color: var(--color-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

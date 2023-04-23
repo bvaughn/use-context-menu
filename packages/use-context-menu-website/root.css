@@ -1,0 +1,154 @@
+:root {
+  --color-background-code: #050a15;
+  --color-background-default: #081120;
+  --color-brand: #dcadff;
+  --color-button: #fff;
+  --color-button-background: #2a3343;
+  --color-button-background-hover: #39414d;
+  --color-button-alternate: #3a0066;
+  --color-button-alternate-background: #dcadff;
+  --color-button-alternate-background-hover: #cb9cee;
+  --color-code-background: #ffffff20;
+  --color-code: #ffffff;
+  --color-default: #ffffff;
+  --color-demo-background: #273f35;
+  --color-demo-button: #fff;
+  --color-demo-button-background: #0004;
+  --color-demo-button-background-hover: #0006;
+  --color-demo-contrast: #ffffff20;
+  --color-demo-panel: #1e332a;
+  --color-demo-progress-background: #111b17;
+  --color-demo-progress-bar: #7afac5;
+  --color-demo: #ffffff;
+  --color-dim: #d2e1f9a6;
+  --color-horizontal-rule: #39414d;
+  --color-input: #ffffff;
+  --color-input-background: #0004;
+  --color-input-background-focused: #0006;
+  --color-link: #7ac1ff;
+  --color-loader: #ffffffcc;
+  --color-loader-background: #00000030;
+  --color-note: #91a0ba;
+  --color-note-background: #2a3343;
+  --color-note-header: #fff;
+  --color-panel-background: #192230;
+  --color-quote-background: #ffffff20;
+  --color-quote-header: #fff;
+  --color-quote: #ffffff;
+  --color-solid-resize-bar: #39414d;
+  --color-scroll-thumb: #39414d;
+  --color-status-not-found: #91a0ba;
+  --color-status-pending: #ffdc7a;
+  --color-status-rejected: #ff7979;
+  --color-status-resolved: #79ffa1;
+  --color-warning-background: #3f3a27;
+  --color-warning-header: #dbba29;
+  --color-warning: #ffffff;
+
+  --color-logo-chip-1: #dcadff;
+  --color-logo-chip-2: #ff79ad;
+  --color-logo-chip-3: #ffdc7a;
+  --color-logo-chip-4: #7ac1ff;
+
+  --token-comment-color: #666;
+  --token-definition-color: #fefefe;
+  --token-local-color: #fefefe;
+  --token-keyword-color: #ff7aad;
+  --token-meta-color: #8237bb;
+  --token-number-color: #ffdc7a;
+  --token-operator-color: #fefefe;
+  --token-propertyName-color: #ff98eb;
+  --token-punctuation-color: #dcadff;
+  --token-string-color: #7ac1ff;
+  --token-string2-color: #7ac1ff;
+  --token-typeName-color: #c67bff;
+  --token-variableName-color: #c67bff;
+  --token-variableName2-color: #c67bff;
+}
+
+:root,
+html,
+body,
+#root {
+  padding: 0;
+  margin: 0;
+
+  background-color: var(--color-background-default);
+  color: var(--color-default);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 700px) {
+  :root,
+  html,
+  body,
+  #root {
+    font-size: 14px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-weight: normal;
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: monospace;
+  background-color: var(--color-code-background);
+  color: var(--color-code);
+  border-radius: 0.25em;
+  padding: 0.125rem 0.25rem;
+}
+
+a {
+  color: var(--color-link);
+}
+a:hover {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  padding-left: 2ch;
+}
+
+li {
+  line-height: 1.5rem;
+}
+
+::-webkit-scrollbar {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0.75rem;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.75rem;
+  background: var(--color-scroll-thumb);
+}

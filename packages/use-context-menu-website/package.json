@@ -1,0 +1,39 @@
+{
+  "name": "use-context-menu-website",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "parcel build 'index.html'",
+    "kill-port": "kill-port ${PORT:-1234}",
+    "test": "",
+    "watch": "parcel 'index.html'"
+  },
+  "devDependencies": {
+    "@types/lodash.shuffle": "^4.2.7",
+    "kill-port": "latest"
+  },
+  "dependencies": {
+    "@codemirror/lang-css": "latest",
+    "@codemirror/lang-html": "latest",
+    "@codemirror/lang-javascript": "latest",
+    "@codemirror/lang-markdown": "latest",
+    "@codemirror/language": "latest",
+    "@codemirror/state": "latest",
+    "@lezer/highlight": "latest",
+    "@types/lru-cache": "^7.10.10",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "extra-bigint": "^1.1.10",
+    "localforage": "latest",
+    "lodash.shuffle": "^4.2.0",
+    "lru-cache": "^8.0.3",
+    "match-sorter": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "latest",
+    "react-virtualized-auto-sizer": "latest",
+    "sort-by": "latest",
+    "suspense": "^0.0.34",
+    "use-context-menu": "workspace:^"
+  }
+}

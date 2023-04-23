@@ -1,0 +1,45 @@
+{
+  "name": "use-context-menu",
+  "version": "0.0.34",
+  "description": "Utilities for working with React use-context-menu",
+  "author": "Brian Vaughn <brian.david.vaughn@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bvaughn/use-context-menu.git"
+  },
+  "source": "src/index.ts",
+  "main": "dist/use-context-menu.js",
+  "module": "dist/use-context-menu.module.js",
+  "types": "dist/use-context-menu.d.ts",
+  "scripts": {
+    "build": "parcel build",
+    "test": "pnpm run test:browser & pnpm run test:node",
+    "test:browser": "jest --config=jest.config.js",
+    "test:browser:watch": "pnpm run test:browser --watch",
+    "test:node": "node --expose-gc node_modules/jest/bin/jest.js --config=jest.config.node.js",
+    "test:node:debug": "node --inspect-brk node_modules/jest/bin/jest.js --runInBand --watch",
+    "test:node:watch": "pnpm run test:node --watch",
+    "watch": "parcel watch --port=2345"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "@types/lru-cache": "^7.10.10",
+    "@types/node": "^18.14.6",
+    "extra-bigint": "^1.1.10",
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3",
+    "lru-cache": "^8.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18"
+  },
+  "browserslist": [
+    "Chrome 79"
+  ]
+}
