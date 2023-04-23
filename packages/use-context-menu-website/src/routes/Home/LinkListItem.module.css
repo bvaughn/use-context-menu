@@ -1,3 +1,13 @@
 .ListItem[data-type="code"] .Link {
   font-family: monospace;
 }
+
+.Link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+  text-decoration: none;
+}
+.Link:hover {
+  text-decoration: underline;
+}

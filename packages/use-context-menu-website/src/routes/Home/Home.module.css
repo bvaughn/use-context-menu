@@ -1,9 +1,16 @@
-.Link {
+.Trigger {
   display: inline-flex;
   align-items: center;
+  user-select: none;
   gap: 0.5ch;
-  text-decoration: none;
+  padding: 0.25ch 1ch;
+  border-radius: 0.5rem;
+  background-color: var(--color-button-background);
 }
-.Link:hover {
-  text-decoration: underline;
+
+.Trigger[data-type="context-menu"] {
+  cursor: context-menu;
+}
+.Trigger[data-type="menu"] {
+  cursor: pointer;
 }
