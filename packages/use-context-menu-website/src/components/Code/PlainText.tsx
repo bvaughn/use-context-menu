@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 
 import { escapeHtmlEntities } from "../../suspense/SyntaxParsingCache";
-
 import styles from "./shared.module.css";
 
 export function PlainText({

@@ -3,9 +3,9 @@ import type { PlaywrightTestConfig } from "@playwright/test";
 const config: PlaywrightTestConfig = {
   use: {
     headless: true,
-    viewport: { width: 400, height: 300 },
     ignoreHTTPSErrors: true,
     video: "on-first-retry",
+    viewport: { height: 300, width: 400 },
   },
   webServer: {
     command: "npm run watch",

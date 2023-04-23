@@ -2,11 +2,10 @@ import { useMemo } from "react";
 
 import {
   Language,
-  syntaxParsingCache,
   parsedTokensToHtml,
+  syntaxParsingCache,
 } from "../../suspense/SyntaxParsingCache";
 import { ParsedTokens } from "../../suspense/SyntaxParsingCache";
-
 import styles from "./shared.module.css";
 
 export function SyntaxHighlighted({

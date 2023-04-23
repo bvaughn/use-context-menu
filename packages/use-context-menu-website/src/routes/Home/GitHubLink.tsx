@@ -1,6 +1,6 @@
 import { ExternalLink } from "../../components/ExternalLink";
-import styles from "./GitHubLink.module.css";
 import Icon from "../../components/Icon";
+import styles from "./GitHubLink.module.css";
 
 export default function GitHubLink() {
   return (

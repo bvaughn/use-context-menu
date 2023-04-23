@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
-import Icon, { IconType } from "./Icon";
 
+import Icon, { IconType } from "./Icon";
 import styles from "./Note.module.css";
 
 type Type = "note" | "quote" | "warn";

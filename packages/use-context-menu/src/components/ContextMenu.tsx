@@ -8,7 +8,6 @@ import {
 import { createPortal } from "react-dom";
 
 import useModalDismissSignal from "../hooks/useModalDismissSignal";
-
 import styles from "./ContextMenu.module.css";
 
 // TODO Should we be using clientX/clientY instead?

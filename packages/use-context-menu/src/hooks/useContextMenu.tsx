@@ -8,11 +8,11 @@ import {
   useState,
 } from "react";
 
-import ContextMenu from "../components/ContextMenu";
 import {
   ContextMenuContext,
   ContextMenuContextType,
 } from "../ContextMenuContext";
+import ContextMenu from "../components/ContextMenu";
 
 export default function useContextMenu(
   contextMenuItems: ReactNode,

@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
+    "jsx": "react-jsx",
     "lib": ["DOM", "ES2015", "ES2021.WeakRef"],
     "module": "es2020",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "jsx": "react-jsx",
     "resolveJsonModule": true,
     "strict": true,
     "target": "es2018",
