@@ -1,12 +1,12 @@
 import Block from "../../components/Block";
 import Container from "../../components/Container";
 import SubHeading from "../../components/SubHeading";
-import { LEFT_CLICK_MENU, RIGHT_CLICK_MENU } from "../config";
+import { CUSTOM_CSS_MENU, LEFT_CLICK_MENU, RIGHT_CLICK_MENU } from "../config";
 import GitHubLink from "./GitHubLink";
 import { InstallationPanel } from "./InstallationPanel";
 import { LinkListItem } from "./LinkListItem";
 
-export default function Route() {
+export default function HomeRoute() {
   return (
     <Container>
       <Block>
@@ -21,6 +21,9 @@ export default function Route() {
           </LinkListItem>
           <LinkListItem to={LEFT_CLICK_MENU.path} type="plaintext">
             {LEFT_CLICK_MENU.title}
+          </LinkListItem>
+          <LinkListItem to={CUSTOM_CSS_MENU.path} type="plaintext">
+            {CUSTOM_CSS_MENU.title}
           </LinkListItem>
         </ul>
       </Block>

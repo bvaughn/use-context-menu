@@ -1,3 +1,3 @@
-import Home from "./Home";
+import HomeRoute from "./Home";
 
-export default Home;
+export default HomeRoute;
