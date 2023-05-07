@@ -33,6 +33,7 @@
     "playwright": "latest",
     "react": "experimental",
     "react-dom": "experimental",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "latest",
     "react-virtualized-auto-sizer": "latest",
     "sort-by": "latest",

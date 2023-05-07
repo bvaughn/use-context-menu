@@ -1,3 +1,4 @@
+import toast, { Toaster } from "react-hot-toast";
 import {
   ContextMenuCategory,
   ContextMenuDivider,
@@ -5,13 +6,13 @@ import {
   useContextMenu,
 } from "use-context-menu";
 
-const selectOne = () => alert("Option one selected");
-const selectTwo = () => alert("Option two selected");
-const selectThree = () => alert("Option three selected");
+const selectOne = () => toast("Option one selected");
+const selectTwo = () => toast("Option two selected");
+const selectThree = () => toast("Option three selected");
 
 // REMOVE_BEFORE
 
-export function Demo({ className }: { className: string }) {
+function Example({ className }: { className: string }) {
   const { contextMenu, onContextMenu, onKeyDown } = useContextMenu(
     <>
       <ContextMenuCategory>Section one</ContextMenuCategory>
@@ -34,6 +35,17 @@ export function Demo({ className }: { className: string }) {
         right-click me
       </span>
       {contextMenu}
+    </>
+  );
+}
+
+// REMOVE_AFTER
+
+export function Demo({ className }: { className: string }) {
+  return (
+    <>
+      <Example className={className} />
+      <Toaster />
     </>
   );
 }

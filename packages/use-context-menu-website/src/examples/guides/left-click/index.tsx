@@ -1,3 +1,4 @@
+import toast, { Toaster } from "react-hot-toast";
 import {
   ContextMenuCategory,
   ContextMenuDivider,
@@ -7,13 +8,13 @@ import {
 
 import Icon from "../../../components/Icon";
 
-const selectOne = () => alert("Option one selected");
-const selectTwo = () => alert("Option two selected");
-const selectThree = () => alert("Option three selected");
+const selectOne = () => toast("Option one selected");
+const selectTwo = () => toast("Option two selected");
+const selectThree = () => toast("Option three selected");
 
 // REMOVE_BEFORE
 
-export function Demo({ className }: { className: string }) {
+function Example({ className }: { className: string }) {
   const {
     contextMenu: menu,
     onContextMenu: onClick,
@@ -41,6 +42,17 @@ export function Demo({ className }: { className: string }) {
         click me <Icon type={menu ? "close" : "arrow-down"} />
       </span>
       {menu}
+    </>
+  );
+}
+
+// REMOVE_AFTER
+
+export function Demo({ className }: { className: string }) {
+  return (
+    <>
+      <Example className={className} />
+      <Toaster />
     </>
   );
 }
