@@ -9,7 +9,11 @@ export function ContextMenuCategory({ children }: PropsWithChildren) {
   };
 
   return (
-    <div className={styles.ContextMenuCategory} onClick={onClick}>
+    <div
+      className={styles.ContextMenuCategory}
+      data-context-menu-category
+      onClick={onClick}
+    >
       {children}
     </div>
   );

@@ -69,6 +69,7 @@ export function ContextMenuItem({
       className={
         disabled ? styles.ContextMenuItemDisabled : styles.ContextMenuItem
       }
+      data-context-menu-item
       data-disabled={disabled}
       data-test-id={dataTestId}
       data-test-name={dataTestName}

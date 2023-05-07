@@ -120,6 +120,7 @@ export function ContextMenu({
     >
       <div
         className={styles.ContextMenu}
+        data-context-menu
         data-test-id={dataTestId}
         data-test-name={dataTestName}
         ref={ref}

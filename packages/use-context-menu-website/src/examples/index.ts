@@ -2,8 +2,17 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 export const examples = {
-  customCss: processExample(
-    readFileSync(join(__dirname, "guides", "custom-css", "styles.css"), "utf8")
+  cssDataSelectors: processExample(
+    readFileSync(
+      join(__dirname, "guides", "custom-css", "dataSelectors.css"),
+      "utf8"
+    )
+  ),
+  cssVariables: processExample(
+    readFileSync(
+      join(__dirname, "guides", "custom-css", "cssVariables.css"),
+      "utf8"
+    )
   ),
   leftClick: processExample(
     readFileSync(join(__dirname, "guides", "left-click", "index.tsx"), "utf8")

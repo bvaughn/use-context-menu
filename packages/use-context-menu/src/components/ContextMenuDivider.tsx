@@ -8,5 +8,11 @@ export function ContextMenuDivider() {
     event.stopPropagation();
   };
 
-  return <div className={styles.Divider} onClick={onClick} />;
+  return (
+    <div
+      className={styles.Divider}
+      data-context-menu-divider
+      onClick={onClick}
+    />
+  );
 }
