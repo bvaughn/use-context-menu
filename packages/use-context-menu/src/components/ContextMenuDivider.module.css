@@ -1,6 +1,8 @@
 .Divider {
   height: var(--context-menu-divider-size, 1px);
-  width: 100%;
-  background-color: var(--context-menu-divider-color, rgba(255, 255, 255, 0.5));
-  margin: var(--context-menu-divider-margin, 0.25rem 0);
+  background-color: var(
+    --context-menu-divider-color,
+    rgba(255, 255, 255, 0.25)
+  );
+  margin: var(--context-menu-divider-margin, 0.25rem 1rem);
 }
