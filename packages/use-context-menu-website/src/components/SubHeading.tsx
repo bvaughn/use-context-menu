@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 import styles from "./SubHeading.module.css";
 
 export default function SubHeading({
