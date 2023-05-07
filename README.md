@@ -5,6 +5,8 @@ React components for displaying configurable context menus
 #### Example
 
 ```jsx
+import { ContextMenuItem, useContextMenu } from "use-context-menu";
+
 function Example({ className }: { className: string }) {
   const { contextMenu, onContextMenu, onKeyDown } = useContextMenu(
     <>
