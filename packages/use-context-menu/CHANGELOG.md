@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.4
+* Properly set menu width for keyboard events when target is smaller
+
 ## 0.4.3
 * Add fallback values for undefined CSS menu-item hover/focus color
 
