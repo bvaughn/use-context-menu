@@ -16,7 +16,7 @@
 }
 
 .ContextMenuItemDisabled {
-  color: var(--color-dimmer);
+  color: var(--context-menu-item-color-disabled);
 }
 
 .ContextMenuItem:hover {

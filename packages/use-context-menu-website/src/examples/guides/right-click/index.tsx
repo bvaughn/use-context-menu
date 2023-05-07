@@ -9,6 +9,7 @@ import {
 const selectOne = () => toast("Option one selected");
 const selectTwo = () => toast("Option two selected");
 const selectThree = () => toast("Option three selected");
+const selectFour = () => toast("Option four selected");
 
 // REMOVE_BEFORE
 
@@ -20,7 +21,10 @@ function Example({ className }: { className: string }) {
       <ContextMenuItem onSelect={selectTwo}>Two</ContextMenuItem>
       <ContextMenuDivider />
       <ContextMenuCategory>Section two</ContextMenuCategory>
-      <ContextMenuItem onSelect={selectThree}>Three</ContextMenuItem>
+      <ContextMenuItem disabled onSelect={selectThree}>
+        Three
+      </ContextMenuItem>
+      <ContextMenuItem onSelect={selectFour}>Four</ContextMenuItem>
     </>
   );
 

@@ -55,10 +55,11 @@
   --context-menu-background-color-focus: #192230;
   --context-menu-border-color: #192230;
   --context-menu-category-color: #d2e1f9a6;
-  --context-menu-item-color: #ffffff;
+  --context-menu-category-font-size: 14px;
   --context-menu-divider-color: #39414d;
   --context-menu-font-family: Arial, Helvetica, sans-serif;
-  --context-menu-category-font-size: 14px;
+  --context-menu-item-color: #ffffff;
+  --context-menu-item-color-disabled: #b0c0d784;
   --context-menu-item-font-size: 16px;
 
   --token-comment-color: #666;

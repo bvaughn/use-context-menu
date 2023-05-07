@@ -70,6 +70,16 @@ export function useContextMenu(
     const menu = menuRef.current!;
     const menuItems = menuItemsRef.current!;
 
+    const enabledMenuItems = menuItems.reduce(
+      (reduced: number[], menuItem, index) => {
+        if (menuItem.getAttribute("data-disabled") !== "true") {
+          reduced.push(index);
+        }
+        return reduced;
+      },
+      []
+    );
+
     const isMouseEvent =
       state.event.type === "contextmenu" || state.event.type === "click";
 
@@ -81,25 +91,49 @@ export function useContextMenu(
       menu.focus();
     }
 
+    const focus = () => {
+      const index = enabledMenuItems[focusIndex];
+      const menuItem = menuItems[index];
+      menuItem.focus();
+    };
+
     const onKeyDown = (event: KeyboardEvent) => {
       switch (event.key) {
         case "ArrowDown": {
-          focusIndex = focusIndex + 1 < menuItems.length ? focusIndex + 1 : 0;
-          menuItems[focusIndex].focus();
+          focusIndex =
+            focusIndex + 1 < enabledMenuItems.length ? focusIndex + 1 : 0;
+          focus();
           event.preventDefault();
           event.stopPropagation();
           break;
         }
         case "ArrowUp": {
           focusIndex =
-            focusIndex - 1 >= 0 ? focusIndex - 1 : menuItems.length - 1;
-          menuItems[focusIndex].focus();
+            focusIndex - 1 >= 0 ? focusIndex - 1 : enabledMenuItems.length - 1;
+          focus();
           event.preventDefault();
           event.stopPropagation();
           break;
         }
         case "Enter": {
-          menuItems[focusIndex].click();
+          const index = enabledMenuItems[focusIndex];
+          const menuItem = menuItems[index];
+          menuItem.click();
+          break;
+        }
+        case "Tab": {
+          if (event.shiftKey) {
+            focusIndex =
+              focusIndex - 1 >= 0
+                ? focusIndex - 1
+                : enabledMenuItems.length - 1;
+          } else {
+            focusIndex =
+              focusIndex + 1 < enabledMenuItems.length ? focusIndex + 1 : 0;
+          }
+          focus();
+          event.preventDefault();
+          event.stopPropagation();
           break;
         }
       }

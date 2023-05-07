@@ -69,13 +69,14 @@ export function ContextMenuItem({
       className={
         disabled ? styles.ContextMenuItemDisabled : styles.ContextMenuItem
       }
+      data-disabled={disabled}
       data-test-id={dataTestId}
       data-test-name={dataTestName}
       data-test-state={dataTestState}
       onClick={onClick}
       onKeyDown={onKeyDown}
       ref={ref}
-      tabIndex={0}
+      tabIndex={disabled ? -1 : 0}
     >
       {children}
     </div>

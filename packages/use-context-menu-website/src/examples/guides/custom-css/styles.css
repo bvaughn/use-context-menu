@@ -8,5 +8,6 @@
   --context-menu-divider-color: #39414d;
   --context-menu-font-family: Arial, Helvetica, sans-serif;
   --context-menu-item-color: #ffffff;
+  --context-menu-item-color-disabled: #b0c0d784;
   --context-menu-item-font-size: 16px;
 }
