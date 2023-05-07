@@ -102,8 +102,8 @@ export function ContextMenu({
   if (alignToTarget) {
     style = {
       left: window.scrollX + targetRect.left + offsets.x,
+      minWidth: targetRect.width,
       top: window.scrollY + targetRect.top + targetRect.height + offsets.y,
-      width: targetRect.width,
     };
   } else {
     style = {
