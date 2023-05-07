@@ -1,6 +1,6 @@
 .ContextMenuCategory {
   background-color: var(--context-menu-background-color);
-  color: var(--context-menu-category-color, rgba(255,255,255,.75));
+  color: var(--context-menu-category-color, rgba(255, 255, 255, 0.75));
   font-family: var(--context-menu-font-family, sans-serif);
   font-size: var(--context-menu-category-font-size, 14px);
   padding: var(--context-menu-category-padding, 0 0.5rem);

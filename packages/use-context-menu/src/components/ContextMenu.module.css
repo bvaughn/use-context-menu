@@ -16,7 +16,7 @@
   white-space: nowrap;
   filter: var(--context-menu-filter);
   padding: var(--context-menu-padding, 0.25rem 0);
-  background-color: var(--context-menu-background-color, rgba(0,0,0,.9));
+  background-color: var(--context-menu-background-color, rgba(0, 0, 0, 0.9));
   border: var(--context-menu-border-size) solid var(--context-menu-border-color);
   overflow: hidden;
 }

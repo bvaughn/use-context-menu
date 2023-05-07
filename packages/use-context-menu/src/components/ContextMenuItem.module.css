@@ -9,7 +9,8 @@
   align-items: center;
   gap: 1ch;
   min-height: var(--context-menu-item-height);
-  transition: color var(--context-menu-transition-duration, 250ms), background-color var(--context-menu-transition-duration, 250ms);
+  transition: color var(--context-menu-transition-duration, 250ms),
+    background-color var(--context-menu-transition-duration, 250ms);
 }
 .ContextMenuItem {
   cursor: pointer;
@@ -17,23 +18,29 @@
 
 .ContextMenuItemDisabled {
   background-color: var(--context-menu-item-background-color-disabled);
-  color: var(--context-menu-item-color-disabled, rgba(255,255,255,.25));
+  color: var(--context-menu-item-color-disabled, rgba(255, 255, 255, 0.25));
 }
 
 .ContextMenuItem:hover {
   transition: background-color 250ms;
-  background-color: var(--context-menu-item-background-color-hover, rgba(255,255,255,.1));
+  background-color: var(
+    --context-menu-item-background-color-hover,
+    rgba(255, 255, 255, 0.1)
+  );
   color: var(
     --context-menu-item-color-hover,
-    var(--context-menu-item-color)
+    var(--context-menu-item-color, #fff)
   );
 }
 
 .ContextMenuItem:focus {
   outline: none;
-  background-color: var(--context-menu-item-background-color-focus, rgba(255,255,255,.1));
+  background-color: var(
+    --context-menu-item-background-color-focus,
+    rgba(255, 255, 255, 0.1)
+  );
   color: var(
     --context-menu-item-color-focus,
-    var(--context-menu-item-color)
+    var(--context-menu-item-color, #fff)
   );
 }
