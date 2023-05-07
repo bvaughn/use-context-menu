@@ -4,7 +4,26 @@ React components for displaying configurable context menus
 
 #### Example
 
-TODO
+```jsx
+function Example({ className }: { className: string }) {
+  const { contextMenu, onContextMenu, onKeyDown } = useContextMenu(
+    <>
+      <ContextMenuItem onSelect={selectOne}>One</ContextMenuItem>
+      <ContextMenuItem onSelect={selectTwo}>Two</ContextMenuItem>
+      <ContextMenuItem onSelect={selectThree}>Three</ContextMenuItem>
+    </>
+  );
+
+  return (
+    <>
+      <button onContextMenu={onContextMenu} onKeyDown={onKeyDown} tabIndex={0}>
+        right-click me
+      </button>
+      {contextMenu}
+    </>
+  );
+}
+```
 
 More examples at [use-context-menu.vercel.app](https://use-context-menu.vercel.app/).
 
