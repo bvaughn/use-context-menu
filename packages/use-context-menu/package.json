@@ -1,6 +1,6 @@
 {
   "name": "use-context-menu",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "React components for displaying configurable context menus",
   "author": "Brian Vaughn <brian.david.vaughn@gmail.com>",
   "license": "MIT",
