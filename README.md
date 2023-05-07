@@ -2,6 +2,9 @@
 
 React components for displaying configurable context menus
 
+* View examples and docs at [use-context-menu.vercel.app](https://use-context-menu.vercel.app/)
+* Fork [this Code Sandbox](https://codesandbox.io/s/use-context-menu-7z6d67) to get started
+
 #### Example
 
 ```jsx
@@ -26,7 +29,5 @@ function Example({ className }: { className: string }) {
   );
 }
 ```
-
-More examples at [use-context-menu.vercel.app](https://use-context-menu.vercel.app/).
 
 ### If you like this project, 🎉 [become a sponsor](https://github.com/sponsors/bvaughn/) or ☕ [buy me a coffee](http://givebrian.coffee/)
