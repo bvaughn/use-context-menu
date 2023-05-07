@@ -14,10 +14,10 @@ export const HOME_ROUTE: Route = {
 
 export const LEFT_CLICK_MENU: Route = {
   path: "/examples/left-click-menu",
-  title: "Left-click menu",
+  title: "Menu (left-click)",
 };
 
 export const RIGHT_CLICK_MENU: Route = {
   path: "/examples/right-click-menu",
-  title: "Right-click menu",
+  title: "Context menu (right-click)",
 };

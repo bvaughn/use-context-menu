@@ -23,3 +23,8 @@
   transition: background-color 250ms;
   background-color: var(--context-menu-background-color-hover);
 }
+
+.ContextMenuItem:focus {
+  outline: none;
+  background-color: var(--context-menu-background-color-focus);
+}

@@ -1,66 +1,87 @@
 import {
   MouseEvent,
   ReactNode,
+  useContext,
   useLayoutEffect,
   useRef,
   useState,
 } from "react";
 import { createPortal } from "react-dom";
 
+import { ContextMenuContext } from "../ContextMenuContext";
 import { useModalDismissSignal } from "../hooks/useModalDismissSignal";
+import { AlignTo } from "../types";
 import styles from "./ContextMenu.module.css";
 
 export function ContextMenu({
+  alignTo,
   children,
+  cursorPageX,
+  cursorPageY,
+  targetRect,
   dataTestId,
   dataTestName = "ContextMenu",
   hide,
-  pageX,
-  pageY,
 }: {
+  alignTo: AlignTo;
   children: ReactNode;
+  cursorPageX: number;
+  cursorPageY: number;
+  targetRect: DOMRect;
   dataTestId?: string;
   dataTestName?: string;
   hide: () => void;
-  pageX: number;
-  pageY: number;
 }) {
+  const { contextMenuEvent, registerMenu } = useContext(ContextMenuContext);
+
+  let alignToTarget =
+    alignTo === "auto-target" || contextMenuEvent?.type.startsWith("key");
+
   const ref = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    registerMenu(ref.current!);
+  }, [registerMenu]);
 
   const [offsets, setOffsets] = useState<{ x: number; y: number }>({
     x: 0,
     y: 0,
   });
-  console.log("<ContextMenu> offsets:", offsets);
 
   useModalDismissSignal(ref, hide, true);
 
   useLayoutEffect(() => {
-    const contextMenu = ref.current;
-    if (contextMenu) {
-      const rect = contextMenu.getBoundingClientRect();
+    const contextMenu = ref.current!;
+    const rect = contextMenu.getBoundingClientRect();
 
-      let newOffsets = { ...offsets };
-      if (rect.right > window.innerWidth) {
-        if (rect.x - rect.width > 0) {
-          newOffsets.x = 0 - rect.width;
-        } else {
-          newOffsets.x = 0 - rect.x;
-        }
+    let newOffsets = { ...offsets };
+    if (rect.right > window.innerWidth) {
+      if (rect.x - rect.width > 0) {
+        newOffsets.x = 0 - rect.width;
+      } else {
+        newOffsets.x = 0 - rect.x;
       }
-      if (rect.bottom > window.innerHeight) {
+    }
+    if (rect.bottom > window.innerHeight) {
+      if (alignToTarget) {
+        if (rect.y - targetRect.height - rect.height > 0) {
+          newOffsets.y = 0 - targetRect.height - rect.height;
+        } else {
+          newOffsets.y = 0 - rect.y;
+        }
+      } else {
         if (rect.y - rect.height > 0) {
           newOffsets.y = 0 - rect.height;
         } else {
           newOffsets.y = 0 - rect.y;
         }
       }
-
-      if (newOffsets.x !== offsets.x || newOffsets.y !== offsets.y) {
-        setOffsets(newOffsets);
-      }
     }
-  }, [offsets, pageX, pageY]);
+
+    if (newOffsets.x !== offsets.x || newOffsets.y !== offsets.y) {
+      setOffsets(newOffsets);
+    }
+  }, [alignToTarget, cursorPageX, cursorPageY, offsets, targetRect.height]);
 
   const onClick = (event: MouseEvent) => {
     if (event.defaultPrevented) {
@@ -77,6 +98,20 @@ export function ContextMenu({
     event.stopPropagation();
   };
 
+  let style;
+  if (alignToTarget) {
+    style = {
+      left: window.scrollX + targetRect.left + offsets.x,
+      top: window.scrollY + targetRect.top + targetRect.height + offsets.y,
+      width: targetRect.width,
+    };
+  } else {
+    style = {
+      left: cursorPageX + offsets.x,
+      top: cursorPageY + offsets.y,
+    };
+  }
+
   return createPortal(
     <div
       className={styles.Backdrop}
@@ -88,10 +123,8 @@ export function ContextMenu({
         data-test-id={dataTestId}
         data-test-name={dataTestName}
         ref={ref}
-        style={{
-          left: pageX + offsets.x,
-          top: pageY + offsets.y,
-        }}
+        style={style}
+        tabIndex={0}
       >
         {children}
       </div>

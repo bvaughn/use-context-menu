@@ -7,24 +7,38 @@ import {
 
 import Icon from "../../../components/Icon";
 
+const selectOne = () => alert("Option one selected");
+const selectTwo = () => alert("Option two selected");
+const selectThree = () => alert("Option three selected");
+
 // REMOVE_BEFORE
 
 export function Demo({ className }: { className: string }) {
-  const { contextMenu: menu, onContextMenu: onClick } = useContextMenu(
+  const {
+    contextMenu: menu,
+    onContextMenu: onClick,
+    onKeyDown,
+  } = useContextMenu(
     <>
       <ContextMenuCategory>Section one</ContextMenuCategory>
-      <ContextMenuItem>One</ContextMenuItem>
-      <ContextMenuItem>Two</ContextMenuItem>
+      <ContextMenuItem onSelect={selectOne}>One</ContextMenuItem>
+      <ContextMenuItem onSelect={selectTwo}>Two</ContextMenuItem>
       <ContextMenuDivider />
       <ContextMenuCategory>Section two</ContextMenuCategory>
-      <ContextMenuItem>Three</ContextMenuItem>
-    </>
+      <ContextMenuItem onSelect={selectThree}>Three</ContextMenuItem>
+    </>,
+    { alignTo: "auto-target" }
   );
 
   return (
     <>
-      <span className={className} onClick={onClick}>
-        click me <Icon type="down-arrow" />
+      <span
+        className={className}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        tabIndex={0}
+      >
+        click me <Icon type={menu ? "close" : "arrow-down"} />
       </span>
       {menu}
     </>

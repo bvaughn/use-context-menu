@@ -1,5 +1,13 @@
-import { MouseEvent, ReactNode } from "react";
+import {
+  KeyboardEvent,
+  ReactNode,
+  UIEvent,
+  useContext,
+  useLayoutEffect,
+  useRef,
+} from "react";
 
+import { ContextMenuContext } from "../ContextMenuContext";
 import styles from "./ContextMenuItem.module.css";
 
 export function ContextMenuItem({
@@ -8,26 +16,49 @@ export function ContextMenuItem({
   dataTestName = "ContextMenuItem",
   dataTestState,
   disabled = false,
-  onClick: onClickProp,
+  onSelect,
 }: {
   children: ReactNode;
   dataTestId?: string;
   dataTestName?: string;
   dataTestState?: string;
   disabled?: boolean;
-  onClick?: (event: MouseEvent) => void;
+  onSelect?: (event: UIEvent) => void;
 }) {
-  const onClick = (event: MouseEvent) => {
+  const { registerMenuItem } = useContext(ContextMenuContext);
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    registerMenuItem(ref.current!);
+  }, [registerMenuItem]);
+
+  const onClick = (event: UIEvent) => {
     if (event.defaultPrevented) {
       return;
     }
 
     if (!disabled) {
-      if (onClickProp) {
-        onClickProp(event);
+      if (onSelect) {
+        onSelect(event);
+      }
+    }
+  };
 
-        if (event.defaultPrevented) {
-          return;
+  const onKeyDown = (event: KeyboardEvent) => {
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    if (!disabled) {
+      if (onSelect) {
+        switch (event.key) {
+          case "ArrowDown":
+          case "ArrowUp":
+          case "Enter":
+          case " ":
+            onSelect(event);
+            break;
         }
       }
     }
@@ -42,6 +73,9 @@ export function ContextMenuItem({
       data-test-name={dataTestName}
       data-test-state={dataTestState}
       onClick={onClick}
+      onKeyDown={onKeyDown}
+      ref={ref}
+      tabIndex={0}
     >
       {children}
     </div>

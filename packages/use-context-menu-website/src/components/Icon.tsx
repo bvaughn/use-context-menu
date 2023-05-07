@@ -1,6 +1,9 @@
 import styles from "./Icon.module.css";
 
 export type IconType =
+  | "arrow-down"
+  | "arrow-up"
+  | "close"
   | "complete"
   | "delete"
   | "down-arrow"
@@ -25,6 +28,15 @@ export default function Icon({
 }) {
   let path = "";
   switch (type) {
+    case "arrow-down":
+      path = "M7,10L12,15L17,10H7Z";
+      break;
+    case "arrow-up":
+      path = "M7,15L12,10L17,15H7Z";
+    case "close":
+      path =
+        "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z";
+      break;
     case "complete":
       path =
         "M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z";
@@ -32,9 +44,6 @@ export default function Icon({
     case "delete":
       path =
         "M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z";
-      break;
-    case "down-arrow":
-      path = "M7,10L12,15L17,10H7Z";
       break;
     case "edit":
       path =

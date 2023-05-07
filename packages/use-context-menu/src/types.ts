@@ -1,1 +1,1 @@
-export type ContextMenu = any;
+export type AlignTo = "auto-cursor" | "auto-target";
