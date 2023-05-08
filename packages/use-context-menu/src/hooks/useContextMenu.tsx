@@ -63,14 +63,14 @@ export function useContextMenu(
   }, []);
 
   useEffect(() => {
-    if (state == null || requireClickToShow) {
+    if (state == null) {
       return;
     }
 
     const target = state.event.target as HTMLElement;
 
-    const menu = menuRef.current!;
-    const menuItems = menuItemsRef.current!;
+    const menu = menuRef.current as HTMLDivElement;
+    const menuItems = menuItemsRef.current as HTMLDivElement[];
 
     const enabledMenuItems = menuItems.reduce(
       (reduced: number[], menuItem, index) => {
@@ -201,6 +201,8 @@ export function useContextMenu(
   const onContextMenu = showMenu;
   const onKeyDown = (event: SyntheticKeyboardEvent) => {
     if (state !== null) {
+      return;
+    } else if (requireClickToShow) {
       return;
     }
 
