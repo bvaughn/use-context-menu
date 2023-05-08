@@ -32,6 +32,7 @@ export function useContextMenu(
     dataTestName?: string;
     onHide?: () => void | Promise<void>;
     onShow?: (event: UIEvent) => void | Promise<void>;
+    requireClickToShow?: boolean;
   } = {}
 ): {
   contextMenu: ReactNode | null;
@@ -44,6 +45,7 @@ export function useContextMenu(
     dataTestName,
     onHide,
     onShow,
+    requireClickToShow = false,
   } = options;
 
   const [state, setState] = useState<State | null>(null);
@@ -61,7 +63,7 @@ export function useContextMenu(
   }, []);
 
   useEffect(() => {
-    if (state == null) {
+    if (state == null || requireClickToShow) {
       return;
     }
 
@@ -149,7 +151,7 @@ export function useContextMenu(
       // Return focus to the target element that triggered the context menu.
       target.focus();
     };
-  }, [state]);
+  }, [requireClickToShow, state]);
 
   const committedValuesRef = useRef<{
     onHide?: () => void | Promise<void>;
