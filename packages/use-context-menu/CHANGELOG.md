@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.6
+* Refined `requireClickToShow` behavior so that keyboard navigation works once menu has been shown
+
 ## 0.4.5
 * Added TypeScript helpers `assertKeyboardEvent`, `assertMouseEvent`, `isKeyboardEvent`, and `isMouseEvent` to refine event params passed to `onShow` callback
 * Added `useContextMenu` optional config param `requireClickToShow`
