@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.5
+* Added TypeScript helpers `assertKeyboardEvent`, `assertMouseEvent`, `isKeyboardEvent`, and `isMouseEvent` to refine event params passed to `onShow` callback
+* Added `useContextMenu` optional config param `requireClickToShow`
+
 ## 0.4.4
 * Properly set menu width for keyboard events when target is smaller
 
