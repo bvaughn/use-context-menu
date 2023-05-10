@@ -31,3 +31,15 @@ function Example({ className }: { className: string }) {
 ```
 
 ### If you like this project, 🎉 [become a sponsor](https://github.com/sponsors/bvaughn/) or ☕ [buy me a coffee](http://givebrian.coffee/)
+
+## FAQs
+
+### Fixing the "_SyntaxError: Unexpected token '.'_" error with Next
+Add this package to the `transpilePackages` array in your Next config, e.g.
+```js
+// next.config.js
+module.exports = {
+  transpilePackages: ["design", "use-context-menu"],
+  // ...
+};
+```
