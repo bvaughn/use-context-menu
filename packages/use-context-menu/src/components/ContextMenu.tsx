@@ -5,7 +5,6 @@ import {
   useContext,
   useLayoutEffect,
   useRef,
-  useState,
 } from "react";
 import { createPortal } from "react-dom";
 
@@ -19,8 +18,8 @@ export function ContextMenu({
   alignTo,
   children,
   className,
-  cursorPageX,
-  cursorPageY,
+  clientX,
+  clientY,
   targetRect,
   dataTestId,
   dataTestName = "ContextMenu",
@@ -30,8 +29,8 @@ export function ContextMenu({
   alignTo: AlignTo;
   children: ReactNode;
   className?: string;
-  cursorPageX: number;
-  cursorPageY: number;
+  clientX: number;
+  clientY: number;
   targetRect: DOMRect;
   dataTestId?: string;
   dataTestName?: string;
@@ -49,45 +48,56 @@ export function ContextMenu({
     registerMenu(ref.current!);
   }, [registerMenu]);
 
-  const [offsets, setOffsets] = useState<{ x: number; y: number }>({
+  const offsetsRef = useRef<{ x: number; y: number }>({
     x: 0,
     y: 0,
   });
 
   useModalDismissSignal(ref, hide, true);
 
+  // Optimally position the popup within the viewport
   useLayoutEffect(() => {
     const contextMenu = ref.current!;
     const rect = contextMenu.getBoundingClientRect();
 
-    let newOffsets = { ...offsets };
-    if (rect.right > window.innerWidth) {
-      if (rect.x - rect.width > 0) {
-        newOffsets.x = 0 - rect.width;
-      } else {
-        newOffsets.x = 0 - rect.x;
+    const offsets = offsetsRef.current;
+    if (rect.width < window.innerWidth) {
+      if (rect.right > window.innerWidth) {
+        if (rect.x - rect.width > 0) {
+          offsets.x = 0 - rect.width;
+        } else {
+          offsets.x = 0 - rect.x;
+        }
       }
     }
-    if (rect.bottom > window.innerHeight) {
-      if (alignToTarget) {
-        if (rect.y - targetRect.height - rect.height > 0) {
-          newOffsets.y = 0 - targetRect.height - rect.height;
+    if (rect.height < window.innerHeight) {
+      if (rect.bottom > window.innerHeight) {
+        if (alignToTarget) {
+          if (rect.y - targetRect.height - rect.height > 0) {
+            offsets.y = 0 - targetRect.height - rect.height;
+          } else {
+            offsets.y = 0 - rect.y;
+          }
         } else {
-          newOffsets.y = 0 - rect.y;
-        }
-      } else {
-        if (rect.y - rect.height > 0) {
-          newOffsets.y = 0 - rect.height;
-        } else {
-          newOffsets.y = 0 - rect.y;
+          if (rect.y - rect.height > 0) {
+            offsets.y = 0 - rect.height;
+          } else {
+            offsets.y = 0 - rect.y;
+          }
         }
       }
     }
 
-    if (newOffsets.x !== offsets.x || newOffsets.y !== offsets.y) {
-      setOffsets(newOffsets);
+    if (alignToTarget) {
+      contextMenu.style.left = `${targetRect.left + offsets.x}px`;
+      contextMenu.style.top = `${
+        targetRect.top + targetRect.height + offsets.y
+      }px`;
+    } else {
+      contextMenu.style.left = `${clientX + offsets.x}px`;
+      contextMenu.style.top = `${clientY + offsets.y}px`;
     }
-  }, [alignToTarget, cursorPageX, cursorPageY, offsets, targetRect.height]);
+  }, [alignToTarget, clientX, clientY, targetRect]);
 
   const onClick = (event: MouseEvent) => {
     if (event.defaultPrevented) {
@@ -104,17 +114,19 @@ export function ContextMenu({
     event.stopPropagation();
   };
 
+  const offsets = offsetsRef.current;
+
   let style;
   if (alignToTarget) {
     style = {
-      left: window.scrollX + targetRect.left + offsets.x,
+      left: targetRect.left + offsets.x,
       minWidth: targetRect.width,
-      top: window.scrollY + targetRect.top + targetRect.height + offsets.y,
+      top: targetRect.top + targetRect.height + offsets.y,
     };
   } else {
     style = {
-      left: cursorPageX + offsets.x,
-      top: cursorPageY + offsets.y,
+      left: clientX + offsets.x,
+      top: clientY + offsets.y,
     };
   }
 

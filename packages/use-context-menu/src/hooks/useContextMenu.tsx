@@ -19,8 +19,8 @@ import { ContextMenu } from "../components/ContextMenu";
 import { AlignTo } from "../types";
 
 type State = {
-  cursorPageX: number;
-  cursorPageY: number;
+  clientX: number;
+  clientY: number;
   event: UIEvent;
   targetRect: DOMRect;
 };
@@ -192,12 +192,12 @@ export function useContextMenu(
     const { currentTarget } = event;
 
     const targetRect = (currentTarget as HTMLElement).getBoundingClientRect();
-    const cursorPageX = isMouseEvent(event) ? event.pageX : targetRect.x;
-    const cursorPageY = isMouseEvent(event) ? event.pageY : targetRect.y;
+    const clientX = isMouseEvent(event) ? event.clientX : targetRect.x;
+    const clientY = isMouseEvent(event) ? event.clientY : targetRect.y;
 
     setState({
-      cursorPageX,
-      cursorPageY,
+      clientX,
+      clientY,
       event,
       targetRect,
     });
@@ -240,8 +240,8 @@ export function useContextMenu(
         <ContextMenu
           alignTo={alignTo}
           className={className}
-          cursorPageX={state.cursorPageX}
-          cursorPageY={state.cursorPageY}
+          clientX={state.clientX}
+          clientY={state.clientY}
           dataTestId={dataTestId}
           dataTestName={dataTestName}
           hide={hideContextMenu}

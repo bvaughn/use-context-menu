@@ -8,7 +8,7 @@
 }
 
 .ContextMenu {
-  position: absolute;
+  position: fixed;
   flex-direction: column;
   display: flex;
   border-radius: var(--context-menu-border-radius, 0.25rem);
