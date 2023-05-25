@@ -1,4 +1,5 @@
 import {
+  CSSProperties,
   MouseEvent,
   ReactNode,
   useContext,
@@ -11,26 +12,31 @@ import { createPortal } from "react-dom";
 import { ContextMenuContext } from "../ContextMenuContext";
 import { useModalDismissSignal } from "../hooks/useModalDismissSignal";
 import { AlignTo } from "../types";
+import classNames from "../utils/classNames";
 import styles from "./ContextMenu.module.css";
 
 export function ContextMenu({
   alignTo,
   children,
+  className,
   cursorPageX,
   cursorPageY,
   targetRect,
   dataTestId,
   dataTestName = "ContextMenu",
   hide,
+  style: styleFromProps,
 }: {
   alignTo: AlignTo;
   children: ReactNode;
+  className?: string;
   cursorPageX: number;
   cursorPageY: number;
   targetRect: DOMRect;
   dataTestId?: string;
   dataTestName?: string;
   hide: () => void;
+  style?: CSSProperties;
 }) {
   const { contextMenuEvent, registerMenu } = useContext(ContextMenuContext);
 
@@ -112,6 +118,10 @@ export function ContextMenu({
     };
   }
 
+  if (styleFromProps) {
+    style = Object.assign(style, styleFromProps);
+  }
+
   return createPortal(
     <div
       className={styles.Backdrop}
@@ -119,7 +129,7 @@ export function ContextMenu({
       onMouseMove={onMouseMove}
     >
       <div
-        className={styles.ContextMenu}
+        className={classNames(styles.ContextMenu, className)}
         data-context-menu
         data-test-id={dataTestId}
         data-test-name={dataTestName}

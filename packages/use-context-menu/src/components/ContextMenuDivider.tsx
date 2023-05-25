@@ -1,8 +1,15 @@
-import { MouseEvent } from "react";
+import { CSSProperties, MouseEvent } from "react";
 
+import classNames from "../utils/classNames";
 import styles from "./ContextMenuDivider.module.css";
 
-export function ContextMenuDivider() {
+export function ContextMenuDivider({
+  className,
+  style,
+}: {
+  className?: string;
+  style?: CSSProperties;
+}) {
   const onClick = (event: MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
@@ -10,9 +17,10 @@ export function ContextMenuDivider() {
 
   return (
     <div
-      className={styles.Divider}
+      className={classNames(styles.Divider, className)}
       data-context-menu-divider
       onClick={onClick}
+      style={style}
     />
   );
 }

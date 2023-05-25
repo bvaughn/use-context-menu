@@ -1,4 +1,5 @@
 import {
+  CSSProperties,
   KeyboardEvent,
   ReactNode,
   UIEvent,
@@ -8,22 +9,27 @@ import {
 } from "react";
 
 import { ContextMenuContext } from "../ContextMenuContext";
+import classNames from "../utils/classNames";
 import styles from "./ContextMenuItem.module.css";
 
 export function ContextMenuItem({
   children,
+  className,
   dataTestId,
   dataTestName = "ContextMenuItem",
   dataTestState,
   disabled = false,
   onSelect,
+  style,
 }: {
   children: ReactNode;
+  className?: string;
   dataTestId?: string;
   dataTestName?: string;
   dataTestState?: string;
   disabled?: boolean;
   onSelect?: (event: UIEvent) => void;
+  style?: CSSProperties;
 }) {
   const { registerMenuItem } = useContext(ContextMenuContext);
 
@@ -66,9 +72,10 @@ export function ContextMenuItem({
 
   return (
     <div
-      className={
-        disabled ? styles.ContextMenuItemDisabled : styles.ContextMenuItem
-      }
+      className={classNames(
+        disabled ? styles.ContextMenuItemDisabled : styles.ContextMenuItem,
+        className
+      )}
       data-context-menu-item
       data-disabled={disabled}
       data-test-id={dataTestId}
@@ -77,6 +84,7 @@ export function ContextMenuItem({
       onClick={onClick}
       onKeyDown={onKeyDown}
       ref={ref}
+      style={style}
       tabIndex={disabled ? -1 : 0}
     >
       {children}

@@ -1,4 +1,5 @@
 import {
+  CSSProperties,
   ReactNode,
   KeyboardEvent as SyntheticKeyboardEvent,
   MouseEvent as SyntheticMouseEvent,
@@ -28,11 +29,13 @@ export function useContextMenu(
   contextMenuItems: ReactNode,
   options: {
     alignTo?: AlignTo;
+    className?: string;
     dataTestId?: string;
     dataTestName?: string;
     onHide?: () => void | Promise<void>;
     onShow?: (event: UIEvent) => void | Promise<void>;
     requireClickToShow?: boolean;
+    style?: CSSProperties;
   } = {}
 ): {
   contextMenu: ReactNode | null;
@@ -41,11 +44,13 @@ export function useContextMenu(
 } {
   const {
     alignTo = "auto-cursor",
+    className,
     dataTestId,
     dataTestName,
     onHide,
     onShow,
     requireClickToShow = false,
+    style,
   } = options;
 
   const [state, setState] = useState<State | null>(null);
@@ -234,11 +239,13 @@ export function useContextMenu(
       <ContextMenuContext.Provider value={context}>
         <ContextMenu
           alignTo={alignTo}
+          className={className}
           cursorPageX={state.cursorPageX}
           cursorPageY={state.cursorPageY}
           dataTestId={dataTestId}
           dataTestName={dataTestName}
           hide={hideContextMenu}
+          style={style}
           targetRect={state.targetRect}
         >
           {contextMenuItems}
