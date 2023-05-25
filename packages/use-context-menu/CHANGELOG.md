@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.7
+* Use `position: fixed` (rather than `position: absolute`) to avoid effecting body scroll position for context menus rendered near the edge of the viewport
+* Better handle edge cases for context menu positioning (e.g. a context menu that is larger than the viewport)
+* Add optional `className` and `style` props for context menu, items, divider, and categories to simplify custom styling
+
 ## 0.4.6
 * Refined `requireClickToShow` behavior so that keyboard navigation works once menu has been shown
 
