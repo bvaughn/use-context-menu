@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.9
+* README update (no code changes)
+
 ## 0.4.8
 * Build release bundles with Preconstruct (smaller, more readable)
 * Replaced CSS modules (which required special bundler configuration to support) with single `styles.css` file which can be imported anywhere in the app (even if no bundler is used); this should support more bundlers/frameworks/environments

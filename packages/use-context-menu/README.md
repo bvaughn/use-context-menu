@@ -10,6 +10,9 @@ React components for displaying configurable context menus
 ```jsx
 import { ContextMenuItem, useContextMenu } from "use-context-menu";
 
+// You can import this anywhere, just so long as it's imported once
+import "use-context-menu/styles.css";
+
 function Example({ className }: { className: string }) {
   const { contextMenu, onContextMenu, onKeyDown } = useContextMenu(
     <>
@@ -34,12 +37,8 @@ function Example({ className }: { className: string }) {
 
 ## FAQs
 
-### Fixing the "_SyntaxError: Unexpected token '.'_" error with Next
-Add this package to the `transpilePackages` array in your Next config, e.g.
+### Why is the context menu not styled?
+CSS styles must be explicitly imported/required for this package:
 ```js
-// next.config.js
-module.exports = {
-  transpilePackages: ["design", "use-context-menu"],
-  // ...
-};
+import "use-context-menu/styles.css";
 ```

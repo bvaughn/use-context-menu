@@ -10,6 +10,9 @@ React components for displaying configurable context menus
 ```jsx
 import { ContextMenuItem, useContextMenu } from "use-context-menu";
 
+// You can import this anywhere, just so long as it's imported once
+import "use-context-menu/styles.css";
+
 function Example({ className }: { className: string }) {
   const { contextMenu, onContextMenu, onKeyDown } = useContextMenu(
     <>
