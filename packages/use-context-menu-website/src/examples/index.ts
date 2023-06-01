@@ -14,6 +14,12 @@ export const examples = {
       "utf8"
     )
   ),
+  customStyles: processExample(
+    readFileSync(
+      join(__dirname, "guides", "custom-css", "customStyles.css"),
+      "utf8"
+    )
+  ),
   leftClick: processExample(
     readFileSync(join(__dirname, "guides", "left-click", "index.tsx"), "utf8")
   ),

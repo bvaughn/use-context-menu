@@ -13,11 +13,11 @@ export default function CustomCssRoute() {
       </Block>
       <Block>
         <p>
-          The following{" "}
+          The recommended way to customize styles for this package is to use{" "}
           <ExternalLink to="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">
             CSS variables
-          </ExternalLink>{" "}
-          can be used to customize context menu styles:
+          </ExternalLink>
+          :
         </p>
         <Code code={examples.cssVariables} language="css" />
         <p>
@@ -25,7 +25,18 @@ export default function CustomCssRoute() {
         </p>
       </Block>
       <Block>
-        <p>Data attribute selectors can also be used to customize styles:</p>
+        <p>
+          You can also bypass the included{" "}
+          <code>use-context-menu/styles.css</code> file and define your own
+          styles:
+        </p>
+        <Code code={examples.customStyles} language="css" />
+      </Block>
+      <Block>
+        <p>
+          Lastly, data attribute selectors can be used to customize styles
+          (although these are primarily intended for e2e testing purposes):
+        </p>
         <Code code={examples.cssDataSelectors} language="css" />
       </Block>
     </Container>
