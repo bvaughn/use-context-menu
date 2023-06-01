@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.10
+* Fixed Babel configuration to use automatic JSX runtime setting; updated peer dependencies to require `react@16.14` or newer
+
 ## 0.4.9
 * README update (no code changes)
 
