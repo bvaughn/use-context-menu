@@ -37,7 +37,7 @@
     "react-router-dom": "latest",
     "react-virtualized-auto-sizer": "latest",
     "sort-by": "latest",
-    "suspense": "^0.0.34",
+    "suspense": "^0.0.38",
     "use-context-menu": "workspace:^"
   }
 }

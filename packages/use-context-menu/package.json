@@ -9,9 +9,21 @@
     "url": "git+https://github.com/bvaughn/use-context-menu.git"
   },
   "source": "src/index.ts",
-  "main": "dist/use-context-menu.js",
-  "module": "dist/use-context-menu.module.js",
-  "types": "dist/use-context-menu.d.ts",
+  "main": "dist/use-context-menu.cjs.js",
+  "module": "dist/use-context-menu.esm.js",
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/use-context-menu.cjs.mjs",
+        "default": "./dist/use-context-menu.cjs.js"
+      },
+      "module": "./dist/use-context-menu.esm.js",
+      "import": "./dist/use-context-menu.cjs.mjs",
+      "default": "./dist/use-context-menu.cjs.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "dist/use-context-menu.cjs.d.ts",
   "scripts": {
     "build": "parcel build",
     "test": "jest --config=jest.config.js",
