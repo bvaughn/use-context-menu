@@ -21,7 +21,8 @@
       "import": "./dist/use-context-menu.cjs.mjs",
       "default": "./dist/use-context-menu.cjs.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./styles.css": "./styles.css"
   },
   "types": "dist/use-context-menu.cjs.d.ts",
   "scripts": {
@@ -49,5 +50,12 @@
   },
   "browserslist": [
     "Chrome 79"
-  ]
+  ],
+  "preconstruct": {
+    "exports": {
+      "extra": {
+        "./styles.css": "./styles.css"
+      }
+    }
+  }
 }
