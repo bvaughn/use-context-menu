@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.8
+* Build release bundles with Preconstruct (smaller, more readable)
+* Replaced CSS modules (which required special bundler configuration to support) with single `styles.css` file which can be imported anywhere in the app (even if no bundler is used); this should support more bundlers/frameworks/environments
+
 ## 0.4.7
 * Use `position: fixed` (rather than `position: absolute`) to avoid effecting body scroll position for context menus rendered near the edge of the viewport
 * Better handle edge cases for context menu positioning (e.g. a context menu that is larger than the viewport)

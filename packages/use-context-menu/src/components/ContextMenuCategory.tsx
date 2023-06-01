@@ -1,7 +1,6 @@
 import { CSSProperties, MouseEvent, PropsWithChildren } from "react";
 
 import classNames from "../utils/classNames";
-import styles from "./ContextMenuCategory.module.css";
 
 export function ContextMenuCategory({
   children,
@@ -15,7 +14,7 @@ export function ContextMenuCategory({
 
   return (
     <div
-      className={classNames(styles.ContextMenuCategory, className)}
+      className={classNames("useContextMenu_ContextMenuCategory", className)}
       data-context-menu-category
       onClick={onClick}
       style={style}

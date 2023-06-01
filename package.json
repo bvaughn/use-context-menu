@@ -1,4 +1,5 @@
 {
+  "name": "use-context-menu-repo",
   "private": true,
   "scripts": {
     "clear": "npm run clear:parcel-cache & npm run clear:builds & npm run clear:node_modules",
@@ -7,17 +8,22 @@
     "clear:node_modules": "rm -rf ./node_modules && rm -rf ./packages/*/node_modules",
     "docs": "cd packages/use-context-menu-website && pnpm build",
     "lint": "eslint packages/**/*.{ts,tsx}",
-    "prerelease": "rm -rf ./.parcel-cache && pnpm -r run build",
+    "prerelease": "preconstruct build",
     "prettier": "prettier --write \"**/*.{css,html,js,json,jsx,ts,tsx}\"",
     "prettier:ci": "prettier --check \"**/*.{css,html,js,json,jsx,ts,tsx}\"",
     "typescript": "tsc --noEmit",
     "typescript:watch": "tsc --noEmit --watch"
   },
   "devDependencies": {
-    "@parcel/core": "^2.8.3",
-    "@parcel/packager-ts": "^2.8.3",
-    "@parcel/transformer-inline-string": "^2.8.3",
-    "@parcel/transformer-typescript-types": "^2.8.3",
+    "@babel/preset-react": "^7.22.3",
+    "@babel/preset-typescript": "^7.21.5",
+    "@parcel/config-default": "^2.9.1",
+    "@parcel/core": "^2.9.1",
+    "@parcel/packager-ts": "^2.9.1",
+    "@parcel/transformer-js": "^2.9.1",
+    "@parcel/transformer-react-refresh-wrap": "^2.9.1",
+    "@parcel/transformer-typescript-types": "^2.9.1",
+    "@preconstruct/cli": "^2.6.4",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.14.6",
@@ -29,7 +35,7 @@
     "@typescript-eslint/type-utils": "^5.57.0",
     "eslint": "^8.39.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "parcel": "^2.8.3",
+    "parcel": "^2.9.1",
     "path-browserify": "^1.0.0",
     "prettier": "latest",
     "process": "^0.11.10",
@@ -39,5 +45,16 @@
   "workspaces": [
     "packages/use-context-menu",
     "packages/use-context-menu-website"
-  ]
+  ],
+  "preconstruct": {
+    "packages": [
+      "packages/use-context-menu"
+    ],
+    "exports": {
+      "importConditionDefaultExport": "default"
+    },
+    "___experimentalFlags_WILL_CHANGE_IN_PATCH": {
+      "importsConditions": true
+    }
+  }
 }

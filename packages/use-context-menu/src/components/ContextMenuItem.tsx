@@ -10,7 +10,6 @@ import {
 
 import { ContextMenuContext } from "../ContextMenuContext";
 import classNames from "../utils/classNames";
-import styles from "./ContextMenuItem.module.css";
 
 export function ContextMenuItem({
   children,
@@ -73,7 +72,9 @@ export function ContextMenuItem({
   return (
     <div
       className={classNames(
-        disabled ? styles.ContextMenuItemDisabled : styles.ContextMenuItem,
+        disabled
+          ? "useContextMenu_ContextMenuItemDisabled"
+          : "useContextMenu_ContextMenuItem",
         className
       )}
       data-context-menu-item

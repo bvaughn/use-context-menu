@@ -12,7 +12,6 @@ import { ContextMenuContext } from "../ContextMenuContext";
 import { useModalDismissSignal } from "../hooks/useModalDismissSignal";
 import { AlignTo } from "../types";
 import classNames from "../utils/classNames";
-import styles from "./ContextMenu.module.css";
 
 export function ContextMenu({
   alignTo,
@@ -136,12 +135,12 @@ export function ContextMenu({
 
   return createPortal(
     <div
-      className={styles.Backdrop}
+      className="useContextMenu_Backdrop"
       onClick={onClick}
       onMouseMove={onMouseMove}
     >
       <div
-        className={classNames(styles.ContextMenu, className)}
+        className={classNames("useContextMenu_ContextMenu", className)}
         data-context-menu
         data-test-id={dataTestId}
         data-test-name={dataTestName}

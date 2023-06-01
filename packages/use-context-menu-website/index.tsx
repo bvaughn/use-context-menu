@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "use-context-menu/styles.css";
 
 import ScrollToTop from "./src/components/ScrollToTop";
 import PageNotFoundRoute from "./src/routes/PageNotFound";

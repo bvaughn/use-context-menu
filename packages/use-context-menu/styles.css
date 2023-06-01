@@ -1,0 +1,94 @@
+.useContextMenu_Backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--context-menu-z-index, 25);
+}
+
+.useContextMenu_ContextMenu {
+  position: fixed;
+  flex-direction: column;
+  display: flex;
+  border-radius: var(--context-menu-border-radius, 0.25rem);
+  overflow: hidden;
+  white-space: nowrap;
+  filter: var(--context-menu-filter);
+  padding: var(--context-menu-padding, 0.25rem 0);
+  background-color: var(--context-menu-background-color, rgba(0, 0, 0, 0.9));
+  border: var(--context-menu-border-size) solid var(--context-menu-border-color);
+  overflow: hidden;
+}
+.useContextMenu_ContextMenu:focus {
+  outline: none;
+}
+
+.useContextMenu_ContextMenuCategory {
+  background-color: var(--context-menu-background-color);
+  color: var(--context-menu-category-color, rgba(255, 255, 255, 0.75));
+  font-family: var(--context-menu-font-family, sans-serif);
+  font-size: var(--context-menu-category-font-size, 14px);
+  padding: var(--context-menu-category-padding, 0.25rem 1rem);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  min-height: var(--context-menu-category-height, 1.5rem);
+}
+
+.useContextMenu_Divider {
+  height: var(--context-menu-divider-size, 1px);
+  background-color: var(
+    --context-menu-divider-color,
+    rgba(255, 255, 255, 0.25)
+  );
+  margin: var(--context-menu-divider-margin, 0.25rem 1rem);
+}
+
+.useContextMenu_ContextMenuItem,
+.useContextMenu_ContextMenuItemDisabled {
+  color: var(--context-menu-item-color, #fff);
+  font-family: var(--context-menu-font-family, sans-serif);
+  font-size: var(--context-menu-item-font-size, 16px);
+  padding: var(--context-menu-item-padding, 0.25rem 1rem);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  min-height: var(--context-menu-item-height);
+  transition: color var(--context-menu-transition-duration, 250ms),
+    background-color var(--context-menu-transition-duration, 250ms);
+}
+.useContextMenu_ContextMenuItem {
+  cursor: pointer;
+}
+
+.useContextMenu_ContextMenuItemDisabled {
+  background-color: var(--context-menu-item-background-color-disabled);
+  color: var(--context-menu-item-color-disabled, rgba(255, 255, 255, 0.25));
+}
+
+.useContextMenu_ContextMenuItem:hover {
+  transition: background-color 250ms;
+  background-color: var(
+    --context-menu-item-background-color-hover,
+    rgba(255, 255, 255, 0.1)
+  );
+  color: var(
+    --context-menu-item-color-hover,
+    var(--context-menu-item-color, #fff)
+  );
+}
+
+.useContextMenu_ContextMenuItem:focus {
+  outline: none;
+  background-color: var(
+    --context-menu-item-background-color-focus,
+    rgba(255, 255, 255, 0.1)
+  );
+  color: var(
+    --context-menu-item-color-focus,
+    var(--context-menu-item-color, #fff)
+  );
+}
