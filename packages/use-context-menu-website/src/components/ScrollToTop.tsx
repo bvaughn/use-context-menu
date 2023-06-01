@@ -19,7 +19,7 @@ export default function ScrollToTop(): null {
     if (hash) {
       let element = document.querySelector(hash);
       if (element) {
-        element.scrollIntoView({ block: "start", behavior: "smooth" });
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     } else {
       window.scrollTo(0, 0);

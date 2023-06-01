@@ -1,5 +1,4 @@
 module.exports = {
-  plugins: ["css-modules-transform"],
   presets: [
     require.resolve("@babel/preset-react"),
     [

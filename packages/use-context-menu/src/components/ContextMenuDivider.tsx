@@ -1,7 +1,6 @@
 import { CSSProperties, MouseEvent } from "react";
 
 import classNames from "../utils/classNames";
-import styles from "./ContextMenuDivider.module.css";
 
 export function ContextMenuDivider({
   className,
@@ -17,7 +16,7 @@ export function ContextMenuDivider({
 
   return (
     <div
-      className={classNames(styles.Divider, className)}
+      className={classNames("useContextMenu_Divider", className)}
       data-context-menu-divider
       onClick={onClick}
       style={style}
