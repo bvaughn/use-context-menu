@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import {
   ContextMenuCategory,
@@ -6,38 +7,35 @@ import {
   useContextMenu,
 } from "use-context-menu";
 
-const selectOne = () => toast("Option one selected");
-const selectTwo = () => toast("Option two selected");
-const selectThree = () => toast("Option three selected");
-const selectFour = () => toast("Option four selected");
+import Block from "../../../components/Block";
 
 // REMOVE_BEFORE
 
-function Example({ className }: { className: string }) {
+function Example({
+  copyText,
+  selectAll,
+  viewSource,
+}: {
+  copyText: () => void;
+  selectAll: () => void;
+  viewSource: () => void;
+}) {
   const { contextMenu, onContextMenu, onKeyDown } = useContextMenu(
     <>
-      <ContextMenuCategory>Section one</ContextMenuCategory>
-      <ContextMenuItem onSelect={selectOne}>One</ContextMenuItem>
-      <ContextMenuItem onSelect={selectTwo}>Two</ContextMenuItem>
+      <ContextMenuCategory>Inline options</ContextMenuCategory>
+      <ContextMenuItem onSelect={selectAll}>Select all</ContextMenuItem>
+      <ContextMenuItem onSelect={copyText}>Copy text</ContextMenuItem>
       <ContextMenuDivider />
-      <ContextMenuCategory>Section two</ContextMenuCategory>
-      <ContextMenuItem disabled onSelect={selectThree}>
-        Three
-      </ContextMenuItem>
-      <ContextMenuItem onSelect={selectFour}>Four</ContextMenuItem>
+      <ContextMenuCategory>External options</ContextMenuCategory>
+      <ContextMenuItem onSelect={viewSource}>View source</ContextMenuItem>
     </>
   );
 
   return (
     <>
-      <span
-        className={className}
-        onContextMenu={onContextMenu}
-        onKeyDown={onKeyDown}
-        tabIndex={0}
-      >
-        right-click me
-      </span>
+      <Block onContextMenu={onContextMenu} onKeyDown={onKeyDown} tabIndex={0}>
+        To try the context menu, right-click anywhere within this box.
+      </Block>
       {contextMenu}
     </>
   );
@@ -46,9 +44,43 @@ function Example({ className }: { className: string }) {
 // REMOVE_AFTER
 
 export function Demo({ className }: { className: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const copyText = async () => {
+    try {
+      const div = ref.current!;
+      await navigator.clipboard.writeText(div.textContent!);
+      toast("Copied to clipboard");
+    } catch (error) {}
+  };
+
+  const selectAll = () => {
+    const div = ref.current!;
+    const selection = window.getSelection();
+    if (selection) {
+      const range = document.createRange();
+      range.selectNodeContents(div);
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+  };
+
+  const viewSource = () => {
+    window.open(
+      "https://github.com/bvaughn/use-context-menu/blob/main/packages/use-context-menu-website/src/examples/guides/right-click/index.tsx",
+      "_blank"
+    );
+  };
+
   return (
     <>
-      <Example className={className} />
+      <div className={className} ref={ref}>
+        <Example
+          copyText={copyText}
+          selectAll={selectAll}
+          viewSource={viewSource}
+        />
+      </div>
       <Toaster />
     </>
   );

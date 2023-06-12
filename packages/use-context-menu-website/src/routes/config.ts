@@ -26,6 +26,7 @@ export const CUSTOM_CSS_MENU: Route = {
   path: "/examples/custom-css",
   title: "Custom CSS",
 };
+
 export const LEFT_CLICK_MENU: Route = {
   Component: LeftClickRoute,
   path: "/examples/left-click-menu",

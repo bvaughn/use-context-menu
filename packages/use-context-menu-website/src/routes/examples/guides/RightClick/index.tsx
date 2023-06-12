@@ -12,12 +12,7 @@ export default function RightClickRoute() {
       <Block>
         <SubPageHeading title="Right-click menu " />
       </Block>
-      <Block>
-        <p>
-          To try the context menu, right-click on the following text:{" "}
-          <Demo className={styles.Trigger} />
-        </p>
-      </Block>
+      <Demo className={styles.Trigger} />
       <Code code={examples.rightClick} />
     </Container>
   );

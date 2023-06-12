@@ -13,10 +13,10 @@ export default function LeftClickRoute() {
         <SubPageHeading title="Left-click menu" />
       </Block>
       <Block>
-        <p>
-          This hook can also be used for regular menus. Try by left-clicking the
-          following text: <Demo className={styles.Trigger} />
-        </p>
+        <Demo
+          containerClassName={styles.Container}
+          triggerClassName={styles.Trigger}
+        />
       </Block>
       <Code code={examples.leftClick} />
     </Container>

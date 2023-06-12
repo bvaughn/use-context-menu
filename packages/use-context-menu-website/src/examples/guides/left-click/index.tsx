@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import {
   ContextMenuCategory,
@@ -15,22 +16,29 @@ const selectFour = () => toast("Option four selected");
 
 // REMOVE_BEFORE
 
-function Example({ className }: { className: string }) {
+function Example({
+  className,
+  copyText,
+  selectAll,
+  viewSource,
+}: {
+  className: string;
+  copyText: () => void;
+  selectAll: () => void;
+  viewSource: () => void;
+}) {
   const {
     contextMenu: menu,
     onContextMenu: onClick,
     onKeyDown,
   } = useContextMenu(
     <>
-      <ContextMenuCategory>Section one</ContextMenuCategory>
-      <ContextMenuItem onSelect={selectOne}>One</ContextMenuItem>
-      <ContextMenuItem onSelect={selectTwo}>Two</ContextMenuItem>
+      <ContextMenuCategory>Inline options</ContextMenuCategory>
+      <ContextMenuItem onSelect={selectAll}>Select all</ContextMenuItem>
+      <ContextMenuItem onSelect={copyText}>Copy text</ContextMenuItem>
       <ContextMenuDivider />
-      <ContextMenuCategory>Section two</ContextMenuCategory>
-      <ContextMenuItem disabled onSelect={selectThree}>
-        Three
-      </ContextMenuItem>
-      <ContextMenuItem onSelect={selectFour}>Four</ContextMenuItem>
+      <ContextMenuCategory>External options</ContextMenuCategory>
+      <ContextMenuItem onSelect={viewSource}>View source</ContextMenuItem>
     </>,
     { alignTo: "auto-target" }
   );
@@ -52,10 +60,55 @@ function Example({ className }: { className: string }) {
 
 // REMOVE_AFTER
 
-export function Demo({ className }: { className: string }) {
+export function Demo({
+  containerClassName,
+  triggerClassName,
+}: {
+  containerClassName: string;
+  triggerClassName: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const copyText = async () => {
+    try {
+      const div = ref.current!;
+      await navigator.clipboard.writeText(div.textContent!);
+      toast("Copied to clipboard");
+    } catch (error) {}
+  };
+
+  const selectAll = () => {
+    const div = ref.current!;
+    const selection = window.getSelection();
+    if (selection) {
+      const range = document.createRange();
+      range.selectNodeContents(div);
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+  };
+
+  const viewSource = () => {
+    window.open(
+      "https://github.com/bvaughn/use-context-menu/blob/main/packages/use-context-menu-website/src/examples/guides/left-click/index.tsx",
+      "_blank"
+    );
+  };
+
   return (
     <>
-      <Example className={className} />
+      <div className={containerClassName} ref={ref}>
+        <span>
+          This hook can also be used for regular menus. Try by left-clicking the
+          following text:
+        </span>
+        <Example
+          className={triggerClassName}
+          copyText={copyText}
+          selectAll={selectAll}
+          viewSource={viewSource}
+        />
+      </div>
       <Toaster />
     </>
   );

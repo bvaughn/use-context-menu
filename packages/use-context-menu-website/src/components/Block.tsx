@@ -1,13 +1,22 @@
-import { PropsWithChildren } from "react";
+import { HTMLAttributes, PropsWithChildren } from "react";
 
 import styles from "./Block.module.css";
 
 export default function Block({
   children,
+  className,
   type,
-}: PropsWithChildren & { type?: "normal" | "demo" }) {
+  ...rest
+}: PropsWithChildren &
+  HTMLAttributes<HTMLDivElement> & {
+    type?: "normal" | "demo";
+  }) {
   return (
-    <div className={styles.Block} data-type={type}>
+    <div
+      className={`${styles.Block} ${className ?? ""}`}
+      data-type={type}
+      {...rest}
+    >
       {children}
     </div>
   );

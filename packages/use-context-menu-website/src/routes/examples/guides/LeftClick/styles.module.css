@@ -1,3 +1,10 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1ch;
+}
+
 .Trigger {
   display: inline-flex;
   align-items: center;
