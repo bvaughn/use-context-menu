@@ -33,7 +33,7 @@ importers:
         version: 2.8.1
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^4.1.1
-        version: 4.1.1(prettier@2.8.8)
+        version: 4.1.1(prettier@3.0.0)
       '@types/jest':
         specifier: ^29.4.0
         version: 29.4.0
@@ -72,7 +72,7 @@ importers:
         version: 1.0.1
       prettier:
         specifier: latest
-        version: 2.8.8
+        version: 3.0.0
       process:
         specifier: ^0.11.10
         version: 0.11.10
@@ -139,9 +139,6 @@ importers:
       '@lezer/highlight':
         specifier: latest
         version: 1.1.6
-      '@playwright/test':
-        specifier: latest
-        version: 1.35.1
       '@types/lru-cache':
         specifier: ^7.10.10
         version: 7.10.10
@@ -166,9 +163,6 @@ importers:
       match-sorter:
         specifier: latest
         version: 6.3.1
-      playwright:
-        specifier: latest
-        version: 1.35.1
       react:
         specifier: experimental
         version: 0.0.0-experimental-035a41c4e-20230704
@@ -194,6 +188,9 @@ importers:
         specifier: workspace:^
         version: link:../use-context-menu
     devDependencies:
+      '@playwright/test':
+        specifier: ^1.35.1
+        version: 1.35.1
       '@types/lodash.shuffle':
         specifier: ^4.2.7
         version: 4.2.7
@@ -2248,7 +2245,7 @@ packages:
       playwright-core: 1.35.1
     optionalDependencies:
       fsevents: 2.3.2
-    dev: false
+    dev: true
 
   /@preconstruct/cli@2.8.1:
     resolution: {integrity: sha512-PX5w+au06iY/QaT+9RLmRlIfavRCRoMTC/krwtNrgPEnubR9e6P+QlywrKmwiEvkzbR9AEzGnRZL8uNRDDMzrQ==}
@@ -2523,7 +2520,7 @@ packages:
     engines: {node: '>= 10'}
     dev: true
 
-  /@trivago/prettier-plugin-sort-imports@4.1.1(prettier@2.8.8):
+  /@trivago/prettier-plugin-sort-imports@4.1.1(prettier@3.0.0):
     resolution: {integrity: sha512-dQ2r2uzNr1x6pJsuh/8x0IRA3CBUB+pWEW3J/7N98axqt7SQSm+2fy0FLNXvXGg77xEDC7KHxJlHfLYyi7PDcw==}
     peerDependencies:
       '@vue/compiler-sfc': 3.x
@@ -2538,7 +2535,7 @@ packages:
       '@babel/types': 7.17.0
       javascript-natural-sort: 0.7.1
       lodash: 4.17.21
-      prettier: 2.8.8
+      prettier: 3.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2648,6 +2645,7 @@ packages:
 
   /@types/node@18.14.6:
     resolution: {integrity: sha512-93+VvleD3mXwlLI/xASjw0FzKcwzl3OdTCzm1LaRfqgS21gfFtK3zDXM5Op9TeeMsJVOaJ2VRDpT9q4Y3d0AvA==}
+    dev: true
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -3820,6 +3818,7 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /function-bind@1.1.1:
@@ -5463,16 +5462,7 @@ packages:
     resolution: {integrity: sha512-pNXb6CQ7OqmGDRspEjlxE49w+4YtR6a3X6mT1hZXeJHWmsEz7SunmvZeiG/+y1yyMZdHnnn73WKYdtV1er0Xyg==}
     engines: {node: '>=16'}
     hasBin: true
-    dev: false
-
-  /playwright@1.35.1:
-    resolution: {integrity: sha512-NbwBeGJLu5m7VGM0+xtlmLAH9VUfWwYOhUi/lSEDyGg46r1CA9RWlvoc5yywxR9AzQb0mOCm7bWtOXV7/w43ZA==}
-    engines: {node: '>=16'}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      playwright-core: 1.35.1
-    dev: false
+    dev: true
 
   /point-utilities@0.0.2:
     resolution: {integrity: sha512-jNUr+ijPk0cWw39gtJG0O8HNPL2EVC7e2ilC1NUlJw1QVTgC8NIMS/8AmG9IJfvfmJx+IlT8KNJzf/Jb035STQ==}
@@ -5521,9 +5511,9 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier@2.8.8:
-    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
-    engines: {node: '>=10.13.0'}
+  /prettier@3.0.0:
+    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
