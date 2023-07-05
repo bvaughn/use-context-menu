@@ -57,7 +57,8 @@
   align-items: center;
   gap: 1ch;
   min-height: var(--context-menu-item-height);
-  transition: color var(--context-menu-transition-duration, 250ms),
+  transition:
+    color var(--context-menu-transition-duration, 250ms),
     background-color var(--context-menu-transition-duration, 250ms);
 }
 .useContextMenu_ContextMenuItem {
