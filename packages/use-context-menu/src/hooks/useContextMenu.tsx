@@ -9,6 +9,7 @@ import {
   useMemo,
   useRef,
   useState,
+  useTransition,
 } from "react";
 
 import {
@@ -39,6 +40,7 @@ export function useContextMenu(
   } = {}
 ): {
   contextMenu: ReactNode | null;
+  isPending: boolean;
   onKeyDown: (event: SyntheticKeyboardEvent) => void;
   onContextMenu: (event: UIEvent) => void;
 } {
@@ -53,6 +55,7 @@ export function useContextMenu(
     style,
   } = options;
 
+  const [isPending, startTransition] = useTransition();
   const [state, setState] = useState<State | null>(null);
 
   const menuRef = useRef<HTMLDivElement>();
@@ -195,11 +198,13 @@ export function useContextMenu(
     const clientX = isMouseEvent(event) ? event.clientX : targetRect.x;
     const clientY = isMouseEvent(event) ? event.clientY : targetRect.y;
 
-    setState({
-      clientX,
-      clientY,
-      event,
-      targetRect,
+    startTransition(() => {
+      setState({
+        clientX,
+        clientY,
+        event,
+        targetRect,
+      });
     });
   };
 
@@ -256,6 +261,7 @@ export function useContextMenu(
 
   return {
     contextMenu,
+    isPending,
     onContextMenu,
     onKeyDown,
   };
