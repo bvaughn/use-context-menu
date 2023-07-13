@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.11
+* Context menus are now shown as part of a _transition_, in case a `ContextMenuItem` suspends while rendering.
+
 ## 0.4.10
 * Fixed Babel configuration to use automatic JSX runtime setting; updated peer dependencies to require `react@16.14` or newer
 
