@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.12
+* Revert _transition_ change from 0.4.11. Suggest using `useDeferredValue` to render context menus if there are concerns about a menu item suspending during mount.
+
 ## 0.4.11
 * Context menus are now shown as part of a _transition_, in case a `ContextMenuItem` suspends while rendering.
 
