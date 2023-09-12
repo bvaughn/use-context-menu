@@ -39,6 +39,7 @@ export function useContextMenu(
   } = {}
 ): {
   contextMenu: ReactNode | null;
+  hideMenu: () => void;
   onKeyDown: (event: SyntheticKeyboardEvent) => void;
   onContextMenu: (event: UIEvent) => void;
 } {
@@ -161,11 +162,13 @@ export function useContextMenu(
   const committedValuesRef = useRef<{
     onHide?: () => void | Promise<void>;
     onShow?: (event: UIEvent) => void | Promise<void>;
-  }>({ onHide, onShow });
+    state: State | null;
+  }>({ onHide, onShow, state });
 
   useEffect(() => {
     committedValuesRef.current.onHide = onHide;
     committedValuesRef.current.onShow = onShow;
+    committedValuesRef.current.state = state;
   });
 
   const context = useMemo<ContextMenuContextType>(
@@ -223,8 +226,12 @@ export function useContextMenu(
     }
   };
 
-  const hideContextMenu = useCallback(() => {
-    const { onHide } = committedValuesRef.current;
+  const hideMenu = useCallback(() => {
+    const { onHide, state } = committedValuesRef.current;
+
+    if (state == null) {
+      return;
+    }
 
     setState(null);
 
@@ -244,7 +251,7 @@ export function useContextMenu(
           clientY={state.clientY}
           dataTestId={dataTestId}
           dataTestName={dataTestName}
-          hide={hideContextMenu}
+          hide={hideMenu}
           style={style}
           targetRect={state.targetRect}
         >
@@ -256,6 +263,7 @@ export function useContextMenu(
 
   return {
     contextMenu,
+    hideMenu,
     onContextMenu,
     onKeyDown,
   };
