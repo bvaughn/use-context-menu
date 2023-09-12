@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.13
+* Add `hideMenu` function to the return value for `useContextMenu` to enable external code to hide a context menu.
+
 ## 0.4.12
 * Revert _transition_ change from 0.4.11. Suggest using `useDeferredValue` to render context menus if there are concerns about a menu item suspending during mount.
 
