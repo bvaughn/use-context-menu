@@ -11,9 +11,11 @@ jobs:
           version: 9
       - name: Install dependencies
         run: pnpm install -r
-      - name: Install Playwright dependencies
-        run: npx playwright install-deps chromium
       - name: Build NPM package
         run: pnpm prerelease
+      - name: Install Playwright dependencies
+        working-directory: packages/use-context-menu-website
+        run: npx playwright install-deps chromium
       - name: Run Playwright tests
-        run: cd packages/use-context-menu-website && pnpm test
+        working-directory: packages/use-context-menu-website
+        run: pnpm test
