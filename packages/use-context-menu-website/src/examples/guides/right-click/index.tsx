@@ -33,7 +33,12 @@ function Example({
 
   return (
     <>
-      <Block onContextMenu={onContextMenu} onKeyDown={onKeyDown} tabIndex={0}>
+      <Block
+        data-test-name="click-target"
+        onContextMenu={onContextMenu}
+        onKeyDown={onKeyDown}
+        tabIndex={0}
+      >
         To try the context menu, right-click anywhere within this box.
       </Block>
       {contextMenu}

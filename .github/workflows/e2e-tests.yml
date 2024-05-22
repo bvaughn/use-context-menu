@@ -19,3 +19,5 @@ jobs:
       - name: Run Playwright tests
         working-directory: packages/use-context-menu-website
         run: pnpm test
+        env:
+          REPLAY_API_KEY: ${{ secrets.REPLAY_API_KEY }}

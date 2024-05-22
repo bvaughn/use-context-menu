@@ -11,9 +11,10 @@
   },
   "devDependencies": {
     "@playwright/test": "latest",
-    "playwright": "latest",
+    "@replayio/playwright": "3.0.0-alpha.12",
     "@types/lodash.shuffle": "^4.2.7",
-    "kill-port": "latest"
+    "kill-port": "latest",
+    "playwright": "latest"
   },
   "dependencies": {
     "@codemirror/lang-css": "latest",

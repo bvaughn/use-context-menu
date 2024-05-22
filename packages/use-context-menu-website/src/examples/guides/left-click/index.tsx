@@ -9,11 +9,6 @@ import {
 
 import Icon from "../../../components/Icon";
 
-const selectOne = () => toast("Option one selected");
-const selectTwo = () => toast("Option two selected");
-const selectThree = () => toast("Option three selected");
-const selectFour = () => toast("Option four selected");
-
 // REMOVE_BEFORE
 
 function Example({
@@ -47,6 +42,7 @@ function Example({
     <>
       <span
         className={className}
+        data-test-name="click-target"
         onClick={onClick}
         onKeyDown={onKeyDown}
         tabIndex={0}
