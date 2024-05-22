@@ -193,7 +193,7 @@ importers:
         version: link:../use-context-menu
     devDependencies:
       '@playwright/test':
-        specifier: ^1.42.1
+        specifier: latest
         version: 1.42.1
       '@types/lodash.shuffle':
         specifier: ^4.2.7
@@ -201,6 +201,9 @@ importers:
       kill-port:
         specifier: latest
         version: 2.0.1
+      playwright:
+        specifier: latest
+        version: 1.42.1
 
 packages:
 
