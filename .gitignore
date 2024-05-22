@@ -8,6 +8,7 @@ node_modules
 .cache
 .parcel-cache
 
+.env
 .pnp.*
 .yarn/*
 !.yarn/patches

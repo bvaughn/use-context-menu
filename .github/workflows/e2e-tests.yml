@@ -8,12 +8,14 @@ jobs:
       - uses: actions/setup-node@v3
       - uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 9
       - name: Install dependencies
         run: pnpm install -r
-      - name: Install Playwright dependencies
-        run: npx playwright install 
       - name: Build NPM package
         run: pnpm prerelease
+      - name: Install Playwright dependencies
+        working-directory: packages/use-context-menu-website
+        run: pnpm exec playwright install
       - name: Run Playwright tests
-        run: cd packages/use-context-menu-website && pnpm test
+        working-directory: packages/use-context-menu-website
+        run: pnpm test

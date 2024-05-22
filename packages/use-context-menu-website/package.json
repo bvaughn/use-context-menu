@@ -10,7 +10,8 @@
     "watch": "parcel 'index.html'"
   },
   "devDependencies": {
-    "@playwright/test": "^1.35.1",
+    "@playwright/test": "latest",
+    "playwright": "latest",
     "@types/lodash.shuffle": "^4.2.7",
     "kill-port": "latest"
   },
