@@ -12,7 +12,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install -r
       - name: Install Playwright dependencies
-        run: pnpm playwright install
+        run: cd packages/use-context-menu-website && playwright install
       - name: Build NPM package
         run: pnpm prerelease
       - name: Run Playwright tests
