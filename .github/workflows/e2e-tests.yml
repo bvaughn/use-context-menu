@@ -12,7 +12,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install -r
       - name: Install Playwright dependencies
-        run: npx playwright install 
+        run: pnpm playwright install
       - name: Build NPM package
         run: pnpm prerelease
       - name: Run Playwright tests
