@@ -1,23 +1,8 @@
-import { PlaywrightTestConfig, devices } from "@playwright/test";
-import { devices as replayDevices } from "@replayio/playwright";
+import type { PlaywrightTestConfig } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
-  projects: [
-    {
-      name: "replay-chromium",
-      use: { ...replayDevices["Replay Chromium"] },
-    },
-  ],
-  reporter: [
-    [
-      "@replayio/playwright/reporter",
-      {
-        apiKey: process.env.REPLAY_API_KEY,
-        upload: true,
-      },
-    ],
-    ["line"],
-  ],
+  forbidOnly: !!process.env.CI,
+  testDir: "tests",
   use: {
     headless: true,
     ignoreHTTPSErrors: true,
