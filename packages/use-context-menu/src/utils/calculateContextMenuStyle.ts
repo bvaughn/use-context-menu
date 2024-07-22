@@ -1,7 +1,7 @@
-import { AlignTo, Offsets, Rect } from "../types";
+import { AlignTo, ContextMenuStyle, Rect } from "../types";
 import { assert } from "./assert";
 
-export function calculateOffsets({
+export function calculateContextMenuStyle({
   alignTo,
   cursorX,
   cursorY,
@@ -17,7 +17,7 @@ export function calculateOffsets({
   targetRect: Rect;
   viewportHeight: number;
   viewportWidth: number;
-}): Offsets {
+}): ContextMenuStyle {
   if (alignTo === "auto-cursor" && (cursorX == null || cursorY == null)) {
     alignTo = "auto-target";
   }
@@ -39,61 +39,63 @@ export function calculateOffsets({
   switch (alignTo) {
     case "above": {
       return {
-        x: centerX,
-        y: targetRect.y - menuRect.height,
+        left: centerX,
+        top: targetRect.y - menuRect.height,
       };
     }
     case "auto-cursor": {
       assert(cursorX != null && cursorY != null);
 
-      const offsets: Offsets = {
-        x: cursorX,
-        y: cursorY,
+      const style: ContextMenuStyle = {
+        left: cursorX,
+        top: cursorY,
       };
 
       if (menuRect.width > viewportWidth) {
-        offsets.x = 0;
+        style.left = 0;
       } else if (cursorX + menuRect.width > viewportWidth) {
-        offsets.x = cursorX - menuRect.width;
+        style.left = cursorX - menuRect.width;
       }
 
       if (menuRect.height > viewportHeight) {
-        offsets.y = 0;
+        style.top = 0;
       } else if (cursorY + menuRect.height > viewportHeight) {
-        offsets.y = cursorY - menuRect.height;
+        style.top = cursorY - menuRect.height;
       }
 
-      return offsets;
+      return style;
     }
     case "auto-target": {
       if (targetRect.bottom + menuRect.height > viewportHeight) {
         return {
-          x: Math.max(0, centerX),
-          y: Math.max(0, targetRect.y - menuRect.height),
+          left: targetRect.x,
+          top: Math.max(0, targetRect.y - menuRect.height),
+          width: targetRect.width,
         };
       } else {
         return {
-          x: Math.max(0, centerX),
-          y: targetRect.bottom,
+          left: targetRect.x,
+          top: targetRect.bottom,
+          width: targetRect.width,
         };
       }
     }
     case "below": {
       return {
-        x: centerX,
-        y: targetRect.bottom,
+        left: centerX,
+        top: targetRect.bottom,
       };
     }
     case "left": {
       return {
-        x: targetRect.x - menuRect.width,
-        y: centerY,
+        left: targetRect.x - menuRect.width,
+        top: centerY,
       };
     }
     case "right": {
       return {
-        x: targetRect.right,
-        y: centerY,
+        left: targetRect.right,
+        top: centerY,
       };
     }
   }

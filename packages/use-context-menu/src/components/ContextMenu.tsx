@@ -10,8 +10,8 @@ import { createPortal } from "react-dom";
 
 import { ContextMenuContext } from "../ContextMenuContext";
 import { useModalDismissSignal } from "../hooks/useModalDismissSignal";
-import { AlignTo } from "../types";
-import { calculateOffsets } from "../utils/calculateOffsets";
+import { AlignTo, ContextMenuStyle } from "../types";
+import { calculateContextMenuStyle } from "../utils/calculateContextMenuStyle";
 import classNames from "../utils/classNames";
 
 export function ContextMenu({
@@ -45,9 +45,10 @@ export function ContextMenu({
     registerMenu(ref.current!);
   }, [registerMenu]);
 
-  const offsetsRef = useRef<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
+  const styleRef = useRef<ContextMenuStyle>({
+    left: 0,
+    top: 0,
+    width: undefined,
   });
 
   useModalDismissSignal(ref, hide, true);
@@ -61,7 +62,7 @@ export function ContextMenu({
 
     const isKeyboardEvent = eventType?.startsWith("key");
 
-    const offsets = calculateOffsets({
+    const { left, top, width } = calculateContextMenuStyle({
       alignTo,
       cursorX: isKeyboardEvent ? undefined : clientX,
       cursorY: isKeyboardEvent ? undefined : clientY,
@@ -71,8 +72,18 @@ export function ContextMenu({
       viewportWidth: window.outerWidth,
     });
 
-    contextMenu.style.left = `${offsets.x}px`;
-    contextMenu.style.top = `${offsets.y}px`;
+    contextMenu.style.left = `${left}px`;
+    contextMenu.style.top = `${top}px`;
+    if (width) {
+      contextMenu.style.width = `${width}px`;
+    }
+
+    // Stash in ref for subsequent renders
+    styleRef.current = {
+      left,
+      top,
+      width,
+    };
   }, [alignTo, clientX, clientY, eventType, targetRect]);
 
   const onClick = (event: MouseEvent) => {
@@ -90,11 +101,12 @@ export function ContextMenu({
     event.stopPropagation();
   };
 
-  const offsets = offsetsRef.current;
+  const { left, top, width } = styleRef.current;
 
-  let style = {
-    left: offsets.x,
-    top: offsets.y,
+  let style: CSSProperties = {
+    left: `${left}px`,
+    top: `${top}px`,
+    width: width ? `${width}px` : undefined,
   };
 
   if (styleFromProps) {

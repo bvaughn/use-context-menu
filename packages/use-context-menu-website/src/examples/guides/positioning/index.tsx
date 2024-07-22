@@ -16,7 +16,7 @@ function useContextMenu(_: any, __: { alignTo: AlignTo }) {}
 
 useContextMenu(
   <>
-    <ContextMenuItem onSelect={noop}>Menu item</ContextMenuItem>
+    <ContextMenuItem onSelect={noop}>Menu</ContextMenuItem>
   </>,
   {
     // Optional positioning configuration
@@ -72,7 +72,7 @@ function Menu({ alignTo, label }: { alignTo: AlignTo; label: string }) {
     onKeyDown,
   } = useContextMenuHook(
     <>
-      <ContextMenuItem onSelect={noop}>Menu item</ContextMenuItem>
+      <ContextMenuItem onSelect={noop}>Menu</ContextMenuItem>
     </>,
     { alignTo }
   );

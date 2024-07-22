@@ -8,7 +8,8 @@ export type AlignTo =
 
 export type Rect = Omit<DOMRect, "toJSON">;
 
-export type Offsets = {
-  x: number;
-  y: number;
+export type ContextMenuStyle = {
+  left: number;
+  top: number;
+  width?: number;
 };
