@@ -68,8 +68,8 @@ export function ContextMenu({
       cursorY: isKeyboardEvent ? undefined : clientY,
       menuRect,
       targetRect,
-      viewportHeight: window.outerHeight,
-      viewportWidth: window.outerWidth,
+      viewportHeight: window.innerHeight,
+      viewportWidth: window.innerWidth,
     });
 
     contextMenu.style.left = `${left}px`;
