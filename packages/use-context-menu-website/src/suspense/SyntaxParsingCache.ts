@@ -37,7 +37,7 @@ export const syntaxParsingCache = createCache<
   ParsedTokens[]
 >({
   debugLabel: "SyntaxParsingCache",
-  getKey: ([code, language]) => `${code.length}-${language}`,
+  getKey: ([code, language]) => `${language}:${code}`,
   load: async ([code, language]) => {
     const languageExtension = await getLanguageExtension(language);
     const parsedTokens: ParsedTokens[] = [];

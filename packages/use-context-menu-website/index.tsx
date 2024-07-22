@@ -9,6 +9,7 @@ import {
   CUSTOM_CSS_MENU,
   HOME_ROUTE,
   LEFT_CLICK_MENU,
+  POSITIONING,
   RIGHT_CLICK_MENU,
 } from "./src/routes/config";
 
@@ -31,6 +32,7 @@ if (rootElement) {
             path={LEFT_CLICK_MENU.path}
             Component={LEFT_CLICK_MENU.Component}
           />
+          <Route path={POSITIONING.path} Component={POSITIONING.Component} />
           <Route
             path={RIGHT_CLICK_MENU.path}
             Component={RIGHT_CLICK_MENU.Component}

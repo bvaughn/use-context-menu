@@ -10,7 +10,8 @@ import { createPortal } from "react-dom";
 
 import { ContextMenuContext } from "../ContextMenuContext";
 import { useModalDismissSignal } from "../hooks/useModalDismissSignal";
-import { AlignTo } from "../types";
+import { AlignTo, ContextMenuStyle } from "../types";
+import { calculateContextMenuStyle } from "../utils/calculateContextMenuStyle";
 import classNames from "../utils/classNames";
 
 export function ContextMenu({
@@ -38,65 +39,52 @@ export function ContextMenu({
 }) {
   const { contextMenuEvent, registerMenu } = useContext(ContextMenuContext);
 
-  let alignToTarget =
-    alignTo === "auto-target" || contextMenuEvent?.type.startsWith("key");
-
   const ref = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     registerMenu(ref.current!);
   }, [registerMenu]);
 
-  const offsetsRef = useRef<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
+  const styleRef = useRef<ContextMenuStyle>({
+    left: 0,
+    top: 0,
+    width: undefined,
   });
 
   useModalDismissSignal(ref, hide, true);
 
+  const eventType = contextMenuEvent?.type;
+
   // Optimally position the popup within the viewport
   useLayoutEffect(() => {
     const contextMenu = ref.current!;
-    const rect = contextMenu.getBoundingClientRect();
+    const menuRect = contextMenu.getBoundingClientRect();
 
-    const offsets = offsetsRef.current;
-    if (rect.width < window.innerWidth) {
-      if (rect.right > window.innerWidth) {
-        if (rect.x - rect.width > 0) {
-          offsets.x = 0 - rect.width;
-        } else {
-          offsets.x = 0 - rect.x;
-        }
-      }
-    }
-    if (rect.height < window.innerHeight) {
-      if (rect.bottom > window.innerHeight) {
-        if (alignToTarget) {
-          if (rect.y - targetRect.height - rect.height > 0) {
-            offsets.y = 0 - targetRect.height - rect.height;
-          } else {
-            offsets.y = 0 - rect.y;
-          }
-        } else {
-          if (rect.y - rect.height > 0) {
-            offsets.y = 0 - rect.height;
-          } else {
-            offsets.y = 0 - rect.y;
-          }
-        }
-      }
+    const isKeyboardEvent = eventType?.startsWith("key");
+
+    const { left, top, width } = calculateContextMenuStyle({
+      alignTo,
+      cursorX: isKeyboardEvent ? undefined : clientX,
+      cursorY: isKeyboardEvent ? undefined : clientY,
+      menuRect,
+      targetRect,
+      viewportHeight: window.innerHeight,
+      viewportWidth: window.innerWidth,
+    });
+
+    contextMenu.style.left = `${left}px`;
+    contextMenu.style.top = `${top}px`;
+    if (width) {
+      contextMenu.style.width = `${width}px`;
     }
 
-    if (alignToTarget) {
-      contextMenu.style.left = `${targetRect.left + offsets.x}px`;
-      contextMenu.style.top = `${
-        targetRect.top + targetRect.height + offsets.y
-      }px`;
-    } else {
-      contextMenu.style.left = `${clientX + offsets.x}px`;
-      contextMenu.style.top = `${clientY + offsets.y}px`;
-    }
-  }, [alignToTarget, clientX, clientY, targetRect]);
+    // Stash in ref for subsequent renders
+    styleRef.current = {
+      left,
+      top,
+      width,
+    };
+  }, [alignTo, clientX, clientY, eventType, targetRect]);
 
   const onClick = (event: MouseEvent) => {
     if (event.defaultPrevented) {
@@ -113,21 +101,13 @@ export function ContextMenu({
     event.stopPropagation();
   };
 
-  const offsets = offsetsRef.current;
+  const { left, top, width } = styleRef.current;
 
-  let style;
-  if (alignToTarget) {
-    style = {
-      left: targetRect.left + offsets.x,
-      minWidth: targetRect.width,
-      top: targetRect.top + targetRect.height + offsets.y,
-    };
-  } else {
-    style = {
-      left: clientX + offsets.x,
-      top: clientY + offsets.y,
-    };
-  }
+  let style: CSSProperties = {
+    left: `${left}px`,
+    top: `${top}px`,
+    width: width ? `${width}px` : undefined,
+  };
 
   if (styleFromProps) {
     style = Object.assign(style, styleFromProps);

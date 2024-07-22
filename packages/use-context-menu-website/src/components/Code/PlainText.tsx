@@ -4,13 +4,13 @@ import { escapeHtmlEntities } from "../../suspense/SyntaxParsingCache";
 import styles from "./shared.module.css";
 
 export function PlainText({
-  className,
+  className = "",
   code,
-  showLineNumbers,
+  showLineNumbers = false,
 }: {
-  className: string;
+  className?: string;
   code: string;
-  showLineNumbers: boolean;
+  showLineNumbers?: boolean;
 }) {
   const htmlLines = useMemo<string[]>(() => {
     return code.split("\n").map((line, index) => {

@@ -23,6 +23,9 @@ export const examples = {
   leftClick: processExample(
     readFileSync(join(__dirname, "guides", "left-click", "index.tsx"), "utf8")
   ),
+  positioning: processExample(
+    readFileSync(join(__dirname, "guides", "positioning", "index.tsx"), "utf8")
+  ),
   rightClick: processExample(
     readFileSync(join(__dirname, "guides", "right-click", "index.tsx"), "utf8")
   ),
