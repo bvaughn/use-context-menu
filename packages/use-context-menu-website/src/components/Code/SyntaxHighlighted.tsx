@@ -9,15 +9,15 @@ import { ParsedTokens } from "../../suspense/SyntaxParsingCache";
 import styles from "./shared.module.css";
 
 export function SyntaxHighlighted({
-  className,
+  className = "",
   code,
   language,
-  showLineNumbers,
+  showLineNumbers = false,
 }: {
-  className: string;
+  className?: string;
   code: string;
   language: Language;
-  showLineNumbers: boolean;
+  showLineNumbers?: boolean;
 }) {
   const tokens = syntaxParsingCache.read(code, language);
   return (

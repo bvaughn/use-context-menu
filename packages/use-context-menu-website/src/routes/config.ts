@@ -3,6 +3,7 @@ import { ComponentType } from "react";
 import HomeRoute from "./Home/Home";
 import CustomCssRoute from "./examples/guides/CustomCss";
 import LeftClickRoute from "./examples/guides/LeftClick";
+import PositioningRoute from "./examples/guides/Positioning";
 import RightClickRoute from "./examples/guides/RightClick";
 
 export type Route = {
@@ -31,6 +32,12 @@ export const LEFT_CLICK_MENU: Route = {
   Component: LeftClickRoute,
   path: "/examples/left-click-menu",
   title: "Menu (left-click)",
+};
+
+export const POSITIONING: Route = {
+  Component: PositioningRoute,
+  path: "/examples/positioning",
+  title: "Positioning",
 };
 
 export const RIGHT_CLICK_MENU: Route = {
