@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.5.1
+* Update peer dependencies to include `react`/`react-dom` version 19.
+
 ## 0.5.0
 * Support additional `alignTo` options for left, right, above, and below.
 
