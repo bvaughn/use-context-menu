@@ -31,15 +31,19 @@ export default function LeftClickMenuRoute() {
       <Header section="Examples" title="Left-click menu" />
       <div>Menus can also be attached to the left-click action:</div>
       <Callout intent="success" minimal>
-        <div ref={ref}>Left-click the dropdown below to open the menu:</div>
-        <Button
-          className="flex flex-row items-center gap-2"
-          onClick={onClick}
-          // @ts-expect-error TODO This prop is not exported (yet) but does work
-          onKeyDown={onKeyDown}
-        >
-          click to open <ChevronIcon className="fill-black/50 w-4 h-4" />
-        </Button>
+        <Box align="center" direction="row" gap={4}>
+          <div ref={ref}>Left-click the dropdown to open the menu:</div>
+          <div>
+            <Button
+              className="flex flex-row items-center gap-2"
+              intent="success"
+              onClick={onClick}
+              onKeyDown={onKeyDown}
+            >
+              click to open <ChevronIcon className="fill-black/50 w-4 h-4" />
+            </Button>
+          </div>
+        </Box>
       </Callout>
       {menu}
       {createPortal(<Toaster />, document.body)}

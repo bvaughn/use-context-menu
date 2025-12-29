@@ -14,10 +14,10 @@ export default function App() {
               right-click menu
             </NavLink>
             <NavLink path="/examples/left-click-menu">left-click menu</NavLink>
-            <NavLink path="/examples/positioning-options">
-              positioning options
+            <NavLink path="/examples/alignment-options">
+              alignment options
             </NavLink>
-            <NavLink path="/examples/custom-css">custom css</NavLink>
+            <NavLink path="/examples/custom-styles">custom styles</NavLink>
           </NavSection>
           <NavSection label="API">
             <NavLink path="/api/use-context-menu">useContextMenu</NavLink>

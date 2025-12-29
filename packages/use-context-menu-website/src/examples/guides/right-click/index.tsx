@@ -4,7 +4,7 @@ import {
   ContextMenuCategory,
   ContextMenuDivider,
   ContextMenuItem,
-  useContextMenu,
+  useContextMenu
 } from "use-context-menu";
 
 import Block from "../../../components/Block";
@@ -14,7 +14,7 @@ import Block from "../../../components/Block";
 function Example({
   copyText,
   selectAll,
-  viewSource,
+  viewSource
 }: {
   copyText: () => void;
   selectAll: () => void;
@@ -56,7 +56,9 @@ export function Demo({ className }: { className: string }) {
       const div = ref.current!;
       await navigator.clipboard.writeText(div.textContent!);
       toast("Copied to clipboard");
-    } catch (error) {}
+    } catch {
+      // No-op
+    }
   };
 
   const selectAll = () => {

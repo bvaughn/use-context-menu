@@ -1,0 +1,23 @@
+.useContextMenu_Backdrop {
+  /* Transparent backdrop behind an active menu */
+}
+
+.useContextMenu_ContextMenu {
+  /* Root menu container */
+}
+
+.useContextMenu_ContextMenuCategory {
+  /* Category header */
+}
+
+.useContextMenu_Divider {
+  /* Menu divider */
+}
+
+.useContextMenu_ContextMenuItem {
+  /* Menu item */
+}
+
+.useContextMenu_ContextMenuItemDisabled {
+  /* Disabled menu item */
+}

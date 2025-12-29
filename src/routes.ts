@@ -15,6 +15,10 @@ export const routes = {
   "/examples/left-click-menu": lazy(
     () => import("./routes/LeftClickMenuRoute")
   ),
+  "/examples/alignment-options": lazy(
+    () => import("./routes/AlignmentOptionsRoute")
+  ),
+  "/examples/custom-styles": lazy(() => import("./routes/CustomStylesRoute")),
 
   // Other
   "/support": lazy(() => import("./routes/SupportRoute"))
