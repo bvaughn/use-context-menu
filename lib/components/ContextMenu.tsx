@@ -27,14 +27,14 @@ export function ContextMenu({
 }: {
   alignTo: AlignTo;
   children: ReactNode;
-  className?: string;
+  className?: string | undefined;
   clientX: number;
   clientY: number;
   targetRect: DOMRect;
   "data-testid"?: string | undefined;
-  "data-testname"?: string;
+  "data-testname"?: string | undefined;
   hide: () => void;
-  style?: CSSProperties;
+  style?: CSSProperties | undefined;
 }) {
   const { contextMenuEvent, registerMenu } = useContext(ContextMenuContext);
 

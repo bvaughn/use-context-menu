@@ -1,8 +1,4 @@
-import { KeyboardEvent, MouseEvent, UIEvent } from "react";
-
-export function isKeyboardEvent(event: UIEvent): event is KeyboardEvent {
-  return event.type.startsWith("key");
-}
+import type { MouseEvent, UIEvent } from "react";
 
 export function isMouseEvent(event: UIEvent): event is MouseEvent {
   return (

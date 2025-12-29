@@ -13,21 +13,21 @@ import classNames from "../utils/classNames";
 export function ContextMenuItem({
   children,
   className,
-  dataTestId,
-  dataTestName = "ContextMenuItem",
+  "data-testid": dataTestId,
+  "data-testname": dataTestName = "ContextMenuItem",
   dataTestState,
   disabled = false,
   onSelect,
   style
 }: {
   children: ReactNode;
-  className?: string;
-  dataTestId?: string;
-  dataTestName?: string;
-  dataTestState?: string;
-  disabled?: boolean;
-  onSelect?: (event: UIEvent) => void;
-  style?: CSSProperties;
+  className?: string | undefined;
+  "data-testid"?: string | undefined;
+  "data-testname"?: string | undefined;
+  dataTestState?: string | undefined;
+  disabled?: boolean | undefined;
+  onSelect?: ((event: UIEvent) => void) | undefined;
+  style?: CSSProperties | undefined;
 }) {
   const { registerMenuItem } = useContext(ContextMenuContext);
 

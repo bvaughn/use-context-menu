@@ -2,7 +2,6 @@ import {
   type CSSProperties,
   type ReactNode,
   type KeyboardEvent as SyntheticKeyboardEvent,
-  type MouseEvent as SyntheticMouseEvent,
   type UIEvent,
   useCallback,
   useEffect,
@@ -17,6 +16,7 @@ import {
   type ContextMenuContextType
 } from "../context/ContextMenuContext";
 import type { AlignTo } from "../types";
+import { isMouseEvent } from "../utils/event-types/isMouseEvent";
 
 type State = {
   clientX: number;
@@ -28,14 +28,14 @@ type State = {
 export function useContextMenu(
   contextMenuItems: ReactNode,
   options: {
-    alignTo?: AlignTo;
-    className?: string;
-    dataTestId?: string;
-    dataTestName?: string;
+    alignTo?: AlignTo | undefined;
+    className?: string | undefined;
+    "data-testid"?: string | undefined;
+    "data-testname"?: string | undefined;
     onHide?: () => void | Promise<void>;
     onShow?: (event: UIEvent) => void | Promise<void>;
-    requireClickToShow?: boolean;
-    style?: CSSProperties;
+    requireClickToShow?: boolean | undefined;
+    style?: CSSProperties | undefined;
   } = {}
 ): {
   contextMenu: ReactNode | null;
@@ -46,8 +46,8 @@ export function useContextMenu(
   const {
     alignTo = "auto-cursor",
     className,
-    dataTestId,
-    dataTestName,
+    "data-testid": dataTestId,
+    "data-testname": dataTestName,
     onHide,
     onShow,
     requireClickToShow = false,
@@ -160,8 +160,8 @@ export function useContextMenu(
   }, [requireClickToShow, state]);
 
   const committedValuesRef = useRef<{
-    onHide?: () => void | Promise<void>;
-    onShow?: (event: UIEvent) => void | Promise<void>;
+    onHide?: (() => void | Promise<void>) | undefined;
+    onShow?: ((event: UIEvent) => void | Promise<void>) | undefined;
     state: State | null;
   }>({ onHide, onShow, state });
 
@@ -249,8 +249,8 @@ export function useContextMenu(
           className={className}
           clientX={state.clientX}
           clientY={state.clientY}
-          dataTestId={dataTestId}
-          dataTestName={dataTestName}
+          data-testid={dataTestId}
+          data-testname={dataTestName}
           hide={hideMenu}
           style={style}
           targetRect={state.targetRect}
@@ -267,8 +267,4 @@ export function useContextMenu(
     onContextMenu,
     onKeyDown
   };
-}
-
-function isMouseEvent(event: any): event is SyntheticMouseEvent {
-  return event.pageX != null && event.pageY != null;
 }

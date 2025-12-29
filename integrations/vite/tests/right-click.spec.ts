@@ -1,5 +1,4 @@
-import { expect, test } from "@playwright/test";
-import type { Page } from "playwright-core";
+import { expect, test, type Page } from "@playwright/test";
 
 async function openPage(page: Page) {
   await page.goto("http://localhost:1234/examples/right-click-menu");

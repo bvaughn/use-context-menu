@@ -4,8 +4,13 @@ export { ContextMenuDivider } from "./components/ContextMenuDivider";
 export { ContextMenuItem } from "./components/ContextMenuItem";
 export { useContextMenu } from "./hooks/useContextMenu";
 export { useModalDismissSignal } from "./hooks/useModalDismissSignal";
-export { assert, assertKeyboardEvent, assertMouseEvent } from "./utils/assert";
-export { isKeyboardEvent, isMouseEvent } from "./utils/isEventType";
+
+// Utils
+export { assert } from "./utils/event-types/assert";
+export { assertKeyboardEvent } from "./utils/event-types/assertKeyboardEvent";
+export { assertMouseEvent } from "./utils/event-types/assertMouseEvent";
+export { isKeyboardEvent } from "./utils/event-types/isKeyboardEvent";
+export { isMouseEvent } from "./utils/event-types/isMouseEvent";
 
 // TypeScript types
 export * from "./types";

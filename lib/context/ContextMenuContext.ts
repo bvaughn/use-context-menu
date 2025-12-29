@@ -1,4 +1,4 @@
-import { UIEvent, createContext } from "react";
+import { type UIEvent, createContext } from "react";
 
 export type ContextMenuContextType = {
   contextMenuEvent: UIEvent | null;

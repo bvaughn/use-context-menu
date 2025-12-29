@@ -6,8 +6,8 @@ export function ContextMenuDivider({
   className,
   style
 }: {
-  className?: string;
-  style?: CSSProperties;
+  className?: string | undefined;
+  style?: CSSProperties | undefined;
 }) {
   const onClick = (event: MouseEvent) => {
     event.preventDefault();

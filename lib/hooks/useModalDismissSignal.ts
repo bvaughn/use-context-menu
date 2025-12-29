@@ -1,8 +1,8 @@
-import { MutableRefObject, RefObject, useEffect } from "react";
+import { type RefObject, useEffect } from "react";
 
 // Closes a modal dialog if the user clicks outside of it or types "Escape"
 export function useModalDismissSignal(
-  modalRef: MutableRefObject<HTMLDivElement> | RefObject<HTMLDivElement>,
+  modalRef: RefObject<HTMLDivElement | null>,
   dismissCallback: () => void,
   dismissOnClickOutside: boolean = true
 ) {

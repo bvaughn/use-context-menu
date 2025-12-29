@@ -1,5 +1,5 @@
-import { AlignTo, ContextMenuStyle, Rect } from "../types";
-import { assert } from "./assert";
+import type { AlignTo, ContextMenuStyle, Rect } from "../types";
+import { assert } from "./event-types/assert";
 
 export function calculateContextMenuStyle({
   alignTo,

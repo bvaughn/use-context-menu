@@ -6,7 +6,10 @@ export function ContextMenuCategory({
   children,
   className,
   style
-}: PropsWithChildren<{ className?: string; style?: CSSProperties }>) {
+}: PropsWithChildren<{
+  className?: string | undefined;
+  style?: CSSProperties | undefined;
+}>) {
   const onClick = (event: MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();

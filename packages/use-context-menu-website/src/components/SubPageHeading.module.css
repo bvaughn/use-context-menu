@@ -1,9 +1,0 @@
-.Row {
-  display: flex;
-  align-items: center;
-  gap: 1ch;
-}
-
-.Divider {
-  color: var(--color-dim);
-}

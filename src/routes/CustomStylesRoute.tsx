@@ -12,21 +12,21 @@ export default function CustomStylesRoute() {
         <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">
           CSS variables
         </ExternalLink>
-        :
+        .
       </div>
-      <Code html={htmlCssVariables} />
       <Callout intent="primary">
         Default values are provided for any variables that are not defined.
       </Callout>
+      <Code html={htmlCssVariables} />
       <div>
         You can also bypass the included{" "}
         <code>use-context-menu/styles.css</code> file and define your own
-        styles:
+        styles.
       </div>
       <Code html={htmlCssOverrides} />
       <div>
         Lastly, data attribute selectors can be used to customize styles
-        (although these are primarily intended for e2e testing purposes):
+        (although these are primarily intended for e2e testing purposes).
       </div>
       <Code html={htmlCssDataAttributes} />
     </Box>
