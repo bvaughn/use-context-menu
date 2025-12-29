@@ -1,0 +1,14 @@
+@source "node_modules/react-lib-tools";
+
+@import "tailwindcss";
+@import "react-lib-tools/styles.css";
+
+:root {
+  --template-gradient-color-1: var(--color-fuchsia-500);
+  --template-gradient-color-2: var(--color-violet-500);
+  --template-gradient-color-3: var(--color-fuchsia-700);
+
+  --template-focus-color-300: var(--color-sky-300);
+  --template-focus-color-400: var(--color-sky-400);
+  --template-focus-color-600: var(--color-sky-600);
+}
