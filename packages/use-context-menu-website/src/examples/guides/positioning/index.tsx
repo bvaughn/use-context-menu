@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import {
   AlignTo,
   ContextMenuItem,
-  useContextMenu as useContextMenuHook,
+  useContextMenu as useContextMenuHook
 } from "use-context-menu";
 
 import { PlainText } from "../../../components/Code/PlainText";
@@ -20,7 +20,7 @@ useContextMenu(
   </>,
   {
     // Optional positioning configuration
-    alignTo: "auto-cursor",
+    alignTo: "auto-cursor"
   }
 );
 
@@ -69,7 +69,7 @@ function Menu({ alignTo, label }: { alignTo: AlignTo; label: string }) {
   const {
     contextMenu: menu,
     onContextMenu: showMenu,
-    onKeyDown,
+    onKeyDown
   } = useContextMenuHook(
     <>
       <ContextMenuItem onSelect={noop}>Menu</ContextMenuItem>

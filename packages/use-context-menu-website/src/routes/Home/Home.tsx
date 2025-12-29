@@ -5,7 +5,7 @@ import {
   CUSTOM_CSS_MENU,
   LEFT_CLICK_MENU,
   POSITIONING,
-  RIGHT_CLICK_MENU,
+  RIGHT_CLICK_MENU
 } from "../config";
 import GitHubLink from "./GitHubLink";
 import { InstallationPanel } from "./InstallationPanel";

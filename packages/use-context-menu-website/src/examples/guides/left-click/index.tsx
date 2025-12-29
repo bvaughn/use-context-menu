@@ -4,7 +4,7 @@ import {
   ContextMenuCategory,
   ContextMenuDivider,
   ContextMenuItem,
-  useContextMenu,
+  useContextMenu
 } from "use-context-menu";
 
 import Icon from "../../../components/Icon";
@@ -15,7 +15,7 @@ function Example({
   className,
   copyText,
   selectAll,
-  viewSource,
+  viewSource
 }: {
   className: string;
   copyText: () => void;
@@ -25,7 +25,7 @@ function Example({
   const {
     contextMenu: menu,
     onContextMenu: onClick,
-    onKeyDown,
+    onKeyDown
   } = useContextMenu(
     <>
       <ContextMenuCategory>Inline options</ContextMenuCategory>
@@ -58,7 +58,7 @@ function Example({
 
 export function Demo({
   containerClassName,
-  triggerClassName,
+  triggerClassName
 }: {
   containerClassName: string;
   triggerClassName: string;

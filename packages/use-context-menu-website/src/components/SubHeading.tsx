@@ -2,7 +2,7 @@ import styles from "./SubHeading.module.css";
 
 export default function SubHeading({
   level = 1,
-  title,
+  title
 }: {
   level?: number;
   title: string;

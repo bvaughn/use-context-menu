@@ -48,7 +48,7 @@ test("context should contain the correct options", async ({ page }) => {
 });
 
 test("clicking a context menu item should dismiss the context menu", async ({
-  page,
+  page
 }) => {
   await openPage(page);
   await showContextMenu(page);
@@ -61,7 +61,7 @@ test("clicking a context menu item should dismiss the context menu", async ({
 });
 
 test("clicking outside of the context menu should dismiss it", async ({
-  page,
+  page
 }) => {
   await openPage(page);
   await showContextMenu(page);

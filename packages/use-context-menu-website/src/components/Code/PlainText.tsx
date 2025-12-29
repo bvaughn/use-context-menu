@@ -6,7 +6,7 @@ import styles from "./shared.module.css";
 export function PlainText({
   className = "",
   code,
-  showLineNumbers = false,
+  showLineNumbers = false
 }: {
   className?: string;
   code: string;
@@ -34,7 +34,7 @@ export function PlainText({
       dangerouslySetInnerHTML={{ __html: htmlLines.join("<br/>") }}
       style={{
         // @ts-ignore
-        "--max-line-number-length": `${maxLineNumberLength}ch`,
+        "--max-line-number-length": `${maxLineNumberLength}ch`
       }}
     />
   );

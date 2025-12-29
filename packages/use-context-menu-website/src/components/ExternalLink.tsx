@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react";
 export function ExternalLink({
   children,
   className = "",
-  to,
+  to
 }: PropsWithChildren & { className?: string; to: string }) {
   return (
     <a

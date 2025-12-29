@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import {
   Language,
   parsedTokensToHtml,
-  syntaxParsingCache,
+  syntaxParsingCache
 } from "../../suspense/SyntaxParsingCache";
 import { ParsedTokens } from "../../suspense/SyntaxParsingCache";
 import styles from "./shared.module.css";
@@ -12,7 +12,7 @@ export function SyntaxHighlighted({
   className = "",
   code,
   language,
-  showLineNumbers = false,
+  showLineNumbers = false
 }: {
   className?: string;
   code: string;
@@ -32,7 +32,7 @@ export function SyntaxHighlighted({
 function TokenRenderer({
   className,
   showLineNumbers,
-  tokens,
+  tokens
 }: {
   className: string;
   showLineNumbers: boolean;
@@ -62,7 +62,7 @@ function TokenRenderer({
       dangerouslySetInnerHTML={{ __html: html }}
       style={{
         // @ts-ignore
-        "--max-line-number-length": `${maxLineNumberLength}ch`,
+        "--max-line-number-length": `${maxLineNumberLength}ch`
       }}
     />
   );

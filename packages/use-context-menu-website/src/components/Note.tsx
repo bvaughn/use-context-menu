@@ -8,7 +8,7 @@ type Type = "note" | "quote" | "warn";
 export default function Note({
   children,
   title = "Note",
-  type = "note",
+  type = "note"
 }: PropsWithChildren & { title?: string; type?: Type }) {
   let iconType: IconType;
   switch (type) {

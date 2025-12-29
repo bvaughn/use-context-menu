@@ -15,7 +15,7 @@ export type Route = {
 export const HOME_ROUTE: Route = {
   Component: HomeRoute,
   path: "/",
-  title: "Home",
+  title: "Home"
 };
 
 // API
@@ -25,23 +25,23 @@ export const HOME_ROUTE: Route = {
 export const CUSTOM_CSS_MENU: Route = {
   Component: CustomCssRoute,
   path: "/examples/custom-css",
-  title: "Custom CSS",
+  title: "Custom CSS"
 };
 
 export const LEFT_CLICK_MENU: Route = {
   Component: LeftClickRoute,
   path: "/examples/left-click-menu",
-  title: "Menu (left-click)",
+  title: "Menu (left-click)"
 };
 
 export const POSITIONING: Route = {
   Component: PositioningRoute,
   path: "/examples/positioning",
-  title: "Positioning",
+  title: "Positioning"
 };
 
 export const RIGHT_CLICK_MENU: Route = {
   Component: RightClickRoute,
   path: "/examples/right-click-menu",
-  title: "Context menu (right-click)",
+  title: "Context menu (right-click)"
 };

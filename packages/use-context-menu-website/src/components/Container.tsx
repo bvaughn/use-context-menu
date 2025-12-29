@@ -4,7 +4,7 @@ import styles from "./Container.module.css";
 
 export default function Container({
   children,
-  className = "",
+  className = ""
 }: PropsWithChildren & { className?: string }) {
   return <div className={`${className} ${styles.Container}`}>{children}</div>;
 }

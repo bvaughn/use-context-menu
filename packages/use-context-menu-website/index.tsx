@@ -10,7 +10,7 @@ import {
   HOME_ROUTE,
   LEFT_CLICK_MENU,
   POSITIONING,
-  RIGHT_CLICK_MENU,
+  RIGHT_CLICK_MENU
 } from "./src/routes/config";
 
 const rootElement = document.getElementById("root");

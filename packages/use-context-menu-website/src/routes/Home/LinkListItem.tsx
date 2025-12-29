@@ -6,7 +6,7 @@ import styles from "./LinkListItem.module.css";
 export function LinkListItem({
   children,
   to,
-  type,
+  type
 }: PropsWithChildren & { to: string; type: "code" | "plaintext" }) {
   return (
     <li className={styles.ListItem} data-type={type}>

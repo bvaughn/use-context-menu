@@ -28,7 +28,7 @@ export const examples = {
   ),
   rightClick: processExample(
     readFileSync(join(__dirname, "guides", "right-click", "index.tsx"), "utf8")
-  ),
+  )
 };
 
 function processExample(text: string): string {

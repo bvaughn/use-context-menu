@@ -7,20 +7,20 @@ const config: PlaywrightTestConfig = {
     headless: true,
     ignoreHTTPSErrors: true,
     video: "on-first-retry",
-    viewport: { height: 300, width: 400 },
+    viewport: { height: 300, width: 400 }
   },
   webServer: {
     command: "npm run watch",
     reuseExistingServer: true,
-    url: "http://localhost:1234",
-  },
+    url: "http://localhost:1234"
+  }
 };
 
 if (process.env.DEBUG) {
   config.use = {
     ...config.use,
     browserName: "chromium",
-    headless: false,
+    headless: false
 
     // Uncomment to slow down interactions if needed for visual debugging.
     // launchOptions: {

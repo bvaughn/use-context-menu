@@ -17,5 +17,5 @@ export const importCache = createCache<[string], Module>({
       default:
         throw Error(`Unknown path: ${path}`);
     }
-  },
+  }
 });

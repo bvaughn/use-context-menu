@@ -44,7 +44,7 @@ export const syntaxParsingCache = createCache<
 
     const currentLineState = {
       parsedTokens: [] as ParsedTokens,
-      rawString: "",
+      rawString: ""
     };
 
     // The logic below to trim code sections only works with "\n"
@@ -65,7 +65,7 @@ export const syntaxParsingCache = createCache<
 
     const state = EditorState.create({
       doc: code,
-      extensions: [languageExtension],
+      extensions: [languageExtension]
     });
 
     const tree = ensureSyntaxTree(
@@ -139,7 +139,7 @@ export const syntaxParsingCache = createCache<
         parsedLineTokens.push({
           columnIndex: 0,
           type: null,
-          value: line,
+          value: line
         });
 
         if (nextIndex >= 0) {
@@ -160,7 +160,7 @@ export const syntaxParsingCache = createCache<
     }
 
     return parsedTokens;
-  },
+  }
 });
 
 function processSection(
@@ -186,7 +186,7 @@ function processSection(
     const token: ParsedToken = {
       columnIndex: currentLineState.rawString.length,
       type: tokenType,
-      value: substring,
+      value: substring
     };
 
     currentLineState.parsedTokens.push(token);

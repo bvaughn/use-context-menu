@@ -8,7 +8,7 @@ export function calculateContextMenuStyle({
   menuRect,
   targetRect,
   viewportHeight,
-  viewportWidth,
+  viewportWidth
 }: {
   alignTo: AlignTo;
   cursorX?: number | undefined;
@@ -40,7 +40,7 @@ export function calculateContextMenuStyle({
     case "above": {
       return {
         left: centerX,
-        top: targetRect.y - menuRect.height,
+        top: targetRect.y - menuRect.height
       };
     }
     case "auto-cursor": {
@@ -48,7 +48,7 @@ export function calculateContextMenuStyle({
 
       const style: ContextMenuStyle = {
         left: cursorX,
-        top: cursorY,
+        top: cursorY
       };
 
       if (menuRect.width > viewportWidth) {
@@ -70,32 +70,32 @@ export function calculateContextMenuStyle({
         return {
           left: targetRect.x,
           top: Math.max(0, targetRect.y - menuRect.height),
-          width: targetRect.width,
+          width: targetRect.width
         };
       } else {
         return {
           left: targetRect.x,
           top: targetRect.bottom,
-          width: targetRect.width,
+          width: targetRect.width
         };
       }
     }
     case "below": {
       return {
         left: centerX,
-        top: targetRect.bottom,
+        top: targetRect.bottom
       };
     }
     case "left": {
       return {
         left: targetRect.x - menuRect.width,
-        top: centerY,
+        top: centerY
       };
     }
     case "right": {
       return {
         left: targetRect.right,
-        top: centerY,
+        top: centerY
       };
     }
   }

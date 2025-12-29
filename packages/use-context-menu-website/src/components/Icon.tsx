@@ -21,7 +21,7 @@ export type IconType =
 
 export default function Icon({
   className = "",
-  type,
+  type
 }: {
   className?: string;
   type: IconType;
