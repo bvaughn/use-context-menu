@@ -1,22 +1,22 @@
 import {
-  CSSProperties,
-  ReactNode,
-  KeyboardEvent as SyntheticKeyboardEvent,
-  MouseEvent as SyntheticMouseEvent,
-  UIEvent,
+  type CSSProperties,
+  type ReactNode,
+  type KeyboardEvent as SyntheticKeyboardEvent,
+  type MouseEvent as SyntheticMouseEvent,
+  type UIEvent,
   useCallback,
   useEffect,
   useMemo,
   useRef,
-  useState,
+  useState
 } from "react";
 
+import { ContextMenu } from "../components/ContextMenu";
 import {
   ContextMenuContext,
-  ContextMenuContextType,
-} from "../ContextMenuContext";
-import { ContextMenu } from "../components/ContextMenu";
-import { AlignTo } from "../types";
+  type ContextMenuContextType
+} from "../context/ContextMenuContext";
+import type { AlignTo } from "../types";
 
 type State = {
   clientX: number;
@@ -51,12 +51,12 @@ export function useContextMenu(
     onHide,
     onShow,
     requireClickToShow = false,
-    style,
+    style
   } = options;
 
   const [state, setState] = useState<State | null>(null);
 
-  const menuRef = useRef<HTMLDivElement>();
+  const menuRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLDivElement[]>([]);
 
   const registerMenu = useCallback((menu: HTMLDivElement) => {
@@ -175,7 +175,7 @@ export function useContextMenu(
     () => ({
       contextMenuEvent: state?.event ?? null,
       registerMenu,
-      registerMenuItem,
+      registerMenuItem
     }),
     [registerMenu, registerMenuItem, state?.event]
   );
@@ -202,7 +202,7 @@ export function useContextMenu(
       clientX,
       clientY,
       event,
-      targetRect,
+      targetRect
     });
   };
 
@@ -265,7 +265,7 @@ export function useContextMenu(
     contextMenu,
     hideMenu,
     onContextMenu,
-    onKeyDown,
+    onKeyDown
   };
 }
 

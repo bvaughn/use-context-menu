@@ -1,16 +1,15 @@
 import {
-  CSSProperties,
-  MouseEvent,
-  ReactNode,
+  type CSSProperties,
+  type MouseEvent,
+  type ReactNode,
   useContext,
   useLayoutEffect,
-  useRef,
+  useRef
 } from "react";
 import { createPortal } from "react-dom";
-
-import { ContextMenuContext } from "../ContextMenuContext";
+import { ContextMenuContext } from "../context/ContextMenuContext";
 import { useModalDismissSignal } from "../hooks/useModalDismissSignal";
-import { AlignTo, ContextMenuStyle } from "../types";
+import type { AlignTo, ContextMenuStyle } from "../types";
 import { calculateContextMenuStyle } from "../utils/calculateContextMenuStyle";
 import classNames from "../utils/classNames";
 
@@ -21,10 +20,10 @@ export function ContextMenu({
   clientX,
   clientY,
   targetRect,
-  dataTestId,
-  dataTestName = "ContextMenu",
+  "data-testid": dataTestId,
+  "data-testname": dataTestName = "ContextMenu",
   hide,
-  style: styleFromProps,
+  style: styleFromProps
 }: {
   alignTo: AlignTo;
   children: ReactNode;
@@ -32,8 +31,8 @@ export function ContextMenu({
   clientX: number;
   clientY: number;
   targetRect: DOMRect;
-  dataTestId?: string;
-  dataTestName?: string;
+  "data-testid"?: string | undefined;
+  "data-testname"?: string;
   hide: () => void;
   style?: CSSProperties;
 }) {
@@ -48,7 +47,7 @@ export function ContextMenu({
   const styleRef = useRef<ContextMenuStyle>({
     left: 0,
     top: 0,
-    width: undefined,
+    width: undefined
   });
 
   useModalDismissSignal(ref, hide, true);
@@ -69,7 +68,7 @@ export function ContextMenu({
       menuRect,
       targetRect,
       viewportHeight: window.innerHeight,
-      viewportWidth: window.innerWidth,
+      viewportWidth: window.innerWidth
     });
 
     contextMenu.style.left = `${left}px`;
@@ -82,7 +81,7 @@ export function ContextMenu({
     styleRef.current = {
       left,
       top,
-      width,
+      width
     };
   }, [alignTo, clientX, clientY, eventType, targetRect]);
 
@@ -106,7 +105,7 @@ export function ContextMenu({
   let style: CSSProperties = {
     left: `${left}px`,
     top: `${top}px`,
-    width: width ? `${width}px` : undefined,
+    width: width ? `${width}px` : undefined
   };
 
   if (styleFromProps) {

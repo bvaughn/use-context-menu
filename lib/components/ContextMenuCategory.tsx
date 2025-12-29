@@ -1,11 +1,11 @@
-import { CSSProperties, MouseEvent, PropsWithChildren } from "react";
+import type { CSSProperties, MouseEvent, PropsWithChildren } from "react";
 
 import classNames from "../utils/classNames";
 
 export function ContextMenuCategory({
   children,
   className,
-  style,
+  style
 }: PropsWithChildren<{ className?: string; style?: CSSProperties }>) {
   const onClick = (event: MouseEvent) => {
     event.preventDefault();

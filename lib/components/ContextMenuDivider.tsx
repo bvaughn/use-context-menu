@@ -1,10 +1,10 @@
-import { CSSProperties, MouseEvent } from "react";
+import type { CSSProperties, MouseEvent } from "react";
 
 import classNames from "../utils/classNames";
 
 export function ContextMenuDivider({
   className,
-  style,
+  style
 }: {
   className?: string;
   style?: CSSProperties;

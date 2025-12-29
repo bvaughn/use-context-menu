@@ -1,14 +1,13 @@
 import {
-  CSSProperties,
-  KeyboardEvent,
-  ReactNode,
-  UIEvent,
+  type CSSProperties,
+  type KeyboardEvent,
+  type ReactNode,
+  type UIEvent,
   useContext,
   useLayoutEffect,
-  useRef,
+  useRef
 } from "react";
-
-import { ContextMenuContext } from "../ContextMenuContext";
+import { ContextMenuContext } from "../context/ContextMenuContext";
 import classNames from "../utils/classNames";
 
 export function ContextMenuItem({
@@ -19,7 +18,7 @@ export function ContextMenuItem({
   dataTestState,
   disabled = false,
   onSelect,
-  style,
+  style
 }: {
   children: ReactNode;
   className?: string;
