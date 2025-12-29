@@ -6,6 +6,7 @@ import "../styles.css";
 export default function App() {
   return (
     <AppRoot
+      hideVersions
       navLinks={
         <>
           <NavLink path="/">Getting started</NavLink>
