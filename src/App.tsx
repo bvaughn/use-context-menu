@@ -7,7 +7,6 @@ import { NavLink } from "./components/NavLink";
 export default function App() {
   return (
     <AppRoot
-      hideVersions
       navLinks={
         <>
           <NavLink path="/">Getting started</NavLink>
