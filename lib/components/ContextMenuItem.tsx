@@ -10,23 +10,51 @@ import {
 import { ContextMenuContext } from "../context/ContextMenuContext";
 import classNames from "../utils/classNames";
 
+/**
+ * Context menu item.
+ *
+ * ```tsx
+ * <ContextMenuItem onSelect={copy}>Copy text</ContextMenuItem>
+ * ```
+ */
 export function ContextMenuItem({
   children,
   className,
   "data-testid": dataTestId,
-  "data-testname": dataTestName = "ContextMenuItem",
-  dataTestState,
   disabled = false,
   onSelect,
   style
 }: {
+  /**
+   * Menu item name.
+   */
   children: ReactNode;
+
+  /**
+   * CSS className.
+   */
   className?: string | undefined;
+
+  /**
+   * Test id.
+   *
+   * ℹ️ [Test id](https://testing-library.com/docs/queries/bytestid/) can be used to narrow selection when unit testing.
+   */
   "data-testid"?: string | undefined;
-  "data-testname"?: string | undefined;
-  dataTestState?: string | undefined;
+
+  /**
+   * Disable menu item.
+   */
   disabled?: boolean | undefined;
-  onSelect?: ((event: UIEvent) => void) | undefined;
+
+  /**
+   * Callback notified when menu item is selected.
+   */
+  onSelect: ((event: UIEvent) => void) | undefined;
+
+  /**
+   * CSS style.
+   */
   style?: CSSProperties | undefined;
 }) {
   const { registerMenuItem } = useContext(ContextMenuContext);
@@ -79,8 +107,6 @@ export function ContextMenuItem({
       data-context-menu-item
       data-disabled={disabled}
       data-test-id={dataTestId}
-      data-test-name={dataTestName}
-      data-test-state={dataTestState}
       onClick={onClick}
       onKeyDown={onKeyDown}
       ref={ref}

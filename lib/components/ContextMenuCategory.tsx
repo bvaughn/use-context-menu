@@ -1,15 +1,34 @@
-import type { CSSProperties, MouseEvent, PropsWithChildren } from "react";
+import type { CSSProperties, MouseEvent, ReactNode } from "react";
 
 import classNames from "../utils/classNames";
 
+/**
+ * Context menu category header.
+ *
+ * ```tsx
+ * <ContextMenuCategory>Main</ContextMenuCategory>
+ * ```
+ */
 export function ContextMenuCategory({
   children,
   className,
   style
-}: PropsWithChildren<{
+}: {
+  /**
+   * Category label.
+   */
+  children: ReactNode;
+
+  /**
+   * CSS className.
+   */
   className?: string | undefined;
+
+  /**
+   * CSS style.
+   */
   style?: CSSProperties | undefined;
-}>) {
+}) {
   const onClick = (event: MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();

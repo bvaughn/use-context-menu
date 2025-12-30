@@ -40,7 +40,7 @@ export default function AlignmentOptionsRoute() {
     );
 
   const { contextMenu: demoMenu, onContextMenu: onClickDemoMenu } =
-    useContextMenu(<ContextMenuItem>Example</ContextMenuItem>, {
+    useContextMenu(<ContextMenuItem onSelect={noop}>Example</ContextMenuItem>, {
       alignTo
     });
 
@@ -81,3 +81,5 @@ export default function AlignmentOptionsRoute() {
     </>
   );
 }
+
+function noop() {}

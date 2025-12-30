@@ -9,7 +9,6 @@ import {
   useRef,
   useState
 } from "react";
-
 import { ContextMenu } from "../components/ContextMenu";
 import {
   ContextMenuContext,
@@ -25,32 +24,58 @@ type State = {
   targetRect: DOMRect;
 };
 
+/**
+ * Create a ready-to-render context menu.
+ *
+ * @param contextMenuItems Menu items to render; typically a combination of `ContextMenuItem`, `ContextMenuCategory`, and `ContextMenuDivider` components.
+ * @param options Additional configuration options
+ * @returns event handlers and context menu portal
+ */
 export function useContextMenu(
   contextMenuItems: ReactNode,
   options: {
+    /** Context menu alignment. */
     alignTo?: AlignTo | undefined;
+    /** Class name applied to root context menu element */
     className?: string | undefined;
+    /** Test id attribute attached to root context menu element */
     "data-testid"?: string | undefined;
-    "data-testname"?: string | undefined;
-    onHide?: () => void | Promise<void>;
-    onShow?: (event: UIEvent) => void | Promise<void>;
-    requireClickToShow?: boolean | undefined;
+    /** Callback notified when context menu is hidden */
+    onHide?: () => void | Promise<void> | undefined;
+    /** Callback notified when context menu is shown */
+    onShow?: (event: UIEvent) => void | Promise<void> | undefined;
+    /** CSS style applied to root context menu element */
     style?: CSSProperties | undefined;
   } = {}
 ): {
+  /**
+   * Context menu to be rendered; TODO
+   */
   contextMenu: ReactNode | null;
+
+  /**
+   * Imperatively hide an open context menu.
+   */
   hideMenu: () => void;
+
+  /**
+   * React `onKeyDown` handler to display context menu on Enter or Space.
+   */
   onKeyDown: (event: SyntheticKeyboardEvent) => void;
+
+  /**
+   * React `onContextMenu` event handler to display context menu on right-click.
+   *
+   * ℹ️ This method can also be used as an `onClick` handler if the menu should be shown on left-click
+   */
   onContextMenu: (event: UIEvent) => void;
 } {
   const {
     alignTo = "auto-cursor",
     className,
     "data-testid": dataTestId,
-    "data-testname": dataTestName,
     onHide,
     onShow,
-    requireClickToShow = false,
     style
   } = options;
 
@@ -157,7 +182,7 @@ export function useContextMenu(
       // Return focus to the target element that triggered the context menu.
       target.focus();
     };
-  }, [requireClickToShow, state]);
+  }, [state]);
 
   const committedValuesRef = useRef<{
     onHide?: (() => void | Promise<void>) | undefined;
@@ -210,8 +235,6 @@ export function useContextMenu(
   const onKeyDown = (event: SyntheticKeyboardEvent) => {
     if (state !== null) {
       return;
-    } else if (requireClickToShow) {
-      return;
     }
 
     switch (event.key) {
@@ -250,7 +273,6 @@ export function useContextMenu(
           clientX={state.clientX}
           clientY={state.clientY}
           data-testid={dataTestId}
-          data-testname={dataTestName}
           hide={hideMenu}
           style={style}
           targetRect={state.targetRect}

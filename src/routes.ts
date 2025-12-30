@@ -3,12 +3,6 @@ import { lazy, type ComponentType, type LazyExoticComponent } from "react";
 export type Route = LazyExoticComponent<ComponentType<unknown>>;
 
 export const routes = {
-  "*": lazy(() => import("./routes/PageNotFound")),
-
-  // Home page
-  "/": lazy(() => import("./routes/GettingStartedRoute")),
-
-  // Examples
   "/examples/right-click-menu": lazy(
     () => import("./routes/RightClickMenuRoute")
   ),
@@ -19,9 +13,14 @@ export const routes = {
     () => import("./routes/AlignmentOptionsRoute")
   ),
   "/examples/custom-styles": lazy(() => import("./routes/CustomStylesRoute")),
-
-  // Other
-  "/support": lazy(() => import("./routes/SupportRoute"))
+  "/api/context-menu-category": lazy(
+    () => import("./routes/ContextMenuCategoryRoute")
+  ),
+  "/api/context-menu-divider": lazy(
+    () => import("./routes/ContextMenuDividerRoute")
+  ),
+  "/api/context-menu-item": lazy(() => import("./routes/ContextMenuItemRoute")),
+  "/api/use-context-menu": lazy(() => import("./routes/UseContextMenuRoute"))
 } satisfies Record<string, Route>;
 
 export type Routes = Record<keyof typeof routes, Route>;

@@ -1,7 +1,8 @@
-import { AppRoot, NavLink, NavSection } from "react-lib-tools";
+import { AppRoot, NavSection } from "react-lib-tools";
 import { routes } from "./routes";
 
 import "../styles.css";
+import { NavLink } from "./components/NavLink";
 
 export default function App() {
   return (
@@ -22,6 +23,13 @@ export default function App() {
           </NavSection>
           <NavSection label="API">
             <NavLink path="/api/use-context-menu">useContextMenu</NavLink>
+            <NavLink path="/api/context-menu-category">
+              ContextMenuCategory
+            </NavLink>
+            <NavLink path="/api/context-menu-divider">
+              ContextMenuDivider
+            </NavLink>
+            <NavLink path="/api/context-menu-item">ContextMenuItem</NavLink>
           </NavSection>
           <div>
             <NavLink path="/support">Support</NavLink>

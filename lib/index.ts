@@ -13,4 +13,4 @@ export { isKeyboardEvent } from "./utils/event-types/isKeyboardEvent";
 export { isMouseEvent } from "./utils/event-types/isMouseEvent";
 
 // TypeScript types
-export * from "./types";
+export type { AlignTo } from "./types";
