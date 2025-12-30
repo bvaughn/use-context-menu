@@ -1,0 +1,17 @@
+@source "node_modules/react-lib-tools";
+
+@import "tailwindcss";
+@import "react-lib-tools/styles.css";
+
+@theme {
+  --color-background-gradient-1: var(--color-amber-300);
+  --color-background-gradient-2: var(--color-orange-500);
+  --color-background-gradient-3: var(--color-amber-300);
+
+  --color-focus-1: var(--color-sky-300);
+  --color-focus-2: var(--color-sky-400);
+  --color-focus-3: var(--color-sky-600);
+
+  --color-nav-active: var(--color-amber-300);
+  --color-nav-hover: var(--color-amber-200);
+}

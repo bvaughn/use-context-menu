@@ -1,0 +1,44 @@
+{
+  "description": [
+    {
+      "content": "<p>Context menu category header.</p>\n"
+    },
+    {
+      "content": "<div><span class=\"tok-punctuation\">&#60;</span><span class=\"tok-typeName\">ContextMenuCategory</span><span class=\"tok-punctuation\">&#62;</span><span class=\"\">Main</span><span class=\"tok-punctuation\">&#60;/</span><span class=\"tok-typeName\">ContextMenuCategory</span><span class=\"tok-punctuation\">&#62;</span></div>"
+    }
+  ],
+  "filePath": "lib/components/ContextMenuCategory.tsx",
+  "name": "ContextMenuCategory",
+  "props": {
+    "children": {
+      "description": [
+        {
+          "content": "<p>Category label.</p>\n"
+        }
+      ],
+      "html": "<div><span class=\"tok-labelName\"><span class=\"tok-propertyName\">children</span></span><span class=\"tok-punctuation\">:</span><span class=\"\"> </span><span class=\"tok-variableName\">ReactNode</span></div>",
+      "name": "children",
+      "required": true
+    },
+    "className": {
+      "description": [
+        {
+          "content": "<p>CSS className.</p>\n"
+        }
+      ],
+      "html": "<div><span class=\"tok-variableName\"><span class=\"tok-propertyName\">className</span></span><span class=\"tok-operator\">?</span><span class=\"tok-punctuation\">:</span><span class=\"\"> </span><span class=\"tok-variableName\">string</span></div>",
+      "name": "className",
+      "required": false
+    },
+    "style": {
+      "description": [
+        {
+          "content": "<p>CSS style.</p>\n"
+        }
+      ],
+      "html": "<div><span class=\"tok-variableName\"><span class=\"tok-propertyName\">style</span></span><span class=\"tok-operator\">?</span><span class=\"tok-punctuation\">:</span><span class=\"\"> </span><span class=\"tok-variableName\">CSSProperties</span></div>",
+      "name": "style",
+      "required": false
+    }
+  }
+}

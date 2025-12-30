@@ -1,0 +1,31 @@
+{
+  "description": [
+    {
+      "content": "<p>Separator rendered between context menu sections.</p>\n"
+    }
+  ],
+  "filePath": "lib/components/ContextMenuDivider.tsx",
+  "name": "ContextMenuDivider",
+  "props": {
+    "className": {
+      "description": [
+        {
+          "content": "<p>CSS className.</p>\n"
+        }
+      ],
+      "html": "<div><span class=\"tok-variableName\"><span class=\"tok-propertyName\">className</span></span><span class=\"tok-operator\">?</span><span class=\"tok-punctuation\">:</span><span class=\"\"> </span><span class=\"tok-variableName\">string</span></div>",
+      "name": "className",
+      "required": false
+    },
+    "style": {
+      "description": [
+        {
+          "content": "<p>CSS style.</p>\n"
+        }
+      ],
+      "html": "<div><span class=\"tok-variableName\"><span class=\"tok-propertyName\">style</span></span><span class=\"tok-operator\">?</span><span class=\"tok-punctuation\">:</span><span class=\"\"> </span><span class=\"tok-variableName\">CSSProperties</span></div>",
+      "name": "style",
+      "required": false
+    }
+  }
+}

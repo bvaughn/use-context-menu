@@ -1,5 +1,6 @@
-.parcel-cache
-node_modules
-packages/use-context-menu/dist
-packages/use-context-menu-website/.cache
-packages/use-context-menu-website/dist
+/dist
+/docs
+/generated
+/public
+
+integrations/next/.next

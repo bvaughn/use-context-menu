@@ -8,10 +8,10 @@ jobs:
       - uses: actions/setup-node@v3
       - uses: pnpm/action-setup@v2
         with:
-          version: 9
+          version: 10
       - name: Install dependencies
-        run: pnpm install -r
+        run: pnpm install --frozen-lockfile --recursive
       - name: Build NPM package
-        run: pnpm prerelease
+        run: pnpm build
       - name: Run TypeScript
-        run: pnpm typescript
+        run: pnpm tsc
