@@ -1,18 +1,23 @@
 import { expect, test, type Page } from "@playwright/test";
 
 async function openPage(page: Page) {
-  await page.goto("http://localhost:1234/examples/right-click-menu");
+  await page.goto("http://localhost:3012/right-click-menu");
 }
 
 async function showContextMenu(page: Page) {
-  const target = page.locator('[data-test-name="click-target"]');
+  const target = page.getByText("Click target");
   await target.click({ button: "right" });
+
+  const contextMenu = page.getByText("Context Menu");
+  await expect(contextMenu).toBeVisible();
+
+  return contextMenu;
 }
 
 test("right-click should display a context menu", async ({ page }) => {
   await openPage(page);
 
-  const contextMenu = page.locator('[data-test-name="ContextMenu"]');
+  const contextMenu = page.getByText("Context Menu");
   await expect(contextMenu).not.toBeVisible();
 
   await showContextMenu(page);
@@ -27,22 +32,22 @@ test("context should contain the correct options", async ({ page }) => {
   const contextMenuItems = page.locator("[data-context-menu-item]");
   await expect(contextMenuItems.count()).resolves.toBe(3);
   await expect(contextMenuItems.allTextContents()).resolves.toContain(
-    "Select all"
+    "Item one"
   );
   await expect(contextMenuItems.allTextContents()).resolves.toContain(
-    "Copy text"
+    "Item two"
   );
   await expect(contextMenuItems.allTextContents()).resolves.toContain(
-    "View source"
+    "Item three"
   );
 
   const contextMenuCategories = page.locator("[data-context-menu-category]");
   await expect(contextMenuCategories.count()).resolves.toBe(2);
   await expect(contextMenuCategories.allTextContents()).resolves.toContain(
-    "Inline options"
+    "Category one"
   );
   await expect(contextMenuCategories.allTextContents()).resolves.toContain(
-    "External options"
+    "Category two"
   );
 });
 
@@ -55,29 +60,25 @@ test("clicking a context menu item should dismiss the context menu", async ({
   const contextMenuItems = page.locator("[data-context-menu-item]");
   await contextMenuItems.first().click();
 
-  const contextMenu = page.locator('[data-test-name="ContextMenu"]');
-  await expect(contextMenu).not.toBeVisible();
+  await expect(page.getByText("Context Menu")).not.toBeVisible();
 });
 
 test("clicking outside of the context menu should dismiss it", async ({
   page
 }) => {
   await openPage(page);
-  await showContextMenu(page);
+  const contextMenu = await showContextMenu(page);
 
-  const target = page.locator('[data-test-name="click-target"]');
-  await target.click();
+  await page.mouse.click(10, 10);
 
-  const contextMenu = page.locator('[data-test-name="ContextMenu"]');
   await expect(contextMenu).not.toBeVisible();
 });
 
 test("typing Escape should dismiss the context menu", async ({ page }) => {
   await openPage(page);
-  await showContextMenu(page);
+  const contextMenu = await showContextMenu(page);
 
-  await page.keyboard.press("Escape");
+  await contextMenu.press("Escape");
 
-  const contextMenu = page.locator('[data-test-name="ContextMenu"]');
   await expect(contextMenu).not.toBeVisible();
 });

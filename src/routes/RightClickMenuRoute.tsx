@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { createPortal } from "react-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { Box, Callout, Code, Header } from "react-lib-tools";
 import {
@@ -7,9 +8,10 @@ import {
   ContextMenuItem,
   useContextMenu
 } from "use-context-menu";
+import { html as htmlImportStyles } from "../../public/generated/examples/ImportStyles.json";
 import { html as htmlHook } from "../../public/generated/examples/RightClickMenuHook.json";
 import { html as htmlRender } from "../../public/generated/examples/RightClickMenuRender.json";
-import { createPortal } from "react-dom";
+import { Link } from "../components/Link";
 
 export default function RightClickMenuRoute() {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -55,6 +57,12 @@ export default function RightClickMenuRoute() {
         <code>onContextMenu</code> and <code>onKeyDown</code> props:
       </div>
       <Code html={htmlRender} />
+      <Callout intent="primary">
+        Remember to import menu styles. See the{" "}
+        <Link to="/examples/custom-styles">custom styles</Link> page for more
+        information.
+      </Callout>
+      <Code html={htmlImportStyles} />
     </Box>
   );
 }
