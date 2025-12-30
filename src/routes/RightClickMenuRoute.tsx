@@ -8,7 +8,6 @@ import {
   ContextMenuItem,
   useContextMenu
 } from "use-context-menu";
-import { html as htmlImportStyles } from "../../public/generated/examples/ImportStyles.json";
 import { html as htmlHook } from "../../public/generated/examples/RightClickMenuHook.json";
 import { html as htmlRender } from "../../public/generated/examples/RightClickMenuRender.json";
 import { Link } from "../components/Link";
@@ -62,7 +61,6 @@ export default function RightClickMenuRoute() {
         <Link to="/examples/custom-styles">custom styles</Link> page for more
         information.
       </Callout>
-      <Code html={htmlImportStyles} />
     </Box>
   );
 }

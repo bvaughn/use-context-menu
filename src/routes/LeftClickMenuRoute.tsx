@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { Box, Button, Callout, Code, Header } from "react-lib-tools";
 import { ContextMenuItem, useContextMenu } from "use-context-menu";
-import { html as htmlImportStyles } from "../../public/generated/examples/ImportStyles.json";
 import { html as htmlHook } from "../../public/generated/examples/LeftClickMenuHook.json";
 import { html as htmlRender } from "../../public/generated/examples/LeftClickMenuRender.json";
 import ChevronIcon from "../../public/svgs/chevron.svg?react";
@@ -64,7 +63,6 @@ export default function LeftClickMenuRoute() {
         <Link to="/examples/custom-styles">custom styles</Link> page for more
         information.
       </Callout>
-      <Code html={htmlImportStyles} />
     </Box>
   );
 }
