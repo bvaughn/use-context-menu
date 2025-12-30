@@ -12,12 +12,13 @@
   "contributors": [
     "Brian Vaughn <brian.david.vaughn@gmail.com> (https://github.com/bvaughn/)"
   ],
-  "homepage": "http://use-context-menu.now.sh/",
+  "homepage": "https://use-context-menu.vercel.app/",
   "main": "dist/use-context-menu.cjs",
   "module": "dist/use-context-menu.js",
   "types": "dist/use-context-menu.d.ts",
   "files": [
     "dist",
+    "README.md",
     "styles.css"
   ],
   "scripts": {
