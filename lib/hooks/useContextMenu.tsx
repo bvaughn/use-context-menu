@@ -49,7 +49,7 @@ export function useContextMenu(
   } = {}
 ): {
   /**
-   * Context menu to be rendered; TODO
+   * Context menu to be rendered; `null` while the menu is hidden
    */
   contextMenu: ReactNode | null;
 

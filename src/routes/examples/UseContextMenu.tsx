@@ -5,7 +5,7 @@ import { ContextMenuItem, useContextMenu } from "use-context-menu";
 // eslint-disable-next-line react-hooks/rules-of-hooks
 useContextMenu(
   <>
-    <ContextMenuItem onSelect={selectAll}>Select text</ContextMenuItem>
+    <ContextMenuItem onSelect={selectAll}>Select all</ContextMenuItem>
     <ContextMenuItem onSelect={copyText}>Copy text</ContextMenuItem>
   </>
 );

@@ -5,7 +5,7 @@
 React components for displaying configurable context menus
 
 * View examples and docs at [use-context-menu.vercel.app](https://use-context-menu.vercel.app/)
-* Fork [this Code Sandbox](https://codesandbox.io/s/use-context-menu-7z6d67) to get started
+* Fork [this CodeSandbox](https://codesandbox.io/s/use-context-menu-7z6d67) to get started
 
 ## Documentation
 
@@ -184,13 +184,13 @@ None
 
 #### Example
 
-```jsx
+```tsx
 import { ContextMenuItem, useContextMenu } from "use-context-menu";
 
 // You can import this anywhere, just so long as it's imported once
 import "use-context-menu/styles.css";
 
-function Example({ className }: { className: string }) {
+function Example() {
   const { contextMenu, onContextMenu, onKeyDown } = useContextMenu(
     <>
       <ContextMenuItem onSelect={selectOne}>One</ContextMenuItem>

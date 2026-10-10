@@ -18,7 +18,7 @@ pnpm install
 
 The documentation site is a great place to test pending changes. It runs on localhost port 3000 and can be started by running:
 ```sh
-pnpm dev 
+pnpm dev
 ```
 
 ### Running tests locally
@@ -36,7 +36,7 @@ pnpm dev:integrations & pnpm e2e:test
 
 ### Updating assets
 
-Before subtmitting, also make sure to update generated docs/examples:
+Before submitting, also make sure to update generated docs/examples:
 ```
 pnpm compile
 pnpm prettier

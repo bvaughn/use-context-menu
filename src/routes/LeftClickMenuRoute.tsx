@@ -50,12 +50,12 @@ export default function LeftClickMenuRoute() {
       {createPortal(<Toaster />, document.body)}
       <div>
         Menus are also defined using the <code>useContextMenu</code> hook, but
-        with an additional <code>alignTo</code> prop:
+        with an additional <code>alignTo</code> option:
       </div>
       <Code html={htmlHook} />
       <div>
-        And they are attached to an element using <code>onClick</code> instead
-        of the <code>onContextMenu</code> prop.
+        And they are attached to an element using the <code>onClick</code> prop
+        instead of <code>onContextMenu</code>:
       </div>
       <Code html={htmlRender} />
       <Callout intent="primary">

@@ -21,7 +21,7 @@ export default function UseContextMenuRoute() {
       </div>
       <Code html={htmlReactNode} />
       <div>
-        The second, optional argument allows further customizations of things
+        The second, optional argument allows further customization of things
         like menu alignment. (See the examples section for more information.)
       </div>
     </Box>
