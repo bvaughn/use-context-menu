@@ -57,7 +57,7 @@ export default function AlignmentOptionsRoute() {
           Menu alignment can either be fixed (e.g. above/below/left/right) or
           relative to the cursor or target.
         </div>
-        <Callout intent="success" minimal>
+        <Callout intent="success">
           <Box align="center" direction="row" gap={4}>
             <div>Select an alignment:</div>
             <Button

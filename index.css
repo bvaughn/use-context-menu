@@ -4,14 +4,30 @@
 @import "react-lib-tools/styles.css";
 
 @theme {
-  --color-background-gradient-1: var(--color-amber-300);
-  --color-background-gradient-2: var(--color-orange-500);
-  --color-background-gradient-3: var(--color-amber-300);
+  --color-background-gradient-1: var(--color-lime-300);
+  --color-background-gradient-2: var(--color-emerald-500);
+  --color-background-gradient-3: var(--color-lime-300);
 
   --color-focus-1: var(--color-sky-300);
   --color-focus-2: var(--color-sky-400);
   --color-focus-3: var(--color-sky-600);
 
-  --color-nav-active: var(--color-amber-300);
-  --color-nav-hover: var(--color-amber-200);
+  --color-header-package-name: var(--color-neutral-900);
+  --color-header-package-description: var(--color-neutral-800);
+  --color-header-icons: var(--color-neutral-900);
+  --color-header-section: var(--color-lime-200);
+  --color-nav-active: var(--color-lime-300);
+  --color-nav-hover: var(--color-lime-200);
+  --color-search-match: var(--color-lime-300);
+  --color-search-result-active: var(--color-emerald-950);
+  --color-common-question-header: var(--color-lime-200);
+}
+
+/* The header sits on the light background gradient, so keep the logo dark (even in dark mode) */
+svg.ucm-logo path,
+svg.ucm-logo rect {
+  stroke: var(--color-neutral-900);
+}
+svg.ucm-logo .ucm-cursor {
+  fill: var(--color-neutral-900);
 }

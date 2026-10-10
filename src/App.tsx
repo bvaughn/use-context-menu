@@ -1,43 +1,42 @@
-import { AppRoot, NavSection } from "react-lib-tools";
-import { routes } from "./routes";
+import { AppRoot, type DefaultPath, type NavConfig } from "react-lib-tools";
+import { repository } from "../package.json";
+import Logo from "../public/favicon.svg?react";
+import { routes, type Path } from "./routes";
 
 import "../styles.css";
-import { NavLink } from "./components/NavLink";
 
 export default function App() {
   return (
     <AppRoot
-      navLinks={
-        <>
-          <NavLink path="/">Getting started</NavLink>
-          <NavSection label="Examples">
-            <NavLink path="/examples/right-click-menu">
-              right-click menu
-            </NavLink>
-            <NavLink path="/examples/left-click-menu">left-click menu</NavLink>
-            <NavLink path="/examples/alignment-options">
-              alignment options
-            </NavLink>
-            <NavLink path="/examples/custom-styles">custom styles</NavLink>
-          </NavSection>
-          <NavSection label="API">
-            <NavLink path="/api/use-context-menu">useContextMenu</NavLink>
-            <NavLink path="/api/context-menu-category">
-              ContextMenuCategory
-            </NavLink>
-            <NavLink path="/api/context-menu-divider">
-              ContextMenuDivider
-            </NavLink>
-            <NavLink path="/api/context-menu-item">ContextMenuItem</NavLink>
-          </NavSection>
-          <div>
-            <NavLink path="/support">Support</NavLink>
-          </div>
-        </>
-      }
+      nav={nav}
       packageDescription="configurable context menus"
+      packageLogo={<Logo className="ucm-logo w-8 h-8" />}
       packageName="use-context-menu"
+      repositoryUrl={repository.url}
       routes={routes}
     />
   );
 }
+
+const nav: NavConfig<Path | DefaultPath> = [
+  { path: "/", title: "Getting started" },
+  {
+    title: "Examples",
+    links: [
+      { path: "/examples/right-click-menu", title: "Right-click menu" },
+      { path: "/examples/left-click-menu", title: "Left-click menu" },
+      { path: "/examples/alignment-options", title: "Alignment options" },
+      { path: "/examples/custom-styles", title: "Custom styles" }
+    ]
+  },
+  {
+    title: "API",
+    links: [
+      { path: "/api/use-context-menu", title: "useContextMenu" },
+      { path: "/api/context-menu-category", title: "ContextMenuCategory" },
+      { path: "/api/context-menu-divider", title: "ContextMenuDivider" },
+      { path: "/api/context-menu-item", title: "ContextMenuItem" }
+    ]
+  },
+  { path: "/support", title: "Support" }
+];

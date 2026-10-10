@@ -4,6 +4,7 @@
       "content": "<p>Context menu category header.</p>\n"
     },
     {
+      "code": true,
       "content": "<div><span class=\"tok-punctuation\">&#60;</span><span class=\"tok-typeName\">ContextMenuCategory</span><span class=\"tok-punctuation\">&#62;</span><span class=\"\">Main</span><span class=\"tok-punctuation\">&#60;/</span><span class=\"tok-typeName\">ContextMenuCategory</span><span class=\"tok-punctuation\">&#62;</span></div>"
     }
   ],

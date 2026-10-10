@@ -1,3 +1,5 @@
+<img src="https://use-context-menu.vercel.app/og.png" alt="use-context-menu logo" width="400" height="210" />
+
 # use-context-menu
 
 React components for displaying configurable context menus

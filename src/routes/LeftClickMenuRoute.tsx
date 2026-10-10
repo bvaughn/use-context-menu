@@ -31,7 +31,7 @@ export default function LeftClickMenuRoute() {
     <Box direction="column" gap={4}>
       <Header section="Examples" title="Left-click menu" />
       <div>Menus can also be attached to the left-click action:</div>
-      <Callout intent="success" minimal>
+      <Callout intent="success">
         <Box align="center" direction="row" gap={4}>
           <div ref={ref}>Left-click the dropdown to open the menu:</div>
           <div>

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 1200 630" width="600" height="315" xmlns="http://www.w3.org/2000/svg"><linearGradient id="generated-og-image-bg" x2="1" y2="1"><stop offset="0%" stop-color="oklch(89.7% 0.196 126.665)"></stop><stop offset="100%" stop-color="oklch(69.6% 0.17 162.48)"></stop></linearGradient><rect fill="url('#generated-og-image-bg')" width="1200" height="630"></rect><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="ucm-logo" x="55" y="95" width="440" height="440" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <style>
+    .ucm-logo path, .ucm-logo rect {
+      stroke: #1A1A1A;
+    }
+    .ucm-logo .ucm-cursor {
+      fill: #1A1A1A;
+    }
+  </style>
+  <path class="ucm-cursor" d="M2.25 2.25 4.75 9.5 6.1 6.1 9.5 4.75Z" stroke-width="1.5" stroke-linejoin="round"></path>
+  <rect x="7.75" y="7.75" width="10.5" height="10.5" rx="2.5" fill="none" stroke-width="2"></rect>
+  <path d="M10.75 11.25h4.5" fill="none" stroke-width="2" stroke-linecap="round"></path>
+  <path d="M10.75 14.75h3" fill="none" stroke-width="2" stroke-linecap="round" opacity="0.45"></path>
+</svg></g><g fill="#1A1A1A" font-family="system-ui" font-size="149" font-weight="bold"><text dominant-baseline="middle" x="535" y="161.53">use</text><text dominant-baseline="middle" x="535" y="315">context</text><text dominant-baseline="middle" x="535" y="468.47">menu</text></g></svg>

@@ -37,7 +37,6 @@ export default function RightClickMenuRoute() {
       <div ref={ref}>
         <Callout
           intent="success"
-          minimal
           onContextMenu={onContextMenu}
           onKeyDown={onKeyDown}
           tabIndex={0}

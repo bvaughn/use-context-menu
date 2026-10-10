@@ -4,6 +4,7 @@
       "content": "<p>Context menu item.</p>\n"
     },
     {
+      "code": true,
       "content": "<div><span class=\"tok-punctuation\">&#60;</span><span class=\"tok-typeName\">ContextMenuItem</span><span class=\"\"> </span><span class=\"tok-propertyName\">onSelect</span><span class=\"tok-operator\">=</span><span class=\"tok-punctuation\">{</span><span class=\"tok-variableName\">copy</span><span class=\"tok-punctuation\">}</span><span class=\"tok-punctuation\">&#62;</span><span class=\"\">Copy text</span><span class=\"tok-punctuation\">&#60;/</span><span class=\"tok-typeName\">ContextMenuItem</span><span class=\"tok-punctuation\">&#62;</span></div>"
     }
   ],
@@ -50,7 +51,7 @@
           "content": "<p>Disable menu item.</p>\n"
         }
       ],
-      "html": "<div><span class=\"tok-variableName\"><span class=\"tok-propertyName\">disabled</span></span><span class=\"tok-operator\">?</span><span class=\"tok-punctuation\">:</span><span class=\"\"> </span><span class=\"tok-variableName\">boolean</span><span class=\"\"> </span><span class=\"tok-operator\">=</span><span class=\"\"> </span><span class=\"tok-string\">\"false\"</span></div>",
+      "html": "<div><span class=\"tok-variableName\"><span class=\"tok-propertyName\">disabled</span></span><span class=\"tok-operator\">?</span><span class=\"tok-punctuation\">:</span><span class=\"\"> </span><span class=\"tok-variableName\">boolean</span><span class=\"\"> </span><span class=\"tok-operator\">=</span><span class=\"\"> </span><span class=\"tok-bool\">false</span></div>",
       "name": "disabled",
       "required": false
     },
