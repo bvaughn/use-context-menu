@@ -1,0 +1,121 @@
+[
+  {
+    "path": "/",
+    "text": "Begin by installing the library from NPM: npm install use-context-menu TypeScript definitions are included within the published dist folder. Support Here are some ways to support this project: Become a GitHub sponsor Buy me a coffee",
+    "title": "Getting started with use-context-menu"
+  },
+  {
+    "headings": [
+      {
+        "id": "children",
+        "title": "children",
+        "text": "children: ReactNode Category label."
+      },
+      {
+        "id": "className",
+        "title": "className",
+        "text": "className?: string CSS className."
+      },
+      {
+        "id": "style",
+        "title": "style",
+        "text": "style?: CSSProperties CSS style."
+      }
+    ],
+    "path": "/api/context-menu-category",
+    "section": "ContextMenuCategory",
+    "text": "Context menu category header.\n <ContextMenuCategory>Main</ContextMenuCategory>",
+    "title": "ContextMenuCategory component props"
+  },
+  {
+    "headings": [
+      {
+        "id": "className",
+        "title": "className",
+        "text": "className?: string CSS className."
+      },
+      {
+        "id": "style",
+        "title": "style",
+        "text": "style?: CSSProperties CSS style."
+      }
+    ],
+    "path": "/api/context-menu-divider",
+    "section": "ContextMenuDivider",
+    "text": "Separator rendered between context menu sections.",
+    "title": "ContextMenuDivider component props"
+  },
+  {
+    "headings": [
+      {
+        "id": "children",
+        "title": "children",
+        "text": "children: ReactNode Menu item name."
+      },
+      {
+        "id": "onSelect",
+        "title": "onSelect",
+        "text": "onSelect: ((event: UIEvent<Element, UIEvent>) => void) | undefined Callback notified when menu item is selected."
+      },
+      {
+        "id": "className",
+        "title": "className",
+        "text": "className?: string CSS className."
+      },
+      {
+        "id": "data-testid",
+        "title": "data-testid",
+        "text": "data-testid?: string Test id.\n Test id can be used to narrow selection when unit testing."
+      },
+      {
+        "id": "disabled",
+        "title": "disabled",
+        "text": "disabled?: boolean = false Disable menu item."
+      },
+      {
+        "id": "style",
+        "title": "style",
+        "text": "style?: CSSProperties CSS style."
+      }
+    ],
+    "path": "/api/context-menu-item",
+    "section": "ContextMenuItem",
+    "text": "Context menu item.\n <ContextMenuItem onSelect={copy}>Copy text</ContextMenuItem>",
+    "title": "ContextMenuItem component props"
+  },
+  {
+    "path": "/api/use-context-menu",
+    "section": "API",
+    "text": "Create a ready-to-render context menu. The first argument to this hook describes the menu: useContextMenu(\n <>\n <ContextMenuItem onSelect={selectAll}>Select all</ContextMenuItem>\n <ContextMenuItem onSelect={copyText}>Copy text</ContextMenuItem>\n </>\n); The second, optional argument allows further customization of things like menu alignment. (See the examples section for more information.)",
+    "title": "useContextMenu"
+  },
+  {
+    "path": "/examples/alignment-options",
+    "section": "Examples",
+    "text": "The second parameter to useContextMenu can be used to control the context menu's alignment. useContextMenu(menuItems, { alignTo: \"below\" }); Menu alignment can either be fixed (e.g. above/below/left/right) or relative to the cursor or target. Select an alignment: selected: above Click to demo: alignTo=\"above\"",
+    "title": "Alignment options"
+  },
+  {
+    "path": "/examples/custom-styles",
+    "section": "Examples",
+    "text": "The recommended way to customize styles is to use CSS variables. Begin by customizing any of the variables below: :root {\n /* menu styles */\n --context-menu-background-color: #2a3343;\n --context-menu-border-color: #192230;\n --context-menu-border-radius: 0.5rem;\n --context-menu-border-size: 1px;\n --context-menu-filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.5));\n --context-menu-font-family: Arial, Helvetica, sans-serif;\n --context-menu-padding: 0.25rem 0;\n --context-menu-transition-duration: 250ms;\n --context-menu-z-index: 25;\n \n /* menu item styles */\n --context-menu-item-background-color-disabled: #2a3343;\n --context-menu-item-background-color-hover: #192230;\n --context-menu-item-background-color-focus: #192230;\n --context-menu-item-color: #ffffff;\n --context-menu-item-color-disabled: #b0c0d784;\n --context-menu-item-color-hover: #ffffff;\n --context-menu-item-color-focus: #ffffff;\n --context-menu-item-font-size: 16px;\n --context-menu-item-height: 1.5rem;\n --context-menu-item-padding: 0 0.5rem;\n \n /* category styles */\n --context-menu-category-color: #d2e1f9a6;\n --context-menu-category-font-size: 14px;\n --context-menu-category-height: 1rem;\n --context-menu-category-padding: 0 0.5rem;\n \n /* divider styles */\n --context-menu-divider-color: #39414d;\n --context-menu-divider-margin: 0.25rem 0;\n --context-menu-divider-size: 1px;\n} Then just be sure to import the library styles once somewhere in your application. import \"use-context-menu/styles.css\"; Default values are provided for any variables that are not defined. Global class names You can also bypass the included use-context-menu/styles.css file and define your own styles. .useContextMenu_Backdrop {\n /* Transparent backdrop behind an active menu */\n}\n \n.useContextMenu_ContextMenu {\n /* Root menu container */\n}\n \n.useContextMenu_ContextMenuCategory {\n /* Category header */\n}\n \n.useContextMenu_Divider {\n /* Menu divider */\n}\n \n.useContextMenu_ContextMenuItem {\n /* Menu item */\n}\n \n.useContextMenu_ContextMenuItemDisabled {\n /* Disabled menu item */\n} Data selectors Lastly, data attribute selectors can be used to customize styles (although these are primarily intended for e2e testing purposes). *[data-context-menu] {\n /* Styles */\n}\n \n*[data-context-menu-item] {\n /* Styles */\n}\n \n*[data-context-menu-category] {\n /* Styles */\n}\n \n*[data-context-menu-divider] {\n /* Styles */\n}",
+    "title": "Custom styles"
+  },
+  {
+    "path": "/examples/left-click-menu",
+    "section": "Examples",
+    "text": "Menus can also be attached to the left-click action: Left-click the dropdown to open the menu: click to open Menus are also defined using the useContextMenu hook, but with an additional alignTo option: import { ContextMenuItem, useContextMenu } from \"use-context-menu\";\n \nconst { contextMenu: menu, onContextMenu: onClick, onKeyDown } =\n useContextMenu(\n <>\n <ContextMenuItem onSelect={selectAll}>Select all</ContextMenuItem>\n <ContextMenuItem onSelect={copyText}>Copy text</ContextMenuItem>\n </>,\n { alignTo: \"auto-target\" }\n ); And they are attached to an element using the onClick prop instead of onContextMenu: <>\n <button onClick={onClick} onKeyDown={onKeyDown} tabIndex={0}>\n click to open\n </button>\n {menu}\n</>; Remember to import menu styles. See the custom styles page for more information.",
+    "title": "Left-click menu"
+  },
+  {
+    "path": "/examples/right-click-menu",
+    "section": "Examples",
+    "text": "A context menu is shown by right-clicking an element: Right-click in the green box to open the context menu. Context menus are defined using the useContextMenu hook: import {\n ContextMenuCategory,\n ContextMenuDivider,\n ContextMenuItem,\n useContextMenu\n} from \"use-context-menu\";\n \n// It's important to import styles, though this only needs to happen once\nimport \"use-context-menu/styles.css\";\n \nconst { contextMenu, onContextMenu, onKeyDown } = useContextMenu(\n <>\n <ContextMenuCategory>Inline options</ContextMenuCategory>\n <ContextMenuItem onSelect={selectAll}>Select all</ContextMenuItem>\n <ContextMenuItem onSelect={copyText}>Copy text</ContextMenuItem>\n <ContextMenuDivider />\n <ContextMenuCategory>External options</ContextMenuCategory>\n <ContextMenuItem onSelect={viewSource}>View source</ContextMenuItem>\n </>\n); And they can be attached to any element using the onContextMenu and onKeyDown props: <>\n <div onContextMenu={onContextMenu} onKeyDown={onKeyDown} tabIndex={0}>\n Right-click in the green box to open the context menu.\n </div>\n {contextMenu}\n</>; Remember to import menu styles. See the custom styles page for more information.",
+    "title": "Right-click menu"
+  },
+  {
+    "path": "/support",
+    "text": "GitHub is the easiest place to look for help, but it's probably not the fastest. This project is maintained by a single developer so there is limited bandwidth for answering questions. I recommend asking questions on Stack Overflow or Reddit to start with. Both sites have active communities who often respond quickly. If you don't find an answer there you can try opening a GitHub issue- but please take a moment first to see if your question has has already been answered before opening a new one.",
+    "title": "Support"
+  }
+]

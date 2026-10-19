@@ -8,6 +8,7 @@ import "../styles.css";
 export default function App() {
   return (
     <AppRoot
+      enableSiteSearch
       nav={nav}
       packageDescription="configurable context menus"
       packageLogo={<Logo className="ucm-logo w-8 h-8" />}
