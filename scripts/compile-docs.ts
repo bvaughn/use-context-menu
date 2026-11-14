@@ -5,5 +5,6 @@ await compileDocs({
     "ContextMenuCategory",
     "ContextMenuDivider",
     "ContextMenuItem"
-  ]
+  ],
+  hookNames: ["useContextMenu", "useModalDismissSignal"]
 });

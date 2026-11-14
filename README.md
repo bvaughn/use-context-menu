@@ -1,27 +1,148 @@
 <img src="https://use-context-menu.vercel.app/og.png" alt="use-context-menu logo" width="400" height="210" />
 
-# use-context-menu
+`use-context-menu`: React components and hooks for displaying configurable context menus. Refer to [the docs](https://use-context-menu.vercel.app/) for usage examples.
 
-React components for displaying configurable context menus
+### If you like this project, 🎉 [become a sponsor](https://github.com/sponsors/bvaughn/) or ☕ [buy me a coffee](http://givebrian.coffee/)
 
-* View examples and docs at [use-context-menu.vercel.app](https://use-context-menu.vercel.app/)
-* Fork [this CodeSandbox](https://codesandbox.io/s/use-context-menu-7z6d67) to get started
+## Install
+
+```sh
+npm install use-context-menu
+```
+
+## Quick start
+
+```tsx
+import { ContextMenuItem, useContextMenu } from "use-context-menu";
+
+// You can import this anywhere, just so long as it's imported once
+import "use-context-menu/styles.css";
+
+function Example() {
+  const { contextMenu, onContextMenu, onKeyDown } = useContextMenu(
+    <>
+      <ContextMenuItem onSelect={selectOne}>One</ContextMenuItem>
+      <ContextMenuItem onSelect={selectTwo}>Two</ContextMenuItem>
+      <ContextMenuItem onSelect={selectThree}>Three</ContextMenuItem>
+    </>
+  );
+
+  return (
+    <>
+      <button onContextMenu={onContextMenu} onKeyDown={onKeyDown} tabIndex={0}>
+        right-click me
+      </button>
+      {contextMenu}
+    </>
+  );
+}
+```
+
+## FAQs
+
+### Why is the context menu not styled?
+
+CSS styles must be explicitly imported for this package:
+
+```js
+import "use-context-menu/styles.css";
+```
 
 ## Documentation
 
+<!-- react-lib-tools:api:begin -->
+
+## Components
+
+### ContextMenuCategory
+
+Context menu category header.
+
+```tsx
+<ContextMenuCategory>Main</ContextMenuCategory>
+```
+
+#### Required props
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>children</td>
+      <td><p>Category label.</p>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Optional props
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>className</td>
+      <td><p>CSS className.</p>
+</td>
+    </tr>
+    <tr>
+      <td>style</td>
+      <td><p>CSS style.</p>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+### ContextMenuDivider
+
+Separator rendered between context menu sections.
+
+#### Required props
+
+None
+
+#### Optional props
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>className</td>
+      <td><p>CSS className.</p>
+</td>
+    </tr>
+    <tr>
+      <td>style</td>
+      <td><p>CSS style.</p>
+</td>
+    </tr>
+  </tbody>
+</table>
+
 ### ContextMenuItem
 
-<!-- ContextMenuItem:description:begin -->
 Context menu item.
 
 ```tsx
 <ContextMenuItem onSelect={copy}>Copy text</ContextMenuItem>
 ```
-<!-- ContextMenuItem:description:end -->
 
 #### Required props
-
-<!-- ContextMenuItem:required-props:begin -->
 
 <table>
   <thead>
@@ -44,11 +165,7 @@ Context menu item.
   </tbody>
 </table>
 
-<!-- ContextMenuItem:required-props:end -->
-
 #### Optional props
-
-<!-- ContextMenuItem:optional-props:begin -->
 
 <table>
   <thead>
@@ -82,21 +199,15 @@ Context menu item.
   </tbody>
 </table>
 
-<!-- ContextMenuItem:optional-props:end -->
+## Hooks
 
-### ContextMenuCategory
+### useContextMenu
 
-<!-- ContextMenuCategory:description:begin -->
-Context menu category header.
+Create a ready-to-render context menu.
 
-```tsx
-<ContextMenuCategory>Main</ContextMenuCategory>
-```
-<!-- ContextMenuCategory:description:end -->
+**Returns:** event handlers and context menu portal
 
-#### Required props
-
-<!-- ContextMenuCategory:required-props:begin -->
+#### Parameters
 
 <table>
   <thead>
@@ -107,18 +218,48 @@ Context menu category header.
   </thead>
   <tbody>
     <tr>
-      <td>children</td>
-      <td><p>Category label.</p>
+      <td>contextMenuItems</td>
+      <td><p>Menu items to render; typically a combination of <code>ContextMenuItem</code>, <code>ContextMenuCategory</code>, and <code>ContextMenuDivider</code> components.</p>
+</td>
+    </tr>
+    <tr>
+      <td>alignTo?</td>
+      <td><p>Context menu alignment.</p>
+</td>
+    </tr>
+    <tr>
+      <td>className?</td>
+      <td><p>Class name applied to root context menu element</p>
+</td>
+    </tr>
+    <tr>
+      <td>data-testid?</td>
+      <td><p>Test id attribute attached to root context menu element</p>
+</td>
+    </tr>
+    <tr>
+      <td>onHide?</td>
+      <td><p>Callback notified when context menu is hidden</p>
+</td>
+    </tr>
+    <tr>
+      <td>onShow?</td>
+      <td><p>Callback notified when context menu is shown</p>
+</td>
+    </tr>
+    <tr>
+      <td>style?</td>
+      <td><p>CSS style applied to root context menu element</p>
 </td>
     </tr>
   </tbody>
 </table>
 
-<!-- ContextMenuCategory:required-props:end -->
+### useModalDismissSignal
 
-#### Optional props
+Closes a modal dialog if the user clicks outside of it or presses "Escape".
 
-<!-- ContextMenuCategory:optional-props:begin -->
+#### Parameters
 
 <table>
   <thead>
@@ -129,93 +270,21 @@ Context menu category header.
   </thead>
   <tbody>
     <tr>
-      <td>className</td>
-      <td><p>CSS className.</p>
+      <td>modalRef</td>
+      <td><p>Ref to the root element of the modal</p>
 </td>
     </tr>
     <tr>
-      <td>style</td>
-      <td><p>CSS style.</p>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- ContextMenuCategory:optional-props:end -->
-
-### ContextMenuDivider
-
-<!-- ContextMenuDivider:description:begin -->
-Separator rendered between context menu sections.
-<!-- ContextMenuDivider:description:end -->
-
-#### Required props
-
-<!-- ContextMenuDivider:required-props:begin -->
-None
-<!-- ContextMenuDivider:required-props:end -->
-
-#### Optional props
-
-<!-- ContextMenuDivider:optional-props:begin -->
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>className</td>
-      <td><p>CSS className.</p>
+      <td>dismissCallback</td>
+      <td><p>Callback notified when the modal should be dismissed</p>
 </td>
     </tr>
     <tr>
-      <td>style</td>
-      <td><p>CSS style.</p>
+      <td>dismissOnClickOutside?</td>
+      <td><p>Dismiss the modal when the user clicks outside of it; defaults to <code>true</code></p>
 </td>
     </tr>
   </tbody>
 </table>
 
-<!-- ContextMenuDivider:optional-props:end -->
-
-#### Example
-
-```tsx
-import { ContextMenuItem, useContextMenu } from "use-context-menu";
-
-// You can import this anywhere, just so long as it's imported once
-import "use-context-menu/styles.css";
-
-function Example() {
-  const { contextMenu, onContextMenu, onKeyDown } = useContextMenu(
-    <>
-      <ContextMenuItem onSelect={selectOne}>One</ContextMenuItem>
-      <ContextMenuItem onSelect={selectTwo}>Two</ContextMenuItem>
-      <ContextMenuItem onSelect={selectThree}>Three</ContextMenuItem>
-    </>
-  );
-
-  return (
-    <>
-      <button onContextMenu={onContextMenu} onKeyDown={onKeyDown} tabIndex={0}>
-        right-click me
-      </button>
-      {contextMenu}
-    </>
-  );
-}
-```
-
-### If you like this project, 🎉 [become a sponsor](https://github.com/sponsors/bvaughn/) or ☕ [buy me a coffee](http://givebrian.coffee/)
-
-## FAQs
-
-### Why is the context menu not styled?
-CSS styles must be explicitly imported/required for this package:
-```js
-import "use-context-menu/styles.css";
-```
+<!-- react-lib-tools:api:end -->

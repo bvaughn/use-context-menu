@@ -1,6 +1,12 @@
 import { type RefObject, useEffect } from "react";
 
-// Closes a modal dialog if the user clicks outside of it or presses "Escape"
+/**
+ * Closes a modal dialog if the user clicks outside of it or presses "Escape".
+ *
+ * @param modalRef Ref to the root element of the modal
+ * @param dismissCallback Callback notified when the modal should be dismissed
+ * @param dismissOnClickOutside Dismiss the modal when the user clicks outside of it; defaults to `true`
+ */
 export function useModalDismissSignal(
   modalRef: RefObject<HTMLDivElement | null>,
   dismissCallback: () => void,
