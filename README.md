@@ -9,19 +9,99 @@ React components for displaying configurable context menus
 
 ## Documentation
 
+<!-- react-lib-tools:api:begin -->
+
+## Components
+
+### ContextMenuCategory
+
+Context menu category header.
+
+```tsx
+<ContextMenuCategory>Main</ContextMenuCategory>
+```
+
+#### Required props
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>children</td>
+      <td><p>Category label.</p>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Optional props
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>className</td>
+      <td><p>CSS className.</p>
+</td>
+    </tr>
+    <tr>
+      <td>style</td>
+      <td><p>CSS style.</p>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+### ContextMenuDivider
+
+Separator rendered between context menu sections.
+
+#### Required props
+
+None
+
+#### Optional props
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>className</td>
+      <td><p>CSS className.</p>
+</td>
+    </tr>
+    <tr>
+      <td>style</td>
+      <td><p>CSS style.</p>
+</td>
+    </tr>
+  </tbody>
+</table>
+
 ### ContextMenuItem
 
-<!-- ContextMenuItem:description:begin -->
 Context menu item.
 
 ```tsx
 <ContextMenuItem onSelect={copy}>Copy text</ContextMenuItem>
 ```
-<!-- ContextMenuItem:description:end -->
 
 #### Required props
-
-<!-- ContextMenuItem:required-props:begin -->
 
 <table>
   <thead>
@@ -44,11 +124,7 @@ Context menu item.
   </tbody>
 </table>
 
-<!-- ContextMenuItem:required-props:end -->
-
 #### Optional props
-
-<!-- ContextMenuItem:optional-props:begin -->
 
 <table>
   <thead>
@@ -82,107 +158,9 @@ Context menu item.
   </tbody>
 </table>
 
-<!-- ContextMenuItem:optional-props:end -->
+<!-- react-lib-tools:api:end -->
 
-### ContextMenuCategory
-
-<!-- ContextMenuCategory:description:begin -->
-Context menu category header.
-
-```tsx
-<ContextMenuCategory>Main</ContextMenuCategory>
-```
-<!-- ContextMenuCategory:description:end -->
-
-#### Required props
-
-<!-- ContextMenuCategory:required-props:begin -->
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>children</td>
-      <td><p>Category label.</p>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- ContextMenuCategory:required-props:end -->
-
-#### Optional props
-
-<!-- ContextMenuCategory:optional-props:begin -->
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>className</td>
-      <td><p>CSS className.</p>
-</td>
-    </tr>
-    <tr>
-      <td>style</td>
-      <td><p>CSS style.</p>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- ContextMenuCategory:optional-props:end -->
-
-### ContextMenuDivider
-
-<!-- ContextMenuDivider:description:begin -->
-Separator rendered between context menu sections.
-<!-- ContextMenuDivider:description:end -->
-
-#### Required props
-
-<!-- ContextMenuDivider:required-props:begin -->
-None
-<!-- ContextMenuDivider:required-props:end -->
-
-#### Optional props
-
-<!-- ContextMenuDivider:optional-props:begin -->
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>className</td>
-      <td><p>CSS className.</p>
-</td>
-    </tr>
-    <tr>
-      <td>style</td>
-      <td><p>CSS style.</p>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- ContextMenuDivider:optional-props:end -->
-
-#### Example
+## Example
 
 ```tsx
 import { ContextMenuItem, useContextMenu } from "use-context-menu";
